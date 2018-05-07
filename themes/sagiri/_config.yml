@@ -22,15 +22,15 @@ favicon:
   visibilitychange: true
   narmal: images/favicon.ico
   hidden: images/failure.ico
-  show_text: (/≧▽≦/)咦！又好了！
-  hide_text: (●—●)喔哟，崩溃啦！
+  show_text: JRucker 博客！
+  hide_text: JRucker 博客！
   apple_touch_icon: images/DIYgod-180x180.jpg
   safari_pinned_tab: images/DIYgod.jpg
   #android_manifest: images/manifest.json
   #ms_browserconfig: images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "DIYgod,blog"
+keywords: "JRucker,blog"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -98,10 +98,10 @@ scheme: Pisces
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/DIYgod || github
-  Twitter: https://twitter.com/DIYgod || twitter
+  GitHub: https://github.com/JieRucker || github
+  Twitter: https://twitter.com/JieRucker || twitter
   QQ 群: images/qq-g.jpg || qq || qq
-  Telegram Channel: https://t.me/awesomeDIYgod || telegram
+#  Telegram Channel: https://t.me/awesomeDIYgod || telegram
   更多: https://www.anotherhome.net/3163 || more
 
 social_icons:
@@ -376,8 +376,8 @@ han: false
 
 # Disqus
 disqus:
-  enable: true
-  shortname: diygod-me
+  enable: false
+  shortname: jrucker
   count: false
 
 # Hypercomments
@@ -816,8 +816,8 @@ header_bg: images/header-sagiri.jpg
 
 card:
   avatar: images/card.jpg
-  name: <span style="opacity:.2;">网红</span>DIYgod
-  description: 你能抓到我么？
+  name: <span style="opacity:.2;"></span>
+  description: My Blog
 
 footer:
   # Specify the date when the site was setup.
@@ -840,9 +840,9 @@ footer:
     version: true
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  custom_text: 托管于<a href="https://github.com/" target="_blank" rel="nofollow"> GitHub</a>. <a href="https://www.upyun.com/" target="_blank" rel="nofollow">又拍云</a> 提供 CDN 服务. <a href="http://www.google.com/analytics/" target="_blank" rel="nofollow">Google Analytics </a>提供网站统计服务. <a href="https://www.cloudxns.net/" target="_blank" rel="nofollow">CloudXNS </a>提供 DNS 解析服务.
+  custom_text: 托管于<a href="https://github.com/" target="_blank" rel="nofollow"> GitHub</a>. <a href="https://www.upyun.com/" target="_blank" rel="nofollow">又拍云</a> 提供 CDN 服务. <a href="http://www.google.com/analytics/" target="_blank" rel="nofollow">Google Analytics </a>提供网站统计服务.
   sitemap: /sitemap.xml
-  beian: 鲁ICP备16000184号
+  beian:
 
 online_api: wss://api.prprpr.me/online/
 
