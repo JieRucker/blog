@@ -11,7 +11,7 @@ categories: 创作集
 
 代码很简单，放在了 [GitHub](https://github.com/DIYgod/GoodNight) 上，具体效果是每天早上 9 点半发一个 “早安”，然后晚上 12 点再发一个 “晚安”。
 
-太好了！以后再也不会忘记说早安晚安了！开心！
+太好了！以后再也不会忘记说早安晚安了！开心！ 
 
 ![](/images/havefun.jpg)
 
