@@ -2,7 +2,7 @@
 title: 野生 DIYgod 捕获指南
 id: 3163
 categories:
-  - 闲言语
+  - 闲言语 
 date: 2017-08-14 01:00:59
 tags:
 permalink: 3163
