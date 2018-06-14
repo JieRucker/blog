@@ -10,7 +10,7 @@ cache:
 before_install:
   - npm install -g hexo-cli
 install:
-  - yarn
+  - npm install
 before_script:
   - cd themes/sagiri
   - yarn
