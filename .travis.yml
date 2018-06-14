@@ -1,6 +1,22 @@
 language: node_js  #设置语言
-
 node_js: stable  #设置相应的版本
+
+branches:
+  only:
+    - hexo  #只监测hexo分支，hexo是我的分支的名称，可根据自己情况设置
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+before_install:
+  - openssl aes-256-cbc -K encrypted_e4dd447741ae_key -iv encrypted_e4dd447741ae_iv -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
+  - npm install -g hexo-cli # 安装 hexo
 
 install:
   - yarn  #安装hexo及插件
@@ -11,26 +27,18 @@ before_script:
   - cd ../..
 
 script:
-  - hexo cl  #清除
+  - hexo clean  #清除
   - hexo g  #生成
 
 after_script:
   - cd ./public
   - git init
   - git config user.name "Travis CI"  #修改name
-  - git config user.email "no-reply@html.love"  #修改email
+  - git config user.email "jrucker@163.com"  #修改email
   - git add .
   - git commit -m "update"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
 
-branches:
-  only:
-    - hexo  #只监测hexo分支，hexo是我的分支的名称，可根据自己情况设置
 env:
  global:
-   - GH_REF: github.com/DIYgod/diygod.me.git  #设置GH_REF，注意更改yourname
-
-cache:
-  yarn: true
-  directories:
-    - node_modules
+   - GH_REF: github.com/JieRucker/blog.git  #设置GH_REF，注意更改yourname
