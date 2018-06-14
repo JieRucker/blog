@@ -4,7 +4,6 @@ branches:
   only:
   - hexo
 cache:
-  yarn: true
   directories:
   - node_modules
 before_install:
@@ -13,7 +12,6 @@ install:
   - npm install
 before_script:
   - cd themes/sagiri
-  - yarn
   - cd ../..
   - sed -i'' "s~github.com/JieRucker/blog.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/JieRucker/blog.git~" _config.yml
 script:
