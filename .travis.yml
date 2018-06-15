@@ -12,7 +12,7 @@ before_script:
   - cd ../..
 
 script:
-  - hexo cl  #清除
+  - hexo clean  #清除
   - hexo g  #生成
 
 after_script:
