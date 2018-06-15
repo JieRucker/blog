@@ -3,11 +3,11 @@ language: node_js  #设置语言
 node_js: stable  #设置相应的版本
 
 install:
-  - yarn  #安装hexo及插件
+  - npm install  #安装hexo及插件
 
 before_script:
   - cd themes/sagiri
-  - yarn
+  - npm install -g hexo-cli # 安装 hexo
   - cd ../..
 
 script:
@@ -22,6 +22,7 @@ after_script:
   - git add .
   - git commit -m "update"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
+  - hexo deploy
 
 branches:
   only:
@@ -32,7 +33,6 @@ env:
    - secure: G2CX/TAFw5uKZZdAd6o+t1KHME2b3fic5pEXjBe2eBvU+skJ2HAstRgrbbJA5mCNyDlSW0uz40yVlGC4c3Js/t1hoCUN9PapCYN8LoF4nvsPZAcaPBRzwfyTLQwJfVDDm4grTjlXWgmz57A6EEQhO04nkEJraa76PoJoyLREvloXMr7/Usa9zFY5UPSH40rr3x/MHyKo8RpmaBmsxkpxceb8u0W3Hl+ezhHujEtjYrD57S2k0AKHOHT4mEZVaotmWW/Sc5MG52skn+7LBnjP/2nQ1U85SjqSiWqrkbuXMbw6VmCs+QkJL8YWqWzSa8udVlEuOxbGaIEzAIksKYIBeRox9ZUZO1s2u8MAH10D8OjFx5jHJ3jpEgFBESG7wP77Um3lwzm0xvv3wX/TOY56CRCuLQWteUTSmmPL1RkBLpIQADin4PqLxsZZAE8VhUkPrhnSFVXLSF5ORt6ke4d2KbjEr+H8UEKuAImGzcgamLMrsBN+tn0u/cQ/24rt4nRfz6ApqSue9wNFONeDULtswc/BR4mT9iq7e3cFkVSKBfgdksO7cfd5aQT8E1Jel5x+5KAHkC1tWFhqLoHpqwhLbUyrtbsZzMHSRFWqftu0iAyaVjD6+fzooAr7K0rzSQ4Z97ZTMfgAA3erR7Z/yj2Z4r/3nmG35ABP6Eh6CgiPNeM=
 
 cache:
-  yarn: true
   directories:
     - node_modules
 
