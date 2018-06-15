@@ -817,7 +817,7 @@ header_bg: images/header-sagiri.jpg
 card:
   avatar: images/card.jpg
   name: <span style="opacity:.2;"></span>
-  description: My Blog888
+  description: My Blog
 
 footer:
   # Specify the date when the site was setup.
