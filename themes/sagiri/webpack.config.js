@@ -17,7 +17,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'source', 'js'),
-        filename: '[name].min.js?v=[chunkhash]',
+        filename: '[name].min.js',
         publicPath: '/'
     },
 
