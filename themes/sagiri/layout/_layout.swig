@@ -70,8 +70,8 @@
 
   </div>
 
-  {% set current = Date.now() %}
-  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ current }}"></script>
+  {% set now = Date.now() %}
+  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ now }}"></script>
 
   {% include '_third-party/search/index.swig' %}
   {% include '_third-party/seo/baidu-push.swig' %}

@@ -76,8 +76,8 @@
   {% set social_share_uri = theme.vendors.social_share_css %}
 {% endif %}
 <link href="{{ social_share_uri }}" rel="stylesheet" type="text/css" />
-
-<link href="{{ url_for(theme.css) }}/main.css?v={{ theme.version }}" rel="stylesheet" type="text/css" />
+{% set now = Date.now() %}
+<link href="{{ url_for(theme.css) }}/main.css?v={{ now }}" rel="stylesheet" type="text/css" />
 {% if is_post() and config.generator_amp %}
   <link rel="amphtml" href="{{ config.url }}{{ config.root }}{{ page.path }}amp/index.html">
 {% endif %}
