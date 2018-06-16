@@ -70,7 +70,7 @@
 
   </div>
 
-  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ moment }}"></script>
+  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ this }}"></script>
 
   {% include '_third-party/search/index.swig' %}
   {% include '_third-party/seo/baidu-push.swig' %}
