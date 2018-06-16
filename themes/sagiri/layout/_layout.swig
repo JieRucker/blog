@@ -70,7 +70,8 @@
 
   </div>
 
-  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ moment(post.date).format() }}"></script>
+  {% set current = date(Date.now(), "YYYY-MM-DD HH:mm:ss") %}
+  <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ current }}"></script>
 
   {% include '_third-party/search/index.swig' %}
   {% include '_third-party/seo/baidu-push.swig' %}
