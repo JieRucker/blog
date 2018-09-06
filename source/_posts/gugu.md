@@ -12,7 +12,7 @@ permalink: 2978
 
 比如
 
-![](/images/gugu1.jpg)
+![](/images/gugu1.jpg) 
 
 就像小时候偷偷在课桌间传递的小纸条一样温暖。
 
