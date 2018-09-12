@@ -812,12 +812,12 @@ css: css
 js: js
 images: images
 
-header_bg: images/header-sagiri.jpg
+header_bg: images/header-banner.jpg
 
 card:
-  avatar: images/card.jpg
+  avatar: images/avatar.png
   name: <span style="opacity:.2;"></span>
-  description: My Blog
+  description: 我的博客
 
 footer:
   # Specify the date when the site was setup.
