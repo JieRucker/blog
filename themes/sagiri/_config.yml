@@ -100,9 +100,7 @@ scheme: Pisces
 social:
   GitHub: https://github.com/JieRucker || github
   Twitter: https://twitter.com/JieRucker || twitter
-  QQ 群: images/qq-g.jpg || qq || qq
-#  Telegram Channel: https://t.me/awesomeDIYgod || telegram
-  更多: https://www.anotherhome.net/3163 || more
+  掘金: https://juejin.im/user/587ded2a1b69e6006bfe3cb6 || feed
 
 social_icons:
   enable: true
@@ -181,7 +179,7 @@ toc:
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-creative_commons: by-nc-sa
+#creative_commons: by-nc-sa
 #creative_commons:
 
 sidebar:

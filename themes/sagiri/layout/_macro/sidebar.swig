@@ -61,14 +61,14 @@
             {% endif %}
           </div>
 
-          {% if theme.rss %}
+          <!--{% if theme.rss %}
             <div class="feed-link motion-element">
               <a href="{{ url_for(theme.rss) }}" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
             </div>
-          {% endif %}
+          {% endif %}-->
 
           <nav class="site-state motion-element">
 
