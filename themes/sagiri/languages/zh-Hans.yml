@@ -89,10 +89,4 @@ symbol:
   period: '。 '
   colon: '：'
 
-reward:
-  donate: 赞赏
-  wechatpay: 微信扫一扫，向我赞赏
-  alipay: 支付宝扫一扫，向我赞赏
-  bitcoin: 比特币
-
 gitmentbutton: 显示 Gitment 评论

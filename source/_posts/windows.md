@@ -22,17 +22,17 @@ Windows 的睡眠是个好东西，这让 Windows 也有了 Mac 的合盖即走�
 1. 自动维护
 
 通常是在半夜二点的时候会被唤醒，在 控制面板>系统和安全>安全和维护>自动维护 中把 “允许预定维护在预定时间唤醒我的计算机” 取消勾选即可。
+ 
+![](windows/windows-001.png)
 
-![](https://image-1257113200.cos.ap-shanghai.myqcloud.com/windows/windows-001.png?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKID7DMTXS9Zt493oNe6HXMB2pRQK8wdtTbW%26q-sign-time%3D1537111849%3B1537112749%26q-key-time%3D1537111849%3B1537112749%26q-header-list%3D%26q-url-param-list%3D%26q-signature%3Dc8418e4e5453ce1951fd7299d40c276d0c1dd265)
-
-2. 不人性化的自动更新
+2. 不人性化的自动更新 
 
 已经被万人吐槽了，只要不睡眠的时候强制唤醒来更新我没意见。
 
-在 2017 年底的时候还可以手动修改任务计划取消“唤醒计算机运行此任务”。 
+在 2017 年底的时候还可以手动修改任务计划取消“唤醒计算机运行此任务”。
 
 Win+R 输入 taskschd.msc ，在 任务计划程序-任务计划程序库-Microsoft-Windows-UpdateOrchestrator 中找到 Reboot ，右键打开 Reboot 项的属性，在条件页面中取消“唤醒计算机运行此任务”的勾选。
 
-![](https://image-1257113200.cos.ap-shanghai.myqcloud.com/windows/windows-002.png?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKID7DMTXS9Zt493oNe6HXMB2pRQK8wdtTbW%26q-sign-time%3D1537111929%3B1537112829%26q-key-time%3D1537111929%3B1537112829%26q-header-list%3D%26q-url-param-list%3D%26q-signature%3D0db0991037f7a672079f5e90268d0d5e15441e76)
+![](windows/windows-002.png)
 
-最后，希望微软的自动更新动动脑子，人性化一点，别再这么令人发指了！
+最后，希望微软的自动更新动动脑子，人性化一点，别再这么令人发指了！ 

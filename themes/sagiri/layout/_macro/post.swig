@@ -351,16 +351,6 @@
       </div>
     {% endif %}
 
-    {% if not is_index %}
-      <div class="post-share">分享到：</div>
-    {% endif %}
-
-    {% if (theme.alipay or theme.wechatpay or theme.bitcoin) and not is_index %}
-      <div>
-        {% include 'reward.swig' %}
-      </div>
-    {% endif %}
-
     {% if theme.post_copyright.enable and not is_index %}
       <div>
         {% include 'post-copyright.swig' with { post: post } %}
