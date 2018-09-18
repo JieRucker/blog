@@ -13,7 +13,7 @@ categories: 创作集
 
 <!--more-->
 
-## 什么是 BAS 弹幕
+## 什么是BAS弹幕
 
 BAS，全称 Bilibili Animation Script，是新一代 bilibili 高级弹幕脚本语言，是一种用来描述高级弹幕样式、交互和动画的文本。
 
