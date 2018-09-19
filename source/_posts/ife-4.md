@@ -30,7 +30,7 @@ TASK 0004 内容：[https://github.com/baidu-ife/ife/tree/master/task/task0004](
 
 参考Gmail：
 
-![](/images/task0004_1.jpg) ![](/images/task0004_2.jpg)
+![](/images/ife-fold/task0004_1.jpg) ![](/images/ife-fold/task0004_2.jpg)
 
 切换到另一个锚点的时候，只显示这个锚点对应的部分，其他部分用 display:none 隐藏起来。但是没看懂具体是怎么实现的。在console里执行 `location.href = '#mn';` 也可以自动修改display，说明是绑定了锚点而不是通过点击事件来切换的。
 
@@ -42,9 +42,9 @@ See the Pen [jPMgre](http://codepen.io/DIYgod/pen/jPMgre/) by DIYgod ([@DIYgod](
 
 于是再改改CSS，就轻松实现了移动端的适配。
 
-![](/images/task0004_3.png) ![](/images/task0004_4.png) ![](/images/task0004_5.png)
+![](/images/ife-fold/task0004_3.png) ![](/images/ife-fold/task0004_4.png) ![](/images/ife-fold/task0004_5.png)
 
-![](/images/task0004_6.png)
+![](/images/ife-fold/task0004_6.png)
 
 又是李胜菊苣带我飞，通过分析张鑫旭菊苣的Mobilebone框架（[官网](http://www.mobilebone.org/)），我找到了更好的实现，以上实现作废23333。
 
@@ -192,7 +192,7 @@ CSS部分：
 
 &nbsp;
 
-### CSS Processing
+### CSS Processing 
 
 “CSS语言由于其自身语言设计的问题，加上一些浏览器兼容性问题，往往会使得我们在写它的时候，要写很多冗余代码，或者为了兼容性对同一个样式设定写好几遍。针对这些问题，诞生了CSS预处理和后处理的概念及相关方法、工具。
 
@@ -200,7 +200,7 @@ CSS部分：
 
 经过调研，我最后决定使用更广泛的Less。
 
-根据慕课网教程（[less即学即用](http://www.imooc.com/learn/102)）整理的Less思维导图：![](/images/less.png)
+根据慕课网教程（[less即学即用](http://www.imooc.com/learn/102)）整理的Less思维导图：![](/images/ife-fold/less.png)
 
 CSS部分重构完毕，终于可以复用了，DRY (Don't repeat yourself)。
 
@@ -380,12 +380,8 @@ window.myClick = myClick;
 
 经过调研，最终决定采用 Yeoman, Bower, Grunt 三个工具结合来进行工程化改造。
 
-根据慕课网教程（[Grunt-beginner前端自动化工具](http://www.imooc.com/learn/30)）整理的思维导图：![](/images/grunt.png)
+根据慕课网教程（[Grunt-beginner前端自动化工具](http://www.imooc.com/learn/30)）整理的思维导图：![](/images/ife-fold/grunt.png)
 
 用 Yeoman 新建一个 webapp 项目（需翻墙），安装其他需要的包，改改配置文件，然后就可以享受各种自动化工具带来的无比高效、震撼的体验啦~
 
 我这里主要对代码做了 less编译 处理CSS前缀 HTML、CSS、JS压缩 文件名添加md5值 这几个处理，其中处理前的文件在app文件夹，处理后的文件在disk文件夹。
-
-&nbsp;
-
-Done，等待毕业答辩喽~

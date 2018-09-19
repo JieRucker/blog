@@ -70,109 +70,84 @@ permalink: 3116
 
 好了，点击下面按钮，登录后继续跟我表白吧！
 
-<div class="gugu-login-btn-wrap"><img class="no-fancybox gugu-login-btn" src="/images/weibo2login.png"></div>
-<div class="gugu-user">
-    <div class="gugu-info">
-        <div class="gugu-avatar"></div>
-        <div class="gugu-name"></div>
-    </div>
-    <div class="gugu-btn gugu-logout-btn">退出登录</div>
-</div>
-<div class="gugu-print">
-    <textarea class="gugu-textarea" placeholder="输入文本内容"></textarea>
-    <div class="gugu-btn gugu-send-btn-text">咕咕文字</div>
-    <input type="text" class="gugu-input" placeholder="输入图片地址">
-    <div class="gugu-btn gugu-send-btn-pic">咕咕图片</div>
-</div>
-<script>
-function gugushow (data) {
-    $.ajax({
-        url: 'https://api.anotherhome.net/gugu/account',
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            if (data) {
-                $('.gugu-avatar').css('background-image', 'url(' + data._json.avatar_large.replace('http', 'https') + ')');
-                $('.gugu-name').html('Hi, ' + data.displayName);
-                $('.gugu-user').show();
-                $('.gugu-print').show();
-                $('.gugu-login-btn-wrap').hide();
+> 用户请求
+
+```js
+$.ajax({
+    url: 'https://api.anotherhome.net/gugu/account',
+    xhrFields: {
+        withCredentials: true
+    },
+    success: function (data) {}
+});
+```
+
+> 打印
+
+```js
+$.ajax({
+    url: 'https://api.anotherhome.net/gugu/print',
+    type: 'post',
+    data: JSON.stringify({
+        type: '1',
+        content: $('.gugu-textarea').val()
+    }),
+    xhrFields: {
+        withCredentials: true
+    },
+    success: function (data) {
+        if (data) {
+            if (data.code && data.msg) {
+                notie('error', data.msg);
             }
-        }
-    });
-}
-gugushow();
-$('.gugu-login-btn').click(function () {
-    window.location.href = 'https://api.anotherhome.net/gugu/login';
-});
-$('.gugu-logout-btn').click(function () {
-    window.location.href = 'https://api.anotherhome.net/gugu/logout';
-});
-$('.gugu-send-btn-text').click(function () {
-    if ($('.gugu-textarea').val()) {
-    $.ajax({
-        url: 'https://api.anotherhome.net/gugu/print',
-        type: 'post',
-        data: JSON.stringify({
-            type: '1',
-            content: $('.gugu-textarea').val()
-        }),
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            if (data) {
-                if (data.code && data.msg) {
-                    notie('error', data.msg);
-                }
-                else if (data.msg) {
-                    notie('success', data.msg);
-                }
-                else {
-                    notie('error', '打印失败');
-                }
+            else if (data.msg) {
+                notie('success', data.msg);
             }
             else {
                 notie('error', '打印失败');
             }
-        },
-        error: function () {
+        }
+        else {
             notie('error', '打印失败');
         }
-    });
+    },
+    error: function () {
+        notie('error', '打印失败');
     }
 });
-$('.gugu-send-btn-pic').click(function () {
-    $.ajax({
-        url: 'https://api.anotherhome.net/gugu/print',
-        type: 'post',
-        data: JSON.stringify({
-            type: '2',
-            content: $('.gugu-input').val()
-        }),
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            if (data) {
-                if (data.code && data.msg) {
-                    notie('error', data.msg);
-                }
-                else if (data.msg) {
-                    notie('success', data.msg);
-                }
-                else {
-                    notie('error', '打印失败');
-                }
+```
+
+> 发送
+
+```js
+$.ajax({
+    url: 'https://api.anotherhome.net/gugu/print',
+    type: 'post',
+    data: JSON.stringify({
+        type: '2',
+        content: $('.gugu-input').val()
+    }),
+    xhrFields: {
+        withCredentials: true
+    },
+    success: function (data) {
+        if (data) {
+            if (data.code && data.msg) {
+                notie('error', data.msg);
+            }
+            else if (data.msg) {
+                notie('success', data.msg);
             }
             else {
                 notie('error', '打印失败');
             }
-        },
-        error: function () {
+        }
+        else {
             notie('error', '打印失败');
         }
-    });
+    },
+    error: function () {
+        notie('error', '打印失败');
+    }
 });
-</script>
+```

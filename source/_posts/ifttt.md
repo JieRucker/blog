@@ -14,7 +14,7 @@ permalink: 2125
 
 这是一个2011年在美国上线的网站，IFTTT 是 _If This Then That_ 的缩写。通俗的来讲，IFTTT 的作用就是如果触发了一件事，则执行设定好的另一件事。
 
-![](/images/ifttt.png)
+![](/images/ifttt-fold/ifttt.png)
 
 结合上图，Recipes 的目的是打通 「this」 和 「that」 两个网络服务，网络服务在这里称为 Channels (频道)，前者称为 Trigger Channel (触发器频道)，后者称为 Action Channel (动作频道)，当触发器频道满足触发条件，那么就会执行动作频道指定的动作。
 
@@ -22,13 +22,13 @@ permalink: 2125
 
 比如我设置了这样一个Recipes：
 
-![](/images/ifttt1.png)
+![](/images/ifttt-fold/ifttt1.png)
 
 整个Recipe的意思是 _"**If** new feed item from https://www.anotherhome.net/feed, **then** publish a post to @DIYgod酱"_。
 
 这样等我这篇文章发布之后，一条微博就会自动发送了。
 
-然而还没完，我还有两个涉及微博的 Recipes：<!--more-->![](/images/ifttt2.png)
+然而还没完，我还有两个涉及微博的 Recipes：<!--more-->![](/images/ifttt-fold/ifttt2.png)
 
 不出意外的话我的 Facebook 和 Twitter 马上都会出现这篇文章的推送。
 
@@ -36,7 +36,7 @@ permalink: 2125
 
 目前 IFTTT 所支持的 Channels 也算比较丰富了，如 Feed (RSS)、GitHub、微博、印象笔记、Dropbox、邮件、SMS、Gmail、Instagram、Pocket、WordPress、OneDrive、OneNote、Twitter、Facebook、天气预报等等，总数多达230多个。它们之中大多数既可以当触发器，也能作为动作来使用的。
 
-![](/images/ifttt3.png)
+![](/images/ifttt-fold/ifttt3.png)
 
 这里要吐槽一下，230 多个频道里只有一个中国应用，新浪微博，可想国内应用有多么小气，“诶，我干嘛要提供接口哇，你把你的服务接到我的平台里就好了”，诺，大家都是这么想的。
 

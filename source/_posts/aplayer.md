@@ -34,4 +34,4 @@ permalink: 2167
 
 **GitHub Trending（热门榜）第8位截图留念2333：**<!--more-->
 
-![](/images/APlayerTrending.png)
+![](/images/aplayer-fold/APlayerTrending.png)

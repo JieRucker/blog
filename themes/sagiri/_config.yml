@@ -67,9 +67,7 @@ menu:
   首页: / || home
   归档: /archives/ || archive
   实验室: /lab/ || flask
-  投喂: /donate/ || cutlery
   后宫: /friends/ || mars
-  留言板: /message/ || pencil
   关于: /about/ || rocket
 
 # Enable/Disable menu icons.

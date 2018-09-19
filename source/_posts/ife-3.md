@@ -62,13 +62,13 @@ bottom: 0;</pre>
 
 **3\. 莫名其妙出现又莫名其妙自己消失的空隙**
 
-事情是这样的，昨天（5月12日）页面一切正常，今天早上起床后并没改动代码，刷新了一下页面，页面居然变了，设置 overflow: scroll CSS属性的元素右侧和下侧都出现了空隙，如图所示：![](/images/task0003_1.png)
+事情是这样的，昨天（5月12日）页面一切正常，今天早上起床后并没改动代码，刷新了一下页面，页面居然变了，设置 overflow: scroll CSS属性的元素右侧和下侧都出现了空隙，如图所示：![](/images/ife-fold/task0003_1.png)
 
-![](/images/task0003_2.png)
+![](/images/ife-fold/task0003_2.png)
 
 而如果把overflow: scroll属性去掉空隙就消失。测试 Chrome Safari 均出现了这种情况，而且尝试了清空缓存，无解。于是将此时的代码commit并push到了github。
 
-到了下午，同一标签页，同一页面，刷新，bug自己消失了，而此时代码与上午相比只有很少且无关紧要的改动，再次commit并push到github（所有改动[在github有记录](https://github.com/DIYgod/ife-work/commit/df0e0bf051852bb1e4593c6dae3ff11cfa9c34ce)），再次截图：![](/images/task0003_3.png)
+到了下午，同一标签页，同一页面，刷新，bug自己消失了，而此时代码与上午相比只有很少且无关紧要的改动，再次commit并push到github（所有改动[在github有记录](https://github.com/DIYgod/ife-work/commit/df0e0bf051852bb1e4593c6dae3ff11cfa9c34ce)），再次截图：![](/images/ife-fold/task0003_3.png)
 
 注意：两次出现变化后都尝试测试了Chrome和Safari浏览器并清空了缓存。
 

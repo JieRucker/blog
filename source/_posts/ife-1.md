@@ -69,7 +69,7 @@ CSS部分：
     height: 50px;
     background: #ff0;
 }</pre>
-结果出现问题：![](/images/TASK0001_2.png)
+结果出现问题：![](/images/ife-fold/TASK0001_2.png)
 
 黄色的C元素跑到下一行去了
 
@@ -81,7 +81,7 @@ HTML部分：
     &lt;div class="div6-c"&gt;&lt;/div&gt;
     &lt;div class="div6-b"&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
-达到预期结果： ![](/images/TASK0001_1.png)
+达到预期结果： ![](/images/ife-fold/TASK0001_1.png)
 
 原因：浮动元素在文档流空出的位置，由后续的(非浮动)元素填充上去：块级元素直接填充上去，若跟浮动元素的范围发生重叠，浮动元素覆盖块级元素；内联元素则有空隙就插入。
 
@@ -123,9 +123,9 @@ absolute 元素的定位是上溯父级元素，找第一个不是 static 的元
 
 插入顶部图片时候发现了一个很诡异的问题，见图：
 
-图片高度500px![](/images/TASK0001_3.png)
+图片高度500px![](/images/ife-fold/TASK0001_3.png)
 
-父级高度504px![](/images/TASK0001_4.png)
+父级高度504px![](/images/ife-fold/TASK0001_4.png)
 
 多出来4px。。。
 

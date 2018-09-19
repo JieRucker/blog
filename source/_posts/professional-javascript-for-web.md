@@ -12,7 +12,7 @@ permalink: 2073
 
 ## 第一章 JavaScript简介
 
-### 1.1 JavaScript简史
+### 1.1 JavaScript简史 
 
 ### 1.2 JavaScript实现
 

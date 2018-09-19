@@ -9,7 +9,7 @@ categories: 日记本
 
 <!--more-->
 
-![](/images/bz1.jpg) 
+![](/images/bao-zou-fold/bz1.jpg) 
 
 上午去得比较晚，逛了下厂商展台，没看节目，中午暴走家族在主舞台互动了一波，然后就是下午的节目。
 
@@ -18,7 +18,7 @@ categories: 日记本
 超级可爱，被圈粉了 
 
 {% raw %}
-<div class="dplayer" id="dplayer-bz-1"></div>
+<div class="dplayer" id="dplayer-bz-1"></div> 
 <script>
 $(function () {
     var dp = new DPlayer({
@@ -209,6 +209,6 @@ $(function () {
 
 签售会，签名 合照 get√
 
-![](/images/bz2.jpg)
+![](/images/bao-zou-fold/bz2.jpg) 
 
 最后离场的时候还在厕所里遇到了王尼玛，上厕所也带着头套，身边有个工作人员，很激动，呆住了好几秒...发现王尼玛比我矮好多，应该在170以下😂
