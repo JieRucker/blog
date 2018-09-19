@@ -110,7 +110,7 @@ if (window.CONFIG.onlineAPI && !NexT.utils.isMobile()) {
   var ol = new Online(window.CONFIG.onlineAPI);
   ol.enter(document.domain);
   ol.onOnlineChange = function (data) {
-    // console.log(data)
+    console.log(data)
     document.getElementById('online-count').innerHTML = data.u;
   }
 }
