@@ -16,7 +16,7 @@
       <span class="archive-move-on"></span>
 
       <span class="archive-page-counter">
-        {{ _p("counter.archive_posts", site.posts.length) }} (゜-゜)つロ 干杯~
+        {{ _p("counter.archive_posts", site.posts.length) }}
       </span>
 
       {% for post in page.posts %}
