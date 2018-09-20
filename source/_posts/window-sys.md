@@ -2,8 +2,8 @@
 title: 阻止Windows10在睡眠（合盖）时被唤醒
 date: 2018-09-16 22:43:33
 categories: 
-    - windows
-tags: windows操作
+    - 操作系统
+tags: windows操作系统
 ---
 Windows 的睡眠是个好东西，这让 Windows 也有了 Mac 的合盖即走的功能。在不出意外的情况下合盖即走与 Mac 的体验相差无异。
 
