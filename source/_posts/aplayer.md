@@ -22,6 +22,8 @@ permalink: 2167
 
 幸运的是，后来，小狐狸遇到了小王子，小兔子遇见了爱丽丝。
 
+<!--more-->
+
 &nbsp;
 
 **GitHub项目主页（喜欢就给个star吧~）：**
@@ -32,6 +34,6 @@ permalink: 2167
 
 [https://www.anotherhome.net/file/APlayer/](https://www.anotherhome.net/file/APlayer/)
 
-**GitHub Trending（热门榜）第8位截图留念2333：**<!--more-->
+**GitHub Trending（热门榜）第8位截图留念2333：**
 
 ![](/images/aplayer-fold/APlayerTrending.png)

@@ -20,6 +20,8 @@ permalink: 2073
 
 2. ECMAScript：提供核心语言功能；DOM：提供访问和操作网页内容的方法和接口；BOM：提供与浏览器交互的方法和接口。
 
+<!--more-->
+
 ### 1.3 JavaScript版本
 
 &nbsp;

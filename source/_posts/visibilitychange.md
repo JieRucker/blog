@@ -16,6 +16,8 @@ permalink: 2153
 
 document.hidden: Boolean值，表示当前页面可见还是不可见
 
+<!--more-->
+
 document.visibilityState: 返回当前页面的可见状态，取值有 hidden visible prerender preview
 
 visibilitychange: 当可见状态改变时候触发的事件

@@ -18,7 +18,9 @@ TASK 0003 内容：[https://github.com/baidu-ife/ife/tree/master/task/task0003](
 
 本次任务累计花费时间10天（5.6-5.16 ）
 
-下面是我做 TASK 0003 过程中的一些记录。<!--more-->
+下面是我做 TASK 0003 过程中的一些记录。
+
+<!--more-->
 
 * * *
 

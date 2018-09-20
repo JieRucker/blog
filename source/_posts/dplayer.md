@@ -14,7 +14,9 @@ permalink: 2648
 
 最好看的HTML5弹幕播放器送给最好看的宫园薰。
 
-DPlayer来源于我的毕业设计，DPlayer发布后，我的学生生涯也随之结束。<!--more-->
+DPlayer来源于我的毕业设计，DPlayer发布后，我的学生生涯也随之结束。
+
+<!--more-->
 
 &nbsp;
 

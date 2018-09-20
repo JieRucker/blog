@@ -16,6 +16,8 @@ permalink: 2125
 
 ![](/images/ifttt-fold/ifttt.png)
 
+<!--more-->
+
 结合上图，Recipes 的目的是打通 「this」 和 「that」 两个网络服务，网络服务在这里称为 Channels (频道)，前者称为 Trigger Channel (触发器频道)，后者称为 Action Channel (动作频道)，当触发器频道满足触发条件，那么就会执行动作频道指定的动作。
 
 所以，IFTTT 创建一个「Recipes 流程」的流程如下：选择一个触发器频道，设置它的触发条件，再选择一个动作频道，然后设置它要执行的动作，OK，这样就搞定了。

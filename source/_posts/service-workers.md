@@ -12,13 +12,15 @@ permalink: 2954
 
 最后的效果就是当你第二次访问我的网站时只会加载大约80k 的资源（除去 AdSense 的情况下），这其中包括了所有图片和音频视频，这 80k 主要是 HTML 和我使用的 [DPlayer]() 的 API。
 
+<!--more-->
+
 ![](/images/service-workers-fold/sw4.jpg)
 
 甚至可以在断开网络时访问（剪断网线试试吧）：
 
 ![](/images/service-workers-fold/sw2.jpg) 
 
-<!--more-->当然局限性也是有的：
+当然局限性也是有的：
 
 只支持 HTTPS，因为可以截获用户的网络请求，需要在一个安全的环境。
 

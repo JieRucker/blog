@@ -14,6 +14,8 @@ permalink: 1969
 
 想一起学但是没录取的可以加群：438966405
 
+<!--more-->
+
 * * *
 
 TASK 0001 发布，初级班Review提交截止时间为4月23日，中级班为4月16日。
@@ -27,8 +29,6 @@ TASK 0001 内容：[https://github.com/baidu-ife/ife/tree/master/task/task0001](
 本次任务累计花费时间6天（4.13-4.19 ）
 
 下面是我做 TASK 0001 过程中的一些记录。
-
-<!--more-->
 
 &nbsp;
 

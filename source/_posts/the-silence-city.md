@@ -15,6 +15,8 @@ And in the naked light I saw ten thousand people, maybe more.
 People talking without speaking, people hearing without listening.
 People writing songs that voices never shared, no one dared disturb the sound of silence.
 
+<!--more-->
+
 --- The sound of silence
 
 美利坚合众国,2015 年,纽约。

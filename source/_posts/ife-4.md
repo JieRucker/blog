@@ -18,7 +18,9 @@ TASK 0004 内容：[https://github.com/baidu-ife/ife/tree/master/task/task0004](
 
 本次任务断断续续花费了20天（5.20-6.9）的时间。
 
-下面是我做 TASK 0004 过程中的一些记录。<!--more-->
+下面是我做 TASK 0004 过程中的一些记录。
+
+<!--more-->
 
 * * *
 
