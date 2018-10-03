@@ -83,7 +83,7 @@ const resize = () => {
   resizeText(animatedText, fontSize);
   resizeText(guideText, fontSize);
   placeSpans();
-}
+};
 
 setTimeout(() => {
   resize();
