@@ -61,7 +61,7 @@ const animateIn = () => {
   for (var i = 0; i < textLength; i++) {
     animateLetterIn(i);
   }
-}
+};
 
 const animateOut = () => {
   for (var i = 0; i < textLength; i++) {
