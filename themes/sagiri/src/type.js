@@ -67,7 +67,7 @@ const animateOut = () => {
   for (var i = 0; i < textLength; i++) {
     animateLetterOut(i);
   }
-}
+};
 
 // just to make sure the text will fit the window width
 const resizeText = (text, fontSize) => {
