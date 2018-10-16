@@ -55,7 +55,7 @@ const animateLetterOut = (i) => {
       animateIn();
     }, (textLength + 3) * 200);
   }
-}
+};
 
 const animateIn = () => {
   for (var i = 0; i < textLength; i++) {
