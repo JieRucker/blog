@@ -74,7 +74,7 @@ const resizeText = (text, fontSize) => {
   text.style.fontSize = fontSize + 'px';
   text.style.height = fontSize + 'px';
   text.style.lineHeight = fontSize + 'px';
-}
+};
 
 const resize = () => {
   let fontSize = window.innerWidth / 9;
