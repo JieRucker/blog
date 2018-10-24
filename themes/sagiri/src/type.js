@@ -43,7 +43,7 @@ const animateLetterIn = (i) => {
   //     animateOut();
   //   }, (textLength + 3) * 200);
   // }
-}
+};
 
 const animateLetterOut = (i) => {
   setTimeout(() => {
