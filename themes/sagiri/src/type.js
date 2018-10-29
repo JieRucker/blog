@@ -29,7 +29,7 @@ const placeSpans = () => {
     // span to rect.left
     animated.style.left = rect.left + 'px';
   }
-}
+};
 
 
 const animateLetterIn = (i) => {
