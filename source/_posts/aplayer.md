@@ -34,6 +34,6 @@ permalink: 2167
 
 [https://www.anotherhome.net/file/APlayer/](https://www.anotherhome.net/file/APlayer/)
 
-**GitHub Trending（热门榜）第8位截图留念2333：**
+**GitHub Trending（热门榜）第8位截图留念2333：**   
 
 ![](/images/aplayer-fold/APlayerTrending.png)
