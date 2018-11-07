@@ -10,4 +10,4 @@
     Theme By <a href="https://github.com/JieRucker" target="_blank" class="external" rel="nofollow">Sagiri</a> v{{ theme.version }}.
     {{ theme.footer.beian }}
 </p>
-<p>Made by <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span></p> 
+<p>Made by <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span></p>
