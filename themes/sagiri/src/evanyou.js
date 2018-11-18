@@ -10,8 +10,8 @@ if (document.getElementById('evanyou')) {
     r = 0,
     u = m.PI * 2,
     v = m.cos,
-    z = m.random
-  c.width = w * pr
+    z = m.random;
+  c.width = w * pr;
   c.height = h * pr
   x.scale(pr, pr)
   x.globalAlpha = 0.6
