@@ -74,7 +74,7 @@
         </div>
         <span class="logo-line-after"><i></i></span>
       </div>
-    </div>
+    </div>  
       {% if theme.seo %}
         <h1 class="site-subtitle" itemprop="description">{{ config.subtitle }}</h1>
       {% else %}
