@@ -67,7 +67,6 @@
         </span>
       </div>
     {% endif %}
-
   </div>
 
   {% set now = Date.now() %}
