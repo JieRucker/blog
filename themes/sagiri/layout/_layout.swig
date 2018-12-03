@@ -92,7 +92,6 @@
         })
     }
   </script>-->
-
   <script>
     var serviceWorkerUri = '/sw.js';
     if ('serviceWorker' in navigator) {
