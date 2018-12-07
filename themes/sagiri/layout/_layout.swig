@@ -70,6 +70,7 @@
   </div>
 
   {% set now = Date.now() %}
+
   <script type="text/javascript" src="{{ url_for(theme.js) }}/sagiri.min.js?v={{ now }}"></script>
 
   {% include '_third-party/search/index.swig' %}
