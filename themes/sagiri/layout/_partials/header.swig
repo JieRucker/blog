@@ -57,7 +57,6 @@
       </div>
     {% endif %}
 
-
     <div class="custom-logo-site-title">
       <div class="brand">
         <span class="logo-line-before"><i></i></span>
