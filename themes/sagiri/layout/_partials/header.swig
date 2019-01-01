@@ -29,6 +29,7 @@
           </a>
         </li>
       {% endif %}
+
       <li class="menu-item search">
           <form class="search-form">
             <input name="keyword" type="text" class="search-input" placeholder="站内搜索">
