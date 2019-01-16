@@ -22,6 +22,7 @@ if (!NexT.utils.isMobile()) {
       return false;
     });
   };
+
   // 判断位置控制 返回顶部的显隐
   var backTo = $(".back-to-top");
   var backHeight = $(window).height() - 980 + 'px';
