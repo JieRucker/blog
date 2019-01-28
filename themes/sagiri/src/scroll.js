@@ -12,7 +12,7 @@ if (!NexT.utils.isMobile()) {
   });
   headroom.init();
 
-  // 利用 data-scroll 属性，滚动到任意 dom 元素
+  // 利用 data-scroll 属性，滚动到任意元素
   $.scrollto = function (scrolldom, scrolltime) {
     $(scrolldom).click(function () {
       $(this).addClass("active").siblings().removeClass("active");
