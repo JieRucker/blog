@@ -1,6 +1,5 @@
 <nav class="site-nav">
   {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || theme.local_search.enable %}
-
   {% if theme.menu %}
     <ul id="menu" class="menu">
       {% for name, path in theme.menu %}
