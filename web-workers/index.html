@@ -1,0 +1,357 @@
+<!DOCTYPE html><html class="theme-next pisces" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="//fonts.loli.net/css?family=Sigmar One:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"><link href="https://cdn.bootcss.com/social-share.js/1.0.9/css/share.min.css" rel="stylesheet" type="text/css"><link href="/css/main.css?v=1550416857321" rel="stylesheet" type="text/css"><link rel="amphtml" href="https://jrucker.cn/web-workers/amp/index.html"><link rel="apple-touch-icon" sizes="180x180" href="/images/DIYgod-180x180.jpg?v=0.0.2"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=0.0.2"><link rel="mask-icon" href="/images/DIYgod.jpg?v=0.0.2" color="#222"><meta name="keywords" content="JRucker,blog"><link rel="alternate" href="/atom.xml" title="J.Rucker" type="application/atom+xml"><meta name="description" content="这个视频有 15+MB 的 BAS 弹幕脚本需要解析，这会导致页面卡死 7 秒左右的时间，期间 UI 被冻结，体验很糟糕，如果使用 Web Workers 进行优化，把解析放入 Web Workers 执行，就可以避免 UI 线程阻塞造成的页面冻结。"><meta property="og:type" content="article"><meta property="og:title" content="Web Workers 初体验"><meta property="og:url" content="https://jrucker.cn/web-workers/index.html"><meta property="og:site_name" content="J.Rucker"><meta property="og:description" content="这个视频有 15+MB 的 BAS 弹幕脚本需要解析，这会导致页面卡死 7 秒左右的时间，期间 UI 被冻结，体验很糟糕，如果使用 Web Workers 进行优化，把解析放入 Web Workers 执行，就可以避免 UI 线程阻塞造成的页面冻结。"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2019-02-17T15:20:08.666Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Web Workers 初体验"><meta name="twitter:description" content="这个视频有 15+MB 的 BAS 弹幕脚本需要解析，这会导致页面卡死 7 秒左右的时间，期间 UI 被冻结，体验很糟糕，如果使用 Web Workers 进行优化，把解析放入 Web Workers 执行，就可以避免 UI 线程阻塞造成的页面冻结。"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"0.0.2",sidebar:{position:"right",display:"always",offset:52,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,tabs:!0,motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},since:"30/01/2017 11:30:00",onlineAPI:"",site:{title:"J.Rucker",subtitle:"",author:"JRucker"},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},leancloud:{enable:!0,appID:"Ti5mwFDXXbpWqeWdaydLNfOS-gzGzoHsz",appKey:"rXpryRyVs5jlk2LAGGI1bfEd"},favicon:{visibilitychange:!0,narmal:"images/favicon.ico",hidden:"images/failure.ico",show_text:"JRucker 博客！",hide_text:"JRucker 博客！"}}</script><script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script><link rel="canonical" href="https://jrucker.cn/web-workers/"><title>Web Workers 初体验 | J.Rucker</title><script>!function(e,a,t,n,c,g,s){e.GoogleAnalyticsObject="ga",e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,g=a.createElement("script"),s=a.getElementsByTagName("script")[0],g.async=1,g.src="https://www.google-analytics.com/analytics.js",s.parentNode.insertBefore(g,s)}(window,document),ga("create","UA-48084758-7","auto"),ga("send","pageview")</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" class="theme-darling"><div class="container sidebar-position-right page-post-detail"><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-实验室"><a href="/lab/" rel="section"><i class="menu-item-icon fa fa-fw fa-flask"></i><br>实验室</a></li><li class="menu-item menu-item-伙伴"><a href="/friends/" rel="section"><i class="menu-item-icon fa fa-fw fa-mars"></i><br>伙伴</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-rocket"></i><br>关于</a></li><li class="menu-item search"><form class="search-form"><input name="keyword" type="text" class="search-input" placeholder="站内搜索"> <button type="submit" class="search-submit"><i class="fa fa-search"></i></button></form></li></ul></nav><div class="site-brand-wrapper" style="background-image:url(/images/header-banner.jpg)"><div class="site-meta"><div class="custom-logo-site-title"><div class="brand"><span class="logo-line-before"><i></i></span><div class="site-title"><div id="animate" class="animate"><span>J</span><span>.</span><span>R</span><span>u</span><span>c</span><span>k</span><span>e</span><span>r</span></div><div id="guide" class="guide"><span>J</span><span>.</span><span>R</span><span>u</span><span>c</span><span>k</span><span>e</span><span>r</span></div></div><span class="logo-line-after"><i></i></span></div></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-date"><div class="post-month">01月</div><div class="post-day">30</div></div><div class="post-badge"><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/分享境/" itemprop="url" rel="index"><span itemprop="name">分享境</span></a></span></div><div class="post-block"><link itemprop="mainEntityOfPage" href="https://jrucker.cn/web-workers/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="JRucker"><meta itemprop="description" content=""><meta itemprop="image" content="/images/DIYgod.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="J.Rucker"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Web Workers 初体验</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T22:24:15+00:00">2018-01-30 </time></span><span class="post-category"><span class="post-meta-divider">•</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/分享境/" itemprop="url" rel="index"><span itemprop="name">分享境</span> </a></span></span><span id="/web-workers/" class="leancloud_visitors" data-flag-title="Web Workers 初体验"><span class="post-meta-divider">•</span> <span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数&#58;</span> <span class="leancloud-visitors-count"></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="https://www.bilibili.com/video/av18682336/" target="_blank" rel="noopener">这个视频</a>有 15+MB 的 BAS 弹幕脚本需要解析，这会导致页面卡死 7 秒左右的时间，期间 UI 被冻结，体验很糟糕，如果使用 Web Workers 进行优化，把解析放入 Web Workers 执行，就可以避免 UI 线程阻塞造成的页面冻结。</p><a id="more"></a><h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>使用 parse 来模拟解析函数</p><p><strong>index.js</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">new</span> <span class="built_in">Date</span>() - start &lt; time) &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'DIYgod'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(parse(<span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+<p>此时页面会卡死 1s，然后输出一个 ‘DIYgod’。</p>
+<h2 id="使用-Web-Workers"><a href="#使用-Web-Workers" class="headerlink" title="使用 Web Workers"></a>使用 Web Workers</h2><p><strong>index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wk = <span class="keyword">new</span> Worker(<span class="string">'worker.js'</span>);</span><br><span class="line">wk.postMessage(<span class="number">1000</span>);</span><br><span class="line">wk.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>worker.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">new</span> <span class="built_in">Date</span>() - start &lt; time) &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'DIYgod'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    postMessage(parse(e.data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是 Web Workers 的一个最基础用法，index.js 把 1000 传给 worker.js，worker.js 在后台解析 1000 ms，再把结果 ‘DIYgod’ 传回 index.js，这样解析就不会再占用 js 主线程，避免了页面卡死。</p>
+<h2 id="内嵌-Worker"><a href="#内嵌-Worker" class="headerlink" title="内嵌 Worker"></a>内嵌 Worker</h2><p>上一步我们加载了两个 js 文件，index.js 和 worker.js，在 HTML 里引用 index.js，然后 index.js 会加载 worker.js，那么不想创建单独的 Worker 文件怎么办呢？</p>
+<p><strong>index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> workerBlob = <span class="keyword">new</span> Blob([<span class="string">`function parse (time) &#123;</span></span><br><span class="line"><span class="string">    const start = new Date();</span></span><br><span class="line"><span class="string">    while(new Date() - start &lt; time) &#123;&#125;</span></span><br><span class="line"><span class="string">    return 'DIYgod';</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">onmessage = function (e) &#123;</span></span><br><span class="line"><span class="string">    postMessage(parse(e.data));</span></span><br><span class="line"><span class="string">&#125;`</span>], &#123; <span class="attr">type</span>: <span class="string">'application/javascript'</span> &#125;);</span><br><span class="line"><span class="keyword">const</span> workerURL = URL.createObjectURL(workerBlob);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wk = <span class="keyword">new</span> Worker(workerURL);</span><br><span class="line">wk.postMessage(<span class="number">1000</span>);</span><br><span class="line">wk.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>URL.createObjectURL(blob) 会创建一个 DOMString，它包含一个表示 blob 的 URL。</p>
+<p>打开控制台的 Network 标签页，你会看到浏览器加载了一个形如 <code>blob:http://example.com/16215a1e-21d4-450c-b441-070e1981b69d</code> 的奇怪链接的 js 文件，这个 js 文件的内容正是我们传给 workerBlob 的字符串内容。</p>
+<p>这个 URL 是唯一的，且它的生命周期和创建它的窗口中的 document 绑定，只要页面存在，该网址就会一直有效。</p>
+<h2 id="使用-webpack-worker-loader"><a href="#使用-webpack-worker-loader" class="headerlink" title="使用 webpack worker-loader"></a>使用 webpack worker-loader</h2><p>上一步中我们把 js 代码放在了字符串里，它不能拆分模块，也不利于后期维护，如果项目正在使用 webpack，安装 <a href="https://github.com/webpack-contrib/worker-loader" target="_blank" rel="noopener">worker-loader</a> 可以解决这个问题。</p>
+<p><strong>index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> WK <span class="keyword">from</span> <span class="string">'worker-loader?inline=true&amp;fallback=false!./worker.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wk = <span class="keyword">new</span> WK();</span><br><span class="line">wk.postMessage(<span class="number">1000</span>);</span><br><span class="line">wk.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>worker.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Parse <span class="keyword">from</span> <span class="string">'./parse.js'</span>;</span><br><span class="line"></span><br><span class="line">self.addEventListener(<span class="string">'message'</span>, (e) =&gt; &#123;</span><br><span class="line">    self.postMessage(Parse(e.data));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>parse.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parse</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">new</span> <span class="built_in">Date</span>() - start &lt; time) &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'DIYgod'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Parse;</span><br></pre></td></tr></table></figure>
+<p>只需要使用 worker-loader 引用 worker.js 模块，剩下的 worker-loader 会帮我们自动处理，最后编译的结果类似我们上一步的代码。</p>
+<p>对比不使用 Web Workers 时：</p>
+<p><strong>index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Parse <span class="keyword">from</span> <span class="string">'./parse.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Parse(<span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>parse.js（不变）</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parse</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">new</span> <span class="built_in">Date</span>() - start &lt; time) &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'DIYgod'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Parse;</span><br></pre></td></tr></table></figure>
+<p>这样不用修改原有的解析模块，非侵入式，只需要加个 worker.js 中转模块，再改下调用方法即可，维护起来也很方便。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>如果我把一个计算放入 4 个 Worker，那么这个计算会快 4 倍？</p>
+<p>不，它不仅不会快 4 倍，而且会变得更慢。</p>
+<p>Web Workers 不是为了缩短计算时间，而是为了避免 UI 线程冻结。创建线程、线程调度、传输数据等行为会导致计算变得比单线程稍微更慢一点。</p>
+<p>我记录了开头那个视频在不同 Worker 数量下解析 100 条弹幕的时间，7 次记录取平均值：</p>
+<table>
+<thead>
+<tr>
+<th>Worker 数量</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均时间(ms)</td>
+<td>6085</td>
+<td>8216</td>
+<td>6310</td>
+<td>6388</td>
+<td>6483</td>
+<td>6317</td>
+<td>6475</td>
+<td>7233</td>
+</tr>
+</tbody>
+</table>
+<p>不使用 Worker 的解析速度最快，1 个 Worker 的速度比其他明显更慢，2 3 4 5 6 个 Worker 速度没有明显差异，但 Worker 数量一直增加速度又会逐渐变慢。</p>
+<p>另外又测试了弹幕比较少的视频，结果是 1 2 3 4 5 个 Worker 的速度都差不多。</p>
+<p>最后不靠谱地决定使用 2 个 Worker 进行解析。</p>
+<p>优化结果妙不可言，不需要等待解析完成才能进行其他操作，也可以一边播放视频一边解析，区别只是播放到没解析好的弹幕不会显示，解析完成才会显示。</p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bas/" rel="next" title="BAS 高级弹幕">
+                <i class="fa fa-chevron-left"></i> BAS 高级弹幕
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/factory-interview/" rel="prev" title="大厂面经">
+                大厂面经 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="JRucker">
+            
+              <p class="site-author-name" itemprop="name"><span style="opacity:.2"></span></p>
+              <p class="site-description motion-element" itemprop="description">我的博客</p>
+          </div>
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/JieRucker" target="_blank" title="GitHub" data-balloon="GitHub" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JieRucker" target="_blank" title="Twitter" data-balloon="Twitter" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/587ded2a1b69e6006bfe3cb6" target="_blank" title="掘金" data-balloon="掘金" data-balloon-pos="up">
+                    
+                      <i class="fa fa-fw fa-feed"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+            
+
+          </nav>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单线程"><span class="nav-number">1.</span> <span class="nav-text">单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Web-Workers"><span class="nav-number">2.</span> <span class="nav-text">使用 Web Workers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内嵌-Worker"><span class="nav-number">3.</span> <span class="nav-text">内嵌 Worker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-webpack-worker-loader"><span class="nav-number">4.</span> <span class="nav-text">使用 webpack worker-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能"><span class="nav-number">5.</span> <span class="nav-text">性能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-image"></div>
+      <div class="footer-inner">
+        <p>已运行<span id="since"></span></p>
+<p></p>
+
+<p>托管于 <a href="https://github.com/" target="_blank" rel="nofollow">GitHub</a>.
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" class="external" rel="nofollow">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAfCAYAAAC7xK7qAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAL8WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgICAgICAgICB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIj4KICAgICAgICAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHBob3Rvc2hvcDpJQ0NQcm9maWxlPnNSR0IgSUVDNjE5NjYtMi4xPC9waG90b3Nob3A6SUNDUHJvZmlsZT4KICAgICAgICAgPHBob3Rvc2hvcDpDb2xvck1vZGU+MzwvcGhvdG9zaG9wOkNvbG9yTW9kZT4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjU5NDwvZXhpZjpQaXhlbFhEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOkNvbG9yU3BhY2U+MTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MzAyPC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9wbmc8L2RjOmZvcm1hdD4KICAgICAgICAgPHhtcDpNZXRhZGF0YURhdGU+MjAxNy0wMy0yMlQxNjo0Njo1MyswODowMDwveG1wOk1ldGFkYXRhRGF0ZT4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMTctMDMtMjFUMTA6MDQ6MDQrMDg6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxNy0wMy0yMlQxNjo0Njo1MyswODowMDwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDE3LTAzLTIxVDEwOjA0OjA0KzA4OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOmE0ODFlNjE2LWI3MTgtNzM0YS1hMjQ2LWU0Y2ExZDdjZmQ0Yjwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5jcmVhdGVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICAgICA8c3RFdnQ6Y2hhbmdlZD4vPC9zdEV2dDpjaGFuZ2VkPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDE3LTAzLTIxVDEwOjA0OjA0KzA4OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOmRkMjBhZGQ4LTllMGUtMzg0OS05MjAxLTk5OTQ3Nzg0ZjQyNDwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5zYXZlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICA8L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpzb2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChNYWNpbnRvc2gpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICAgICA8c3RFdnQ6Y2hhbmdlZD4vPC9zdEV2dDpjaGFuZ2VkPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDE3LTAzLTIyVDE2OjQ2OjUzKzA4OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjdiMjJkZjVjLWE0ZjAtNDlmZi1iYWM4LWRlYjllMGE0N2ZjYjwvc3RFdnQ6aW5zdGFuY2VJRD4KICAg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" style="width:40px;vertical-align:middle;display:inline;margin-bottom:3px">
+</a> 提供 CDN 服务</p>
+<p>© <span itemprop="copyrightYear">2019</span> J.Rucker.
+    由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 驱动.
+    Theme By <a href="https://github.com/JieRucker" target="_blank" class="external" rel="nofollow">Sagiri</a> v0.0.2.
+    
+</p>
+<p>Made by <span class="author" itemprop="copyrightHolder">JRucker</span></p>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    <canvas id="evanyou"></canvas>
+    <div id="aplayer-fixed"></div>
+
+    
+  </div>
+
+  
+
+  <script type="text/javascript" src="/js/sagiri.min.js?v=1550416857355"></script>
+
+  
+
+
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <script>var serviceWorkerUri="/sw.js";"serviceWorker"in navigator?navigator.serviceWorker.register(serviceWorkerUri).then(function(){navigator.serviceWorker.controller?console.log("Assets cached by the controlling service worker."):console.log("Please reload this page to allow the service worker to handle network operations.")}).catch(function(e){console.log("ERROR: "+e)}):console.log("Service workers are not supported in the current browser.")</script></body></html>

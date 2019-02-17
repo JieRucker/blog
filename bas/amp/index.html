@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://jrucker.cn/bas/" >
+    <title>BAS 高级弹幕 - J.Rucker</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <meta property="og:title" content="BAS 高级弹幕">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://jrucker.cn/bas/">
+	
+		<meta property="og:image" content="/amp-dist/sample/header-sagiri.jpg">
+	
+	<meta property="og:site_name" content="J.Rucker">
+	
+		<meta property="og:description" content="&lt;h2 id=&#34;写在前面&#34;&gt;&lt;a href=&#34;#写在前面&#34; class=&#34;headerlink&#34; title=&#34;写在前面&#34;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果你好奇 B 站的工作有不有趣，或者我来 B 站之后都在做什么，那么这篇文章或许可以解答你的部分疑问。&lt;/p&gt;&lt;p&gt;来 B 站后，除了负责 HTML5 播放器的一些模块、重构和日常维护以外，BAS 高级弹幕算是我半年来负责开发的最大一个项目了。&lt;/p&gt;&lt;p&gt;本文整理自今天在公司的超极电磁波分享（据说我还是有史以来年龄最小的讲师(=・ω・=)，也算是对这个项目的一个阶段性总结。&lt;/p&gt;">
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="J.Rucker">
+	<meta name="twitter:url" content="https://jrucker.cn/bas/">
+	<meta name="twitter:title" content="BAS 高级弹幕 - J.Rucker">
+	
+		<meta name="twitter:description" content="&lt;h2 id=&#34;写在前面&#34;&gt;&lt;a href=&#34;#写在前面&#34; class=&#34;headerlink&#34; title=&#34;写在前面&#34;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果你好奇 B 站的工作有不有趣，或者我来 B 站之后都在做什么，那么这篇文章或许可以解答你的部分疑问。&lt;/p&gt;&lt;p&gt;来 B 站后，除了负责 HTML5 播放器的一些模块、重构和日常维护以外，BAS 高级弹幕算是我半年来负责开发的最大一个项目了。&lt;/p&gt;&lt;p&gt;本文整理自今天在公司的超极电磁波分享（据说我还是有史以来年龄最小的讲师(=・ω・=)，也算是对这个项目的一个阶段性总结。&lt;/p&gt;">
+	
+    
+    	<meta name="twitter:image" content="/amp-dist/sample/header-sagiri.jpg">
+	
+	
+	
+    
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!--
+  	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"headline": "BAS 高级弹幕",
+			
+			"description": "&lt;h2 id=&#34;写在前面&#34;&gt;&lt;a href=&#34;#写在前面&#34; class=&#34;headerlink&#34; title=&#34;写在前面&#34;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果你好奇 B 站的工作有不有趣，或者我来 B 站之后都在做什么，那么这篇文章或许可以解答你的部分疑问。&lt;/p&gt;&lt;p&gt;来 B 站后，除了负责 HTML5 播放器的一些模块、重构和日常维护以外，BAS 高级弹幕算是我半年来负责开发的最大一个项目了。&lt;/p&gt;&lt;p&gt;本文整理自今天在公司的超极电磁波分享（据说我还是有史以来年龄最小的讲师(=・ω・=)，也算是对这个项目的一个阶段性总结。&lt;/p&gt;",
+			
+			"mainEntityOfPage":{
+			    "@type":"WebPage",
+			    "@id":"https://jrucker.cn/bas/"
+			},
+			"datePublished": "2018-01-25T23:50:26.000Z",
+			"dateModified": "2019-02-17T15:20:08.662Z",
+			
+			"image": {
+				"@type": "ImageObject",
+				"url": "/amp-dist/sample/header-sagiri.jpg",
+				"width" : "1024",
+				"height" : "800"
+			},
+			
+			"author": {
+			    "@type": "Person",
+			    "name": "JRucker"
+			},
+			"publisher": {
+			    "@type": "Organization",
+			    "name": "J.Rucker"
+			    
+			    ,
+			    "logo": {
+			      "@type": "ImageObject",
+			      "url": "https://jrucker.cn/amp-dist/sample/DIYgod.jpg",
+			      "width": 600,
+			      "height": 60
+			    }
+			    
+			}
+		}
+	</script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+	
+	<style amp-custom>
+		
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+abbr {
+  cursor: help;
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+acronym {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  background: #fff;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2rem;
+  text-rendering: optimizelegibility;
+  font-family: "PingFang SC","Microsoft YaHei",Lato,sans-serif;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+figure.highlight td,
+.post .entry-content figure.highlight th {
+  border: 0;
+  padding: 0;
+}
+caption,
+table,
+td,
+th {
+  vertical-align: middle;
+}
+caption,
+td,
+th,
+.table-align-left {
+  text-align: left;
+}
+del {
+  text-decoration: line-through;
+}
+html {
+  font-size: 14px;
+}
+:root sub,
+:root sup {
+  vertical-align: baseline;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+a {
+  border-bottom: 0;
+  color: #795548;
+  text-decoration: none;
+  -webkit-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  -ms-transition: 0.7s;
+  transition: 0.7s;
+  border: 0;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+a img {
+  border: none;
+}
+a:hover {
+  -webkit-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+  color: #930e3b;
+}
+@media (min-width: 481px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 0px) and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+.clearfix:after {
+  clear: both;
+  visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.circle {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.thumbImg-w {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.thumbImg {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.__web-inspector-hide-shortcut__ {
+  visibility: hidden ;
+}
+button {
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  -webkit-border-image: initial;
+  -moz-border-image: initial;
+  -o-border-image: initial;
+  border-image: initial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+  -webkit-writing-mode: horizontal-tb;
+  -webkit-appearance: button;
+}
+.hamburger {
+  display: inline-block;
+  background-color: transparent;
+  background-image: url("data:image/svg+xmlutf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-3 -6 24 24\"><path fill=\"#4A4A4A\" d=\"M0 12h18v-2H0v2M0 7h18V5H0v2M0 0v2h18V0H0\"/></svg>");
+  background-repeat: no-repeat;
+  -webkit-background-size: 30px 24px;
+  -moz-background-size: 30px 24px;
+  background-size: 30px 24px;
+  background-position: center center;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+}
+.nav ul:after {
+  clear: both;
+  visibility: hidden;
+}
+.nav,
+.nav-icon {
+  position: relative;
+}
+.nav ul {
+  display: block;
+}
+.nav ul li {
+  display: block;
+}
+.nav ul li a {
+  display: block;
+}
+.tab {
+  outline: none;
+  position: relative;
+  color: #424242;
+  padding: 6px;
+  margin: 0 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: 0.1s ease color;
+  -webkit-transition: 0.1s ease color;
+  -moz-transition: 0.1s ease color;
+  -o-transition: 0.1s ease color;
+  -ms-transition: 0.1s ease color;
+  transition: 0.1s ease color;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+amp-sidebar {
+  width: 200px;
+}
+amp-sidebar ul {
+  padding: 10px 0;
+}
+amp-sidebar li a {
+  display: block;
+  padding: 10px 20px;
+}
+header {
+  width: 100%;
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  height: 260px;
+}
+header .header-title {
+  text-align: center;
+  width: 100%;
+  margin-top: 80px;
+}
+header .header-title a {
+  height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 1px 1px #47456d;
+  font-family: 'Sigmar One', cursive;
+}
+header .nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+header .left-nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -o-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  font-size: 20px;
+  margin-left: 0;
+  font-weight: 300;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -o-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: left;
+  width: auto;
+  font-size: 15px;
+}
+header .right {
+  font-size: 15px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+header .alt {
+  padding: 0;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -o-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.blog-title a {
+  position: relative;
+}
+button {
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  -webkit-border-image: initial;
+  -moz-border-image: initial;
+  -o-border-image: initial;
+  border-image: initial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+  -webkit-writing-mode: horizontal-tb;
+  -webkit-appearance: button;
+}
+.__web-inspector-hide-shortcut__ {
+  visibility: hidden ;
+}
+amp-sidebar {
+  text-align: center;
+  width: 130px;
+  background-color: rgba(40,42,44,.9);
+}
+amp-sidebar ul {
+  padding: 10px 0;
+}
+amp-sidebar li a {
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  padding: 10px 20px;
+}
+amp-sidebar li a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.categories-header {
+  background-color: #555;
+  padding: 0rem 0.8rem;
+}
+.categories-header a {
+  color: #fff;
+}
+.categories-header a:hover {
+  color: #fff;
+}
+.categories-header .breadcrumb ol li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+}
+.categories-header .breadcrumb ol li span {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.categories-header .breadcrumb ol li:after {
+  content: "/";
+  color: #fff;
+  display: inline-block;
+  margin: 0 0.4rem;
+}
+.categories-header .breadcrumb ol li:last-child:after {
+  content: "";
+  margin: 0;
+}
+.entry-header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.header-cap {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.title-cover {
+  background-color: #fff;
+  color: #555;
+  text-align: center;
+}
+.entry-header a {
+  color: #555;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.entry-title {
+  margin: 0;
+}
+.entry-meta-header {
+  margin: 10px 0 20px 0;
+  color: #555;
+  font-family: "PingFang SC","Microsoft YaHei",Lato,sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+.entry-meta-header .date {
+  font-family: sans-serif;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #555;
+  text-decoration: none;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #e91e63;
+}
+#container {
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  margin-bottom: 3em;
+  padding-left: 0;
+}
+.post {
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 40px 20px;
+}
+.entry-content {
+  font-size: 14px;
+}
+.entry-content h1 {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+.entry-content h2 span,
+.entry-content h3 span,
+.entry-content h4 span,
+.entry-content h5 span,
+.entry-content h6 span {
+  color: #98b8be;
+  font-weight: bold;
+}
+.entry-content h2,
+.entry-content h2 span {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  text-align: center;
+}
+.entry-content h2 {
+  border-bottom: 2px solid #cce4e8;
+  margin: 4.5rem 0 0.5em;
+  padding: 0.8em 0;
+}
+.entry-content h3,
+.entry-content h3 span {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-align: center;
+}
+.entry-content h3 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h4,
+.entry-content h4 span {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.entry-content h4 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h5,
+.entry-content h5 span {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+}
+.entry-content h5 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h6,
+.entry-content h6 span {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+.entry-content h6 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content p {
+  margin: 0 0 20px 0;
+}
+.entry-content p a {
+  border-bottom: 0;
+  color: #795548;
+}
+.entry-content em {
+  background-color: #f9f5d1;
+  color: #886d00;
+  font-style: normal;
+  margin: 0 2px;
+  padding: 0.4em;
+}
+.entry-content strong {
+  color: #871c1c;
+  font-style: normal;
+  margin: 0 2px;
+  padding: 0.4em;
+  background-color: #fadcdc;
+}
+.entry-content hr {
+  border: 0;
+  border-top: 3px solid #cce4e8;
+  margin: 3rem auto;
+  width: 20%;
+}
+.entry-content img,
+.entry-content video {
+  display: block;
+  height: auto;
+  margin: auto;
+  max-width: 100%;
+}
+.entry-content iframe {
+  width: 100% ;
+}
+.entry-content blockquote {
+  margin: 3rem 0.8rem;
+  padding: 1rem 1.8rem;
+  position: relative;
+  background-color: none;
+  border-left: 3px solid #98b8be;
+  font-style: italic;
+}
+.entry-content blockquote p {
+  margin: 0.5rem 0;
+}
+.entry-content blockquote blockquote {
+  border-left: none;
+}
+.entry-content .table-wrapper {
+  margin: 3rem 0.8rem;
+}
+.entry-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: auto;
+  display: block;
+  font-size: 0.85rem;
+  margin: 0 auto;
+  width: auto;
+}
+.entry-content td,
+.entry-content th {
+  line-height: 1.8em;
+  padding: 0.8rem 0.8rem;
+  font-size: 0.85rem;
+}
+.entry-content td em,
+.entry-content th em,
+.entry-content td strong,
+.entry-content th strong,
+.entry-content td a,
+.entry-content th a {
+  font-size: 0.85rem;
+}
+.entry-content td {
+  border: 1px solid #c4c4c4;
+}
+.entry-content th {
+  background-color: #ecf5f7;
+  border: 1px solid #c4c4c4;
+}
+.entry-content .table-align-center {
+  text-align: center;
+}
+.entry-content .table-align-right {
+  text-align: right;
+}
+.entry-content ul,
+.entry-content ol,
+.entry-content dl {
+  margin: 3rem 0 3rem 1.6rem;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.entry-content ul li,
+.entry-content ol li,
+.entry-content dl li {
+  line-height: 2rem;
+  position: relative;
+  padding: 0;
+}
+.entry-content ul li p,
+.entry-content ol li p,
+.entry-content dl li p {
+  line-height: 2rem;
+  margin: 0;
+}
+.entry-content ul li p:not(:first-child),
+.entry-content ol li p:not(:first-child),
+.entry-content dl li p:not(:first-child) {
+  color: #57767c;
+  margin: 0.5rem;
+}
+.entry-content ul li ul,
+.entry-content ol li ul,
+.entry-content dl li ul,
+.entry-content ul li ol,
+.entry-content ol li ol,
+.entry-content dl li ol,
+.entry-content ul li dl,
+.entry-content ol li dl,
+.entry-content dl li dl {
+  margin: 1rem;
+}
+.entry-content ul li {
+  margin: 0.4rem 0 0.4rem 0.8rem;
+}
+.entry-content ul li::after {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0.75rem;
+  left: -1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #cce4e8;
+  border-radius: 100%;
+}
+.entry-content ol {
+  counter-reset: number;
+}
+.entry-content ol li {
+  margin: 0.4rem 0 0.4rem 2rem;
+}
+.entry-content ol li p:first-child {
+  display: inline-block;
+  line-height: 1.6rem;
+  height: 1.6rem;
+}
+.entry-content ol li:before {
+  position: absolute;
+  display: inline-block;
+  float: left;
+  margin: 0 0.2rem 0 0;
+  padding: 0;
+  counter-increment: number;
+  content: counter(number);
+  left: -2.2rem;
+  top: 0.2rem;
+  background-color: #98b8be;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+}
+kbd {
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+  color: #425a5e;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  -webkit-box-shadow: 0 0 10px #e2e2e2 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: #fff;
+  border-left: 1px solid #fff;
+  border-radius: 3px;
+  border-right: 1px solid #e6e6e6;
+  border-top: 1px solid #fff;
+  font-size: 0.85rem;
+  line-height: 1rem;
+  margin: 5px;
+  padding: 6px 8px 3px;
+  text-shadow: 0 1px 0 #fff;
+  vertical-align: baseline;
+  
+}
+img.responsive-img {
+  height: auto;
+  max-width: 100%;
+}
+video.responsive-video {
+  height: auto;
+  max-width: 100%;
+}
+amp-instagram,
+amp-vimeo,
+amp-video,
+amp-youtube,
+amp-twitter,
+.soundcloud-wrapper,
+.amp-img-wrapper,
+.googleAdPost,
+.ad-footer {
+  margin: 3rem 0.8rem;
+}
+code,
+figure.highlight .code,
+pre {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+code,
+pre,
+samp {
+  font-family: Menlo, Consolas, Monaco, Consolas, monospace;
+}
+p code {
+  font-size: 14px;
+}
+code,
+pre {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  background-color: #ecf5f7;
+  color: #007e96;
+}
+code {
+  margin: 0 3px;
+  padding: 0.4em;
+}
+samp {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+}
+sub,
+sup {
+  font-size: 0.75rem;
+  line-height: 0;
+  position: relative;
+}
+sub {
+  bottom: -0.2em;
+}
+sup {
+  top: -0.5em;
+}
+pre {
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  margin: 0 3px;
+  padding: 15px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border: 0;
+  line-height: 1.3rem;
+  overflow-x: auto;
+}
+pre .addition,
+pre .css .tag,
+pre .keyword,
+pre .method,
+pre .nginx .title,
+pre .request,
+pre .status,
+pre .winutils {
+  color: #66d9ef;
+}
+pre .attr_selector,
+pre .cdata,
+pre .clojure .title,
+pre .diff .change,
+pre .important {
+  color: #9882eb;
+}
+pre .preprocessor {
+  color: #9882eb;
+}
+pre .preprocessor .keyword {
+  color: #9882eb;
+}
+pre .shebang,
+pre .special,
+pre .subst {
+  color: #9882eb;
+}
+pre .symbol {
+  color: #9882eb;
+}
+pre .symbol .string {
+  color: #9882eb;
+}
+pre .attribute,
+pre .class .title,
+pre .constant,
+pre .haskell .type,
+pre .lisp .body,
+pre .parent,
+pre .smalltalk .number,
+pre .variable {
+  color: #a6e22e;
+}
+pre .built_in,
+pre .chunk,
+pre .decorator,
+pre .id,
+pre .identifier,
+pre .literal,
+pre .localvars,
+pre .title,
+pre .vhdl,
+pre .deletion {
+  color: #f92672;
+}
+pre .command,
+pre .hexcolor,
+pre .number,
+pre .phpdoc,
+pre .regexp,
+pre .string,
+pre .tag .value,
+pre .tex .formula {
+  color: #e6db74;
+}
+pre .comment,
+pre .diff .header,
+pre .doctype,
+pre .javadoc,
+pre .lisp .string,
+pre .pi,
+pre .template_comment {
+  color: #75715e;
+  font-weight: normal;
+}
+.line {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+  color: #4d4d4c;
+}
+.line span {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+}
+.gist {
+  background: #fff;
+  border: 1px solid color-gutter;
+  color: #f8f8f2;
+  line-height: 1.6rem;
+  margin-top: 15px;
+  overflow: auto;
+  padding: 7px 15px;
+}
+.gist .gist-file {
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0;
+  margin: 0;
+}
+.gist .gist-file .gist-data {
+  background: 0 0;
+  border-bottom: none;
+}
+.gist .gist-file .gist-data pre {
+  font-family: Menlo, Consolas, Monaco, Consolas, monospace;
+  padding: 0 ;
+}
+.gist .gist-file .gist-meta {
+  background: 0 0;
+  color: #f8f8f2;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 0;
+}
+.gist .gist-file .gist-meta a {
+  color: #f8f8f2;
+}
+.gist .gist-file .gist-meta a:visited {
+  color: #f8f8f2;
+}
+figure.highlight {
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+  background: #f9f9f9;
+  border: 1px solid color-gutter;
+  line-height: 2rem;
+  overflow: auto;
+  position: relative;
+}
+figure.highlight .code {
+  padding: 0 1em 0 1em;
+  color: #f8f8f2;
+}
+figure.highlight .gutter {
+  display: none;
+}
+figure.highlight figcaption {
+  font-size: 14px;
+  font-weight: bold;
+  color: #e9e9d6;
+  background-color: #1e282c;
+  padding: 0.6em 1em;
+}
+figure.highlight figcaption a {
+  position: absolute;
+  right: 1rem;
+}
+figure.highlight figcaption:before {
+  content: "\f121";
+  font-family: "fontawesome";
+  text-align: center;
+  display: inline-block;
+  margin-right: 0.6em;
+}
+figure.highlight pre {
+  background: 0 0;
+  border: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+figure.highlight table {
+  border-spacing: 0;
+  margin: 0;
+}
+figure.highlight th {
+  border: 0;
+  font-weight: 400;
+  padding: 0;
+}
+figure.highlight td {
+  border: 0;
+  font-size: 1.1rem;
+  padding: 0;
+}
+.entry-content .toc {
+  background: #fff;
+  padding: 0.5rem;
+  margin: 3rem 0;
+  border: 1px solid #cce4e8;
+  border-radius: 2px;
+}
+.entry-content .toc ul {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #5d8b93;
+  border-radius: 2px;
+}
+.entry-content .toc ul:first-child {
+  border-top: none;
+}
+.entry-content .toc ul ul,
+.entry-content .toc ul ol {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+.entry-content .toc ul li {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #5d8b93;
+}
+.entry-content .toc ul li:first-child {
+  border-top: none;
+}
+.entry-content .toc ul li::after,
+.entry-content .toc ul li::before {
+  content: normal;
+}
+.entry-content .toc ul li a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  padding: 1rem;
+  background-color: #3d5b61;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+.entry-content .toc ul li a:hover {
+  color: #fff;
+  background-color: #2c4145;
+}
+.entry-content .toc ul li a:before {
+  content: "\f02d";
+  font-family: "fontawesome";
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 0.8rem;
+}
+.entry-content .toc ul li ul,
+.entry-content .toc ul li ol {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+.entry-content .toc ul li ul li a,
+.entry-content .toc ul li ol li a {
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+  font-size: 0.9rem;
+  background-color: #416167;
+}
+.entry-content .toc ul li ul li a:before,
+.entry-content .toc ul li ol li a:before {
+  content: "\f0da";
+  font-family: "fontawesome";
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 0.6rem;
+}
+.entry-content .toc ul li ul li ul li a,
+.entry-content .toc ul li ol li ul li a {
+  padding: 0.5rem 0.75rem 0.5rem 4rem;
+}
+.entry-content .toc ul li ul li ul li a:before,
+.entry-content .toc ul li ol li ul li a:before {
+  content: none;
+}
+.meta-content {
+  background-color: #fff;
+  margin: 1.5rem 0.8rem;
+  padding: 0;
+  border-top: 1px dotted #cce4e8;
+  letter-spacing: 0.05rem;
+}
+.meta-wrapper {
+  margin: 3rem 0.8rem;
+  padding: 0;
+  background-color: #fff;
+}
+h6.tag,
+h6.categories {
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.article-tag-list {
+  padding: 0;
+}
+.article-tag,
+.article-tag-list,
+.article-categories,
+.article-categories-list {
+  padding: 0;
+  margin: 0;
+}
+.article-categories {
+  margin-bottom: 1.6em;
+}
+.article-tag-list li,
+.article-categories-list li {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0.2rem 0.1rem;
+}
+.article-tag-list li a,
+.article-categories-list li a {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  background-color: #ecf5f7;
+  color: #555;
+  border-radius: 2px;
+  display: block;
+}
+.article-tag-list li a:before,
+.article-categories-list li a:before {
+  content: "#";
+}
+.article-tag-list li a:hover,
+.article-categories-list li a:hover {
+  color: #fff;
+  background-color: #555;
+}
+.widget {
+  margin: 1.5rem 0.8rem;
+  padding: 0;
+}
+.widget-h {
+  text-align: center;
+  margin: 1.6rem 0;
+}
+.widget-h h6 {
+  color: #fff;
+  background-color: #555;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.posts-list li {
+  list-style: none;
+  margin: 0.8rem 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.posts-list li .posts-list-link {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.posts-list li .posts-list-link a {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.posts-list li .posts-list-link a:hover {
+  color: #e91e63;
+}
+.posts-list li .posts-list-meta {
+  font-size: 0.7rem;
+}
+.posts-list li .flx:first-child {
+  margin: 0 1rem 0 0;
+}
+.posts-list li amp-img {
+  border-radius: 2px;
+}
+#footer {
+  background-color: #232323;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+  margin: 3rem 0 0 0;
+  padding: 0;
+}
+.site-author-info {
+  margin: 0;
+  padding: 3rem 1.6rem;
+}
+.site-author-info h6 {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #222f31;
+  padding: 0.4rem 0.8rem;
+}
+.site-author-info-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.site-author-info-wrapper .flx:first-child {
+  margin: 0 1rem 0 0;
+}
+.authorCap-wrapper {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.authorCap {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.authorReading {
+  font-size: 0.7rem;
+}
+.site-author-desc {
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  margin: 1.4rem 0;
+}
+.copyright-tool {
+  margin: 0;
+  padding: 1.5rem 1.6rem;
+}
+.copyright-notice p {
+  font-size: 0.6rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.2rem;
+  color: #8ba8ae;
+}
+.copyright-title {
+  font-size: 14px;
+  text-align: center;
+  margin: 0.8rem 0 0.4rem 0;
+}
+.copyright-license {
+  margin: 0.4rem 0 0.8rem 0;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.copyright-license a {
+  color: #e6e6e6;
+  font-size: 0.7rem;
+}
+.copyright-license a:hover {
+  color: #b3b3b3;
+}
+.sns-link {
+  margin: 0;
+  text-align: center;
+}
+.sns-link a {
+  display: inline-block;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0.6rem;
+  margin: 0 0.1rem;
+  background-color: #222f31;
+  color: #fff;
+  border-radius: 4px;
+}
+.sns-link a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.footer-menu {
+  padding: 1.5rem 0.8rem;
+  border-top: 1px solid #384b4f;
+}
+.footer-menu ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu ul li a {
+  display: block;
+  padding: 0.6rem;
+  margin: 0.2rem 1.6rem;
+  font-size: 14px;
+  color: #fff;
+  background-color: #222f31;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+.footer-menu ul li a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.social-share {
+  margin: 1.5rem 0.8rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.social-share amp-social-share,
+.social-share .sbtn {
+  margin: 5px;
+}
+.sbtn {
+  padding: 0;
+  width: 4rem;
+  height: 3rem;
+  line-height: 3rem;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.sbtn:hover {
+  color: #fff;
+}
+.tw {
+  background-color: #1cafe8;
+}
+.tw:hover {
+  background-color: #0f6b8f;
+}
+.fb {
+  background-color: #4f677f;
+}
+.fb:hover {
+  background-color: #283440;
+}
+.ht {
+  background-color: #35acda;
+}
+.ht:hover {
+  background-color: #1a6e8f;
+}
+.gp {
+  background-color: #d56153;
+}
+.gp:hover {
+  background-color: #9c3326;
+}
+.tb {
+  background-color: #465f79;
+}
+.tb:hover {
+  background-color: #212c38;
+}
+.icon-hatena:before {
+  content: "B";
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+#totop {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.6rem;
+  font-size: 1.2rem;
+  z-index: 995;
+}
+#totop a {
+  background: #97dffd;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 5px;
+}
+#totop a:before {
+  content: "\f062";
+  font-family: "fontawesome";
+  font-size: 1.2rem;
+}
+#totop a:hover {
+  text-decoration: none;
+  background: #5d8b93;
+  color: #fff;
+  line-height: 2.3em;
+}
+@media (min-width: 800px) {
+  .title-cover,
+  .entry-content,
+  .categories,
+  .meta-content,
+  .site-author-info {
+    width: 780px;
+    margin: 0 auto;
+  }
+  .nav-container {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 0px) and (max-width: 480px) {
+  .site-author-info-wrapper {
+    display: block;
+  }
+  .gravatar-area {
+    text-align: center;
+  }
+  .gravatar-area amp-img {
+    display: inline-block;
+  }
+  .entry-content td,
+  .entry-content th {
+    line-height: 1.8em;
+    padding: 0.6rem 0.6rem;
+    font-size: 0.5rem;
+  }
+  .entry-content td em,
+  .entry-content th em,
+  .entry-content td strong,
+  .entry-content th strong,
+  .entry-content td a,
+  .entry-content th a {
+    font-size: 0.5rem;
+  }
+}
+
+		header {
+			background-image: url(/amp-dist/sample/header-sagiri.jpg);
+		}
+	</style>
+	
+  </head>
+  <body>
+  	
+  	
+  	<!-- google analytics -->
+  	
+  	
+  	
+  	<!-- menu -->
+  	<header>
+  		<div class="nav-container">
+	  		<div class="left-nav">
+	  			<div class="header-title">
+	  				<a href="/">J.Rucker</a>
+	  			</div>
+	  		</div>
+	  		
+		  		<div class="right alt">
+		  			<button on='tap:sidebar.toggle' class="tab hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+		  		</div>
+	  		
+	  	</div>
+    </header>
+  	
+  	
+  	<!-- sidebar -->
+  	
+  	<amp-sidebar id='sidebar' layout="nodisplay" side="left">
+      <ul>
+      	<!--
+      		To use the menu, add the menu option of _config.yml.
+      		
+      		generator_amp:
+      		  theme:
+			    menu:
+			      diary: /categories/diary/
+			      gallery: /categories/archive-gallery
+			      archives: /archives
+      	-->
+			
+				<li><a href="/">首页</a></li>
+			
+				<li><a href="/archives/">归档</a></li>
+			
+				<li><a href="/lab/">实验室</a></li>
+			
+				<li><a href="/friends/">伙伴</a></li>
+			
+				<li><a href="/about/">关于</a></li>
+			
+      </ul>
+    </amp-sidebar>
+  	
+  	
+  	<!-- container -->
+  	<div id="container">
+	  	<div id="main">
+		    <article id="post-bas" class="post">
+		    
+		    	<!-- entry title -->
+				<div class="title-cover">
+					<div class="entry-header">
+			            <div class="header-cap flx">
+							
+							  <h1 class="article-title entry-title" itemprop="name">
+							    <a href="https://jrucker.cn/bas/" target="_blank" itemprop="url">BAS 高级弹幕</a>
+							  </h1>
+							
+						</div>
+					</div>
+					
+					<!-- datePublished -->
+					<div class="entry-meta-header">
+						<span class="meta-elements date">
+							<span class="fa fa-calendar-o"></span>
+							<time datetime="2018-01-25" itemprop="datePublished">2018.01.25</time>
+						</span>
+						
+						<span class="meta-elements category">
+							<span class="post-meta-divider">•</span>
+							<span class="fa fa-folder-o"></span>
+							<span class="post-meta-item-text">分类于</span>
+							<a href="/categories/创作集/">创作集</a>
+						</span>
+						
+					</div>
+				</div>
+				
+				
+				
+				<!-- entry content -->
+			    <div class="entry-content ecp">
+			    	<!-- social share button -->
+			    	
+			    	
+			    	
+			    	<!-- content -->
+			  		<h2 id="&#x5199;&#x5728;&#x524D;&#x9762;"><a href="#&#x5199;&#x5728;&#x524D;&#x9762;" class="headerlink" title="&#x5199;&#x5728;&#x524D;&#x9762;"></a>&#x5199;&#x5728;&#x524D;&#x9762;</h2><p>&#x5982;&#x679C;&#x4F60;&#x597D;&#x5947; B &#x7AD9;&#x7684;&#x5DE5;&#x4F5C;&#x6709;&#x4E0D;&#x6709;&#x8DA3;&#xFF0C;&#x6216;&#x8005;&#x6211;&#x6765; B &#x7AD9;&#x4E4B;&#x540E;&#x90FD;&#x5728;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6216;&#x8BB8;&#x53EF;&#x4EE5;&#x89E3;&#x7B54;&#x4F60;&#x7684;&#x90E8;&#x5206;&#x7591;&#x95EE;&#x3002;</p><p>&#x6765; B &#x7AD9;&#x540E;&#xFF0C;&#x9664;&#x4E86;&#x8D1F;&#x8D23; HTML5 &#x64AD;&#x653E;&#x5668;&#x7684;&#x4E00;&#x4E9B;&#x6A21;&#x5757;&#x3001;&#x91CD;&#x6784;&#x548C;&#x65E5;&#x5E38;&#x7EF4;&#x62A4;&#x4EE5;&#x5916;&#xFF0C;BAS &#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x7B97;&#x662F;&#x6211;&#x534A;&#x5E74;&#x6765;&#x8D1F;&#x8D23;&#x5F00;&#x53D1;&#x7684;&#x6700;&#x5927;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x4E86;&#x3002;</p><p>&#x672C;&#x6587;&#x6574;&#x7406;&#x81EA;&#x4ECA;&#x5929;&#x5728;&#x516C;&#x53F8;&#x7684;&#x8D85;&#x6781;&#x7535;&#x78C1;&#x6CE2;&#x5206;&#x4EAB;&#xFF08;&#x636E;&#x8BF4;&#x6211;&#x8FD8;&#x662F;&#x6709;&#x53F2;&#x4EE5;&#x6765;&#x5E74;&#x9F84;&#x6700;&#x5C0F;&#x7684;&#x8BB2;&#x5E08;(=&#x30FB;&#x3C9;&#x30FB;=)&#xFF0C;&#x4E5F;&#x7B97;&#x662F;&#x5BF9;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x6027;&#x603B;&#x7ED3;&#x3002;</p><a id="more"></a><h2 id="&#x4EC0;&#x4E48;&#x662F;BAS&#x5F39;&#x5E55;"><a href="#&#x4EC0;&#x4E48;&#x662F;BAS&#x5F39;&#x5E55;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;BAS&#x5F39;&#x5E55;"></a>&#x4EC0;&#x4E48;&#x662F;BAS&#x5F39;&#x5E55;</h2><p>BAS&#xFF0C;&#x5168;&#x79F0; Bilibili Animation Script&#xFF0C;&#x662F;&#x65B0;&#x4E00;&#x4EE3; bilibili &#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x6837;&#x5F0F;&#x3001;&#x4EA4;&#x4E92;&#x548C;&#x52A8;&#x753B;&#x7684;&#x6587;&#x672C;&#x3002;</p><p>BAS &#x5F39;&#x5E55;&#x662F;&#x7528; BAS &#x63CF;&#x8FF0;&#x7684;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#xFF0C;&#x7531;&#x5143;&#x7D20;&#x548C;&#x52A8;&#x753B;&#x7EC4;&#x6210;&#xFF0C;&#x5143;&#x7D20;&#x5206;&#x4E3A;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#x3001;&#x4EA4;&#x4E92;&#x6309;&#x94AE;&#x3001;path &#x5BF9;&#x8C61;&#xFF0C;&#x52A8;&#x753B;&#x5206;&#x4E3A;&#x7B80;&#x5355;&#x52A8;&#x753B;&#x3001;&#x4E32;&#x8054;&#x52A8;&#x753B;&#x3001;&#x5E76;&#x8054;&#x52A8;&#x753B;&#x3002;</p><p>BAS &#x5F39;&#x5E55;&#x4E3B;&#x8981;&#x9762;&#x5411;&#x5B57;&#x5E55;&#x541B;&#x7B49;&#x9AD8;&#x7AEF;&#x73A9;&#x5BB6;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5B57;&#x5E55;&#x3001;&#x7279;&#x6548;&#x3001;&#x4EA4;&#x4E92;&#x5E94;&#x7528;&#x3001;&#x6E38;&#x620F;&#x3001;&#x7EAF;&#x5F39;&#x5E55;&#x4F5C;&#x54C1;&#x7B49;&#x573A;&#x666F;&#x3002;</p><p>&#x76EE;&#x524D; Web &#x7AEF;&#x5DF2;&#x7ECF;&#x4E0A;&#x7EBF;&#xFF0C;&#x79FB;&#x52A8;&#x7AEF;&#x4E5F;&#x57FA;&#x672C;&#x5F00;&#x53D1;&#x5B8C;&#x6210;&#xFF0C;&#x671F;&#x671B;&#x5728;&#x660E;&#x5E74;&#x7684;&#x6D3B;&#x52A8;&#x6216;&#x62DC;&#x5E74;&#x796D;&#x4E2D;&#x80FD;&#x591F;&#x7528;&#x5230;&#x3002;</p><p>&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x51E0;&#x4E2A;&#x89C6;&#x9891;&#x6765;&#x76F4;&#x89C2;&#x5C55;&#x793A; BAS &#x5F39;&#x5E55;&#xFF1A;</p><p>&#x7B2C;&#x4E00;&#x4E2A;&#x662F;&#x6BDB;&#x9171;&#x5927;&#x4F6C;&#x505A;&#x7684;&#x5F39;&#x5E55; PV&#xFF1A;<a href="https://www.bilibili.com/video/av257649/" target="_blank" rel="noopener">https://www.bilibili.com/video/av257649/</a></p><p>&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x5F39;&#x5E55;&#x5B9E;&#x73B0;&#x7684;&#x70C2;&#x82F9;&#x679C;&#xFF1A;<a href="https://www.bilibili.com/video/av18682336/" target="_blank" rel="noopener">https://www.bilibili.com/video/av18682336/</a></p><p>&#x7B2C;&#x4E09;&#x4E2A;&#x662F;&#x4EA4;&#x4E92;&#x6309;&#x94AE;&#x7684;&#x6F14;&#x793A;&#xFF1A;<a href="https://www.bilibili.com/video/av16558829/index_3.html#page=3" target="_blank" rel="noopener">https://www.bilibili.com/video/av16558829/index_3.html#page=3</a> &#xFF0C;&#x53E6;&#x5916;&#x50CF;&#x54D4;&#x54E9;&#x54D4;&#x54E9;&#x6392;&#x884C;&#x699C;&#x5468;&#x520A;&#x8FD9;&#x79CD;&#x4E5F;&#x662F;&#x5F88;&#x597D;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;</p><p>&#x5B57;&#x5E55;&#x5E94;&#x7528;&#x65B9;&#x9762;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5B57;&#x5E55;&#x6587;&#x4EF6;&#x8F6C; BAS &#x4E4B;&#x7C7B;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4ECA;&#x540E;&#x4F1A;&#x7EE7;&#x7EED;&#x505A;&#x8FD9;&#x6837;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p><h3 id="&#x51E0;&#x79CD;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x6BD4;&#x8F83;"><a href="#&#x51E0;&#x79CD;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x6BD4;&#x8F83;" class="headerlink" title="&#x51E0;&#x79CD;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x6BD4;&#x8F83;"></a>&#x51E0;&#x79CD;&#x9AD8;&#x7EA7;&#x5F39;&#x5E55;&#x6BD4;&#x8F83;</h3><h4 id="mode7"><a href="#mode7" class="headerlink" title="mode7"></a>mode7</h4><p>&#x5F39;&#x5E55;&#x901A;&#x8FC7;&#x754C;&#x9762;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x4F46;&#x529F;&#x80FD;&#x6BD4;&#x8F83;&#x5C40;&#x9650;&#x3002;</p><div class="amp-img-wrapper"><amp-img src="https://diygod.b0.upaiyun.com/bas1.jpg" width="594" height="1150" layout="responsive"></amp-img></div><h4 id="mode8"><a href="#mode8" class="headerlink" title="mode8"></a>mode8</h4><p>&#x5373;&#x4EE3;&#x7801;&#x5F39;&#x5E55;&#xFF0C;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x4F46;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x7528;&#x590D;&#x6742;&#x3001;&#x5B89;&#x5168;&#x6027;&#x8F83;&#x5DEE;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x652F;&#x6301; Flash &#x5E73;&#x53F0;&#x3002;</p><div class="amp-img-wrapper"><amp-img src="https://diygod.b0.upaiyun.com/bas2.jpg" width="592" height="1074" layout="responsive"></amp-img></div><h4 id="mode9"><a href="#mode9" class="headerlink" title="mode9"></a>mode9</h4><p>&#x5373; BAS &#x5F39;&#x5E55;&#xFF0C;&#x662F; mode 7 &#x548C; mode 8 &#x7684;&#x6298;&#x4E2D;&#x65B9;&#x6848;&#x3002;</p><p>&#x8DDF; mode 7 &#x76F8;&#x6BD4;&#xFF0C;mode 9 &#x9700;&#x8981;&#x7F16;&#x5199;&#x811A;&#x672C;&#xFF0C;&#x4F7F;&#x7528;&#x7A0D;&#x590D;&#x6742;&#xFF0C;&#x4F46;&#x652F;&#x6301;&#x4EA4;&#x4E92;&#x3001;&#x56FE;&#x5F62;&#x548C;&#x66F4;&#x590D;&#x6742;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x529F;&#x80FD;&#x8981;&#x5F3A;&#x5927;&#x5F97;&#x591A;&#x3002;</p><p>&#x8DDF; mode 8 &#x76F8;&#x6BD4;&#xFF0C;mode 9 &#x7B80;&#x5316;&#x4E86;&#x8BED;&#x6CD5;&#xFF0C;&#x6539;&#x7528;&#x58F0;&#x660E;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;&#x66F4;&#x7B80;&#x5355;&#xFF1B;&#x66F4;&#x5B89;&#x5168;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x89E3;&#x6790;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0D;&#x5408;&#x6CD5;&#x811A;&#x672C;&#x4E0D;&#x4F1A;&#x653E;&#x884C;&#xFF0C;&#x7A0B;&#x5E8F;&#x53EF;&#x63A7;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#x5F39;&#x5E55;&#xFF1B;&#x53EF;&#x4EE5;&#x8DE8;&#x5E73;&#x53F0;&#x3002;</p><div class="amp-img-wrapper"><amp-img src="https://diygod.b0.upaiyun.com/bas3.jpg" width="2318" height="798" layout="responsive"></amp-img></div><h2 id="&#x4F7F;&#x7528;-BAS-&#x5F39;&#x5E55;"><a href="#&#x4F7F;&#x7528;-BAS-&#x5F39;&#x5E55;" class="headerlink" title="&#x4F7F;&#x7528; BAS &#x5F39;&#x5E55;"></a>&#x4F7F;&#x7528; BAS &#x5F39;&#x5E55;</h2><h3 id="&#x53D1;&#x9001;&#x6743;&#x9650;"><a href="#&#x53D1;&#x9001;&#x6743;&#x9650;" class="headerlink" title="&#x53D1;&#x9001;&#x6743;&#x9650;"></a>&#x53D1;&#x9001;&#x6743;&#x9650;</h3><p>&#x9996;&#x5148;&#x6743;&#x9650;&#x4E0A;&#x5BF9; BAS &#x5F39;&#x5E55;&#x7684;&#x53D1;&#x9001;&#x6743;&#x9650;&#x6709;&#x7740;&#x4E25;&#x683C;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E0A;&#x4E00;&#x822C;&#x7528;&#x6237;&#x9700;&#x8981;&#x5148;&#x7528;&#x786C;&#x5E01;&#x8D2D;&#x4E70;&#xFF0C;&#x7136;&#x540E;&#x7B49;&#x5F85; UP &#x4E3B;&#x786E;&#x8BA4;&#x4E4B;&#x540E;&#x624D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x5B57;&#x5E55;&#x541B;&#x7B49;&#x6709;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x7684;&#x7528;&#x6237;&#x624D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x76EE;&#x524D;&#x53EA;&#x5F00;&#x653E;&#x7ED9;&#x5B57;&#x5E55;&#x541B;&#x4F7F;&#x7528;&#xFF0C;&#x5B57;&#x5E55;&#x541B;&#x4F7F;&#x7528;&#x5E76;&#x5B8C;&#x5584;&#x4E4B;&#x540E;&#x518D;&#x8003;&#x8651;&#x6269;&#x5927;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x3002;</p><div class="table-wrapper"><table><thead><tr><th></th><th>&#x786C;&#x5E01;&#x8D2D;&#x4E70;</th><th>UP &#x4E3B;&#x786E;&#x8BA4;</th></tr></thead><tbody><tr><td>&#x4E00;&#x822C;&#x4F1A;&#x5458;</td><td>&#x221A;</td><td>&#x221A;</td></tr><tr><td>UP &#x4E3B;</td><td>&#x221A;</td><td>&#xD7;</td></tr><tr><td>VIP</td><td>&#xD7;</td><td>&#x221A;</td></tr><tr><td>&#x5B57;&#x5E55;&#x541B;/&#x7BA1;&#x7406;&#x5458;</td><td>&#xD7;</td><td>&#xD7;</td></tr></tbody></table></div><h3 id="&#x53D1;&#x9001;&#x5165;&#x53E3;"><a href="#&#x53D1;&#x9001;&#x5165;&#x53E3;" class="headerlink" title="&#x53D1;&#x9001;&#x5165;&#x53E3;"></a>&#x53D1;&#x9001;&#x5165;&#x53E3;</h3><ol><li><div class="amp-img-wrapper"><amp-img src="https://diygod.b0.upaiyun.com/bas4.jpg" width="2880" height="1440" layout="responsive"></amp-img></div></li><li><div class="amp-img-wrapper"><amp-img src="https://diygod.b0.upaiyun.com/bas5.jpg" width="5761" height="4304" layout="responsive"></amp-img></div></li></ol><p>&#x6CE8;&#x610F;&#x6CA1;&#x6709;&#x53D1;&#x9001;&#x6743;&#x9650;&#x65F6;&#x5165;&#x53E3;&#x662F;&#x9690;&#x85CF;&#x7684;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5728;<a href="https://bilibili.github.io/bas/#/playground" target="_blank" rel="noopener">&#x8BD5;&#x9A8C;&#x5BA4;</a>&#x4E2D;&#x8FDB;&#x884C;&#x5C1D;&#x8BD5;&#x3002;</p><h3 id="&#x7F16;&#x5199;&#x811A;&#x672C;"><a href="#&#x7F16;&#x5199;&#x811A;&#x672C;" class="headerlink" title="&#x7F16;&#x5199;&#x811A;&#x672C;"></a>&#x7F16;&#x5199;&#x811A;&#x672C;</h3><p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x5C1D;&#x8BD5;&#x7F16;&#x5199;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x811A;&#x672C;&#xFF0C;BAS &#x811A;&#x672C;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x58F0;&#x660E;&#x5F0F;&#x63CF;&#x8FF0;&#x6027;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x8BED;&#x6CD5;&#x6613;&#x7528;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x5BF9;&#x8C61;&#x5757;&#x548C;&#x64CD;&#x4F5C;&#x5757;&#x7684;&#x72EC;&#x7ACB;&#x6027;&#x3002;</p><p>&#x5C1D;&#x8BD5; BAS &#x5F39;&#x5E55;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;<a href="https://bilibili.github.io/bas" target="_blank" rel="noopener">&#x6587;&#x6863;</a>&#x4E0A;&#x7684;&#x4F8B;&#x5B50;&#x548C;&#x8BD5;&#x9A8C;&#x5BA4;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x65B0;&#x6807;&#x7B7E;&#x9875;&#x4E2D;&#x6253;&#x5F00;&#x5B83;&#xFF0C;&#x8DDF;&#x7740;&#x4F8B;&#x5B50;&#x5C1D;&#x8BD5;&#x4E00;&#x4E9B;&#x57FA;&#x7840;&#x7528;&#x6CD5;&#x3002;</p><p>&#x4EE5;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#x4E3A;&#x4F8B;&#xFF0C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5E26;&#x6E10;&#x9690;&#x52A8;&#x753B;&#x7684;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def text demo {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set demo {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 5s</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x6210;&#x529F;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x6761;&#x6E10;&#x9690;&#x7684; BAS &#x5F39;&#x5E55;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F; js &#x5728;&#x80CC;&#x540E;&#x505A;&#x4E86;&#x5927;&#x91CF;&#x5DE5;&#x4F5C;&#xFF0C;js &#x4F1A;&#x5148;&#x628A; BAS &#x811A;&#x672C;&#x89E3;&#x6790;&#x6210; js &#x53EF;&#x8BC6;&#x522B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5E94;&#x7528;&#x4E0A;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#xFF0C;&#x518D;&#x628A;&#x5B83;&#x6E32;&#x67D3;&#x5230;&#x64AD;&#x653E;&#x5668;&#x91CC;&#xFF0C;&#x540C;&#x65F6;&#x5F00;&#x59CB;&#x52A8;&#x753B;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x64AD;&#x653E;&#x5668;&#x5DE6;&#x4E0A;&#x89D2;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x6E10;&#x9690;&#x7684;&#x767D;&#x8272;&#x6587;&#x672C;&#x3002;</p>
+<h4 id="&#x5B9A;&#x4F4D;"><a href="#&#x5B9A;&#x4F4D;" class="headerlink" title="&#x5B9A;&#x4F4D;"></a>&#x5B9A;&#x4F4D;</h4><p>&#x5B9A;&#x4F4D;&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;BAS &#x5F39;&#x5E55;&#x7684;&#x5B9A;&#x4F4D;&#x7531;&#x5F39;&#x5E55;&#x951A;&#x70B9;&#xFF08;anchorX anchorY&#xFF09;&#x548C;&#x821E;&#x53F0;&#x4F4D;&#x7F6E;&#xFF08;x y&#xFF09;&#x5171;&#x540C;&#x51B3;&#x5B9A;&#x3002;&#x951A;&#x70B9;&#x662F;&#x5F39;&#x5E55;&#x7684;&#x4E2D;&#x5FC3;&#x70B9;&#xFF0C;(0, 0)&#x4E3A;&#x5F39;&#x5E55;&#x7684;&#x5DE6;&#x4E0A;&#x89D2;&#xFF0C;(1, 1)&#x4E3A;&#x5F39;&#x5E55;&#x7684;&#x53F3;&#x4E0B;&#x89D2;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">def text tl {</span><br><span class="line">    content = &quot;&#x5DE6;&#x4E0A;&quot;</span><br><span class="line">    x = 0</span><br><span class="line">    y = 0</span><br><span class="line">    anchorX = 0</span><br><span class="line">    anchorY = 0</span><br><span class="line">}</span><br><span class="line">def text tr {</span><br><span class="line">    content = &quot;&#x53F3;&#x4E0A;&quot;</span><br><span class="line">    x = 100%</span><br><span class="line">    y = 0</span><br><span class="line">    anchorX = 1</span><br><span class="line">    anchorY = 0</span><br><span class="line">}</span><br><span class="line">def text bl {</span><br><span class="line">    content = &quot;&#x5DE6;&#x4E0B;&quot;</span><br><span class="line">    x = 0</span><br><span class="line">    y = 100%</span><br><span class="line">    anchorX = 0</span><br><span class="line">    anchorY = 1</span><br><span class="line">}</span><br><span class="line">def text br {</span><br><span class="line">    content = &quot;&#x53F3;&#x4E0B;&quot;</span><br><span class="line">    x = 100%</span><br><span class="line">    y = 100%</span><br><span class="line">    anchorX = 1</span><br><span class="line">    anchorY = 1</span><br><span class="line">}</span><br><span class="line">def text c {</span><br><span class="line">    content = &quot;&#x4E2D;&#x5FC3;&quot;</span><br><span class="line">    x = 50%</span><br><span class="line">    y = 50%</span><br><span class="line">    anchorX = 0.5</span><br><span class="line">    anchorY = 0.5</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x5F39;&#x5E55;&#x821E;&#x53F0;"><a href="#&#x5F39;&#x5E55;&#x821E;&#x53F0;" class="headerlink" title="&#x5F39;&#x5E55;&#x821E;&#x53F0;"></a>&#x5F39;&#x5E55;&#x821E;&#x53F0;</h4><p>&#x5F39;&#x5E55;&#x821E;&#x53F0;&#x662F;&#x5F39;&#x5E55;&#x7684;&#x7ED8;&#x5236;&#x8303;&#x56F4;&#xFF0C;&#x5F39;&#x5E55;&#x821E;&#x53F0;&#x9ED8;&#x8BA4;&#x4E3A;&#x89C6;&#x9891;&#x7684;&#x771F;&#x5B9E;&#x533A;&#x57DF;&#xFF0C;&#x6B64;&#x5916;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; parent &#x5C5E;&#x6027;&#x628A;&#x5176;&#x4ED6;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x4E3A;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#xFF0C;&#x4EE5;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x821E;&#x53F0;&#x8FDB;&#x884C;&#x7ED8;&#x5236;&#xFF0C;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#x4F1A;&#x5F71;&#x54CD;&#x5B50;&#x7EA7;&#x5143;&#x7D20;&#x7684;&#x5B9A;&#x4F4D;&#x3001;&#x7F29;&#x653E;&#x7B49;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">    content = &quot;&#x25A1;&quot;</span><br><span class="line">    fontSize = 40%</span><br><span class="line">    x = 0</span><br><span class="line">    y = 0</span><br><span class="line">    color = 0xffff00</span><br><span class="line">}</span><br><span class="line">def text b {</span><br><span class="line">    parent = &quot;a&quot;</span><br><span class="line">    content = &quot;&#x25A1;&quot;</span><br><span class="line">    fontSize = 20%</span><br><span class="line">    x = 0</span><br><span class="line">    y = 0</span><br><span class="line">    color = 0xff00ff</span><br><span class="line">}</span><br><span class="line">set a {</span><br><span class="line">    x = 50%</span><br><span class="line">    y = 0</span><br><span class="line">} 2s</span><br><span class="line">then set a {} 3s</span><br><span class="line">set b {</span><br><span class="line">    y = 50%</span><br><span class="line">} 3s</span><br><span class="line">then set b {} 3s</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x751F;&#x547D;&#x5468;&#x671F;"><a href="#&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="&#x751F;&#x547D;&#x5468;&#x671F;"></a>&#x751F;&#x547D;&#x5468;&#x671F;</h4><p>&#x751F;&#x547D;&#x5468;&#x671F;&#x662F; BAS &#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;&#xFF0C;&#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x5F39;&#x5E55;&#x5B58;&#x6D3B;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; duration &#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x5143;&#x7D20;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E3A;&#x52A8;&#x753B;&#x603B;&#x65F6;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x52A8;&#x753B;&#x65F6;&#x9ED8;&#x8BA4;&#x4E3A;4s&#x3002;&#x751F;&#x547D;&#x5468;&#x671F;&#x7ED3;&#x675F;&#x540E;&#x5143;&#x7D20;&#x5C31;&#x4F1A;&#x5728;&#x821E;&#x53F0;&#x4E2D;&#x88AB;&#x6E05;&#x9664;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">    duration = 10s</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set a {} 10s</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x81EA;&#x9002;&#x5E94;"><a href="#&#x81EA;&#x9002;&#x5E94;" class="headerlink" title="&#x81EA;&#x9002;&#x5E94;"></a>&#x81EA;&#x9002;&#x5E94;</h4><p>&#x4F4D;&#x7F6E;&#x548C;&#x5B57;&#x53F7;&#x4E3A;&#x767E;&#x5206;&#x6BD4;&#x503C;&#x65F6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x821E;&#x53F0;&#x5927;&#x5C0F;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5404;&#x4E2A;&#x5E73;&#x53F0;&#x3001;&#x4E0D;&#x540C;&#x64AD;&#x653E;&#x5668;&#x5927;&#x5C0F;&#x65F6;&#x5F39;&#x5E55;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x6548;&#x679C;&#xFF0C;&#x4F7F;&#x5F39;&#x5E55;&#x5728;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x4E0B;&#x76F8;&#x5BF9;&#x4E8E;&#x89C6;&#x9891;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4F4D;&#x7F6E;&#x5750;&#x6807;&#x4E3A;&#x5F53;&#x524D;&#x821E;&#x53F0;&#x5BBD;&#x9AD8; <em> &#x767E;&#x5206;&#x6BD4;&#x503C; px&#xFF0C;&#x5B57;&#x53F7;&#x4E3A;&#x5F53;&#x524D;&#x821E;&#x53F0;&#x5BBD;&#x5EA6; </em> &#x767E;&#x5206;&#x6BD4;&#x503C; px&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def text c {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">    x = 50%</span><br><span class="line">    y = 50%</span><br><span class="line">    anchorX = 0.5</span><br><span class="line">    anchorY = 0.5</span><br><span class="line">    fontSize = 5%</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x65F6;&#x5019;&#x6539;&#x53D8;&#x64AD;&#x653E;&#x5668;&#x5927;&#x5C0F;&#xFF0C;&#x5F39;&#x5E55;&#x5927;&#x5C0F;&#x4E5F;&#x4F1A;&#x8DDF;&#x968F;&#x64AD;&#x653E;&#x5668;&#x6539;&#x53D8;&#xFF0C;&#x7ED3;&#x679C;&#x662F;&#x5B83;&#x76F8;&#x5BF9;&#x4E8E;&#x89C6;&#x9891;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x3002;</p>
+<h4 id="&#x4EA4;&#x4E92;"><a href="#&#x4EA4;&#x4E92;" class="headerlink" title="&#x4EA4;&#x4E92;"></a>&#x4EA4;&#x4E92;</h4><p>&#x76EE;&#x524D;&#x53EA;&#x6709;&#x4EA4;&#x4E92;&#x6309;&#x94AE;&#x652F;&#x6301;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x70B9;&#x51FB;&#x6548;&#x679C;&#xFF0C;&#x8F6C;&#x8DF3;&#x5230;&#x89C6;&#x9891;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x3001;&#x65B0;&#x7A97;&#x53E3;&#x6253;&#x5F00;&#x5176;&#x4ED6;&#x89C6;&#x9891;&#x7B49;&#x3002;</p>
+<p>seek &#x6309;&#x94AE;&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def button c {</span><br><span class="line">    text = &quot;&#x8DF3;&#x8F6C;&#x5230;30&#x5206;&#x949F;&quot;</span><br><span class="line">    x = 35%</span><br><span class="line">    y = 45%</span><br><span class="line">    fontSize = 5%</span><br><span class="line">    textColor = 0xffffff</span><br><span class="line">    fillColor = 0x80D8FF</span><br><span class="line">    target = seek {</span><br><span class="line">        time = 30m</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>av &#x8DF3;&#x8F6C;&#x6309;&#x94AE;&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def button c {</span><br><span class="line">    text = &quot;av1714157&quot;</span><br><span class="line">    x = 35%</span><br><span class="line">    y = 45%</span><br><span class="line">    fontSize = 5%</span><br><span class="line">    textColor = 0xffffff</span><br><span class="line">    fillColor = 0x80D8FF</span><br><span class="line">    duration = 2s</span><br><span class="line">    target = av {</span><br><span class="line">        av = 1714157</span><br><span class="line">        page = 1</span><br><span class="line">        time = 20.5s500ms</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>bangumi &#x8DF3;&#x8F6C;&#x6309;&#x94AE;&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def button c {</span><br><span class="line">    text = &quot;&#x7B2C;22&#x8BDD; &#x6625;&#x98CE;&quot;</span><br><span class="line">    x = 35%</span><br><span class="line">    y = 45%</span><br><span class="line">    fontSize = 5%</span><br><span class="line">    textColor = 0xffffff</span><br><span class="line">    fillColor = 0x80D8FF</span><br><span class="line">    duration = 2s</span><br><span class="line">    target = bangumi {</span><br><span class="line">        seasonId = 1699</span><br><span class="line">        episodeId = 80041</span><br><span class="line">        time = 1m30s</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x56FE;&#x5F62;"><a href="#&#x56FE;&#x5F62;" class="headerlink" title="&#x56FE;&#x5F62;"></a>&#x56FE;&#x5F62;</h4><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; path &#x5BF9;&#x8C61;&#x7ED8;&#x5236; svg &#x56FE;&#x5F62;&#xFF0C;d &#x5C5E;&#x6027;&#x5BF9;&#x5E94; svg &#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def path p {</span><br><span class="line">    d = &quot;M30.828,30.422 18.997,16.260 Z&quot;</span><br><span class="line">    viewBox=&quot;0 0 32 34&quot;</span><br><span class="line">    x = 45%</span><br><span class="line">    y = 45%</span><br><span class="line">    scale = 3</span><br><span class="line">    borderWidth = 1</span><br><span class="line">    borderColor = 0xffffff</span><br><span class="line">    borderAlpha = 0.8</span><br><span class="line">    fillColor = 0x00a1d6</span><br><span class="line">    fillAlpha = 0.8</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x52A8;&#x753B;"><a href="#&#x52A8;&#x753B;" class="headerlink" title="&#x52A8;&#x753B;"></a>&#x52A8;&#x753B;</h4><p>&#x52A8;&#x753B;&#x5206;&#x4E3A;&#x7B80;&#x5355;&#x52A8;&#x753B;&#x3001;&#x4E32;&#x8054;&#x52A8;&#x753B;&#x3001;&#x5E76;&#x8054;&#x52A8;&#x753B;&#x3002;</p>
+<p>&#x5F39;&#x5E55;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x53EF;&#x6E10;&#x53D8;&#x3001;&#x4E0D;&#x53EF;&#x6E10;&#x53D8;&#x3001;&#x4E0D;&#x53EF;&#x53D8;&#x4E4B;&#x5206;&#xFF0C;&#x53EA;&#x6709;&#x53EF;&#x6E10;&#x53D8;&#x5C5E;&#x6027;&#x624D;&#x6709;&#x6B63;&#x5E38;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#xFF0C;&#x5BF9;&#x975E;&#x6E10;&#x53D8;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x65B0;&#x503C;&#x4F1A;&#x7ACB;&#x5373;&#x751F;&#x6548;&#xFF0C;&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x5C5E;&#x6027;&#x8BBE;&#x503C;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x539F;&#x5219;&#x4E0A;&#x67D0;&#x4E00;&#x5C5E;&#x6027;&#x5728;&#x4E00;&#x4E2A; set &#x8BED;&#x53E5;&#x4E2D;&#x6700;&#x591A;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x5728;&#x5B9E;&#x73B0;&#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x6B21;&#x51FA;&#x73B0;&#xFF0C;&#x4EE5;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x4E3A;&#x51C6;&#x3002;</p>
+<p>&#x4E32;&#x8054;&#x52A8;&#x753B;&#x4EE5;&#x5148;&#x540E;&#x987A;&#x5E8F;&#x8FD0;&#x884C;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">  content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set a {</span><br><span class="line">    color = 0x000000</span><br><span class="line">} 1s</span><br><span class="line">then set a {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 1s</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5E76;&#x8054;&#x52A8;&#x753B;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x5E76;&#x8054;&#x76F8;&#x540C;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x4EE5;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x4E3A;&#x51C6;&#xFF0C;&#x4E4B;&#x524D;&#x51B2;&#x7A81;&#x7684;&#x52A8;&#x753B;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x7531;&#x4E8E;&#x6280;&#x672F;&#x9650;&#x5236;&#xFF0C;x y rotateX rotateY rotateZ scale &#x89C6;&#x4E3A;&#x76F8;&#x540C;&#x5C5E;&#x6027;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">  content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set a {</span><br><span class="line">    color = 0x000000</span><br><span class="line">} 1s</span><br><span class="line">set a {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 1s</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="BAS-&#x5F39;&#x5E55;&#x7684;&#x524D;&#x7AEF;&#x5B9E;&#x73B0;"><a href="#BAS-&#x5F39;&#x5E55;&#x7684;&#x524D;&#x7AEF;&#x5B9E;&#x73B0;" class="headerlink" title="BAS &#x5F39;&#x5E55;&#x7684;&#x524D;&#x7AEF;&#x5B9E;&#x73B0;"></a>BAS &#x5F39;&#x5E55;&#x7684;&#x524D;&#x7AEF;&#x5B9E;&#x73B0;</h2><p>&#x4ECE; BAS &#x811A;&#x672C;&#x5230;&#x6E32;&#x67D3;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684; DOM &#x5143;&#x7D20;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x5C06; BAS &#x811A;&#x672C;&#x89E3;&#x6790;&#x6210; js &#x5BF9;&#x8C61;&#xFF08;<a href="https://github.com/aristotle9/as3cc" target="_blank" rel="noopener">https://github.com/aristotle9/as3cc</a>&#xFF09;</li>
+<li>&#x5E94;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#x3001;&#x8BA1;&#x7B97;&#x767E;&#x5206;&#x6BD4;&#x503C;</li>
+<li>&#x76D1;&#x63A7;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+<li>&#x89E3;&#x51B3;&#x5C5E;&#x6027;&#x51B2;&#x7A81;</li>
+<li>&#x7ED8;&#x5236;&#x5143;&#x7D20;&#x3001;&#x5E94;&#x7528;&#x6837;&#x5F0F;&#x548C;&#x52A8;&#x753B;</li>
+<li>&#x7ED1;&#x5B9A;&#x4EA4;&#x4E92;&#x4E8B;&#x4EF6;</li>
+</ol>
+<h3 id="&#x5B9A;&#x4F4D;-1"><a href="#&#x5B9A;&#x4F4D;-1" class="headerlink" title="&#x5B9A;&#x4F4D;"></a>&#x5B9A;&#x4F4D;</h3><p>&#x5B9A;&#x4F4D;&#x7531; BAS &#x811A;&#x672C;&#x7684;&#x951A;&#x70B9;&#xFF08;anchorX anchorY&#xFF09;&#x548C;&#x4F4D;&#x7F6E;&#xFF08;x y&#xFF09;&#x5171;&#x540C;&#x51B3;&#x5B9A;&#xFF0C;&#x5B9E;&#x73B0;&#x4E0A;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x5D4C;&#x5957;&#x7684; DOM &#x5143;&#x7D20;&#xFF0C;&#x5916;&#x90E8;&#x5143;&#x7D20;&#x5B9A;&#x4F4D;&#x821E;&#x53F0;&#x4F4D;&#x7F6E;&#xFF0C;&#x5185;&#x90E8;&#x5143;&#x7D20;&#x5B9A;&#x4F4D;&#x5F39;&#x5E55;&#x951A;&#x70B9;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x5C45;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def text c {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">    x = 50%</span><br><span class="line">    y = 50%</span><br><span class="line">    anchorX = 0.5</span><br><span class="line">    anchorY = 0.5</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6E32;&#x67D3;&#x51FA;&#x7684; DOM &#x7ED3;&#x6784;&#x5927;&#x6982;&#x662F;&#x8FD9;&#x6837;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;transform:translate((&#x821E;&#x53F0;&#x5BBD;&#x5EA6;*50%)px, (&#x821E;&#x53F0;&#x9AD8;&#x5EA6;*50%)px);&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;transform:translate(-50%,-50%);&quot;</span>&gt;</span>BAS&#x5F39;&#x5E55;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x52A8;&#x753B;-1"><a href="#&#x52A8;&#x753B;-1" class="headerlink" title="&#x52A8;&#x753B;"></a>&#x52A8;&#x753B;</h3><p>&#x52A8;&#x753B;&#x4E0A;&#x8003;&#x8651;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x548C;&#x6613;&#x7528;&#x6027;&#xFF0C;CSS3 &#x7684; animation &#x662F;&#x6700;&#x4F73;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x5176;&#x4E2D;&#x6D89;&#x53CA;&#x5C5E;&#x6027;&#x6709;&#xFF1A;</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th class="table-align-left">&#x5C5E;&#x6027;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="table-align-left">@keyframes</td>
+<td>&#x5B9A;&#x4E49;&#x52A8;&#x753B;</td>
+</tr>
+<tr>
+<td class="table-align-left">animation-name</td>
+<td>&#x5BF9;&#x5E94; @keyframes &#x52A8;&#x753B;&#x7684;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td class="table-align-left">animation-duration</td>
+<td>&#x52A8;&#x753B;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x5468;&#x671F;&#x7684;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td class="table-align-left">animation-play-state</td>
+<td>&#x52A8;&#x753B;&#x8FD0;&#x884C;&#x6216;&#x8005;&#x6682;&#x505C;</td>
+</tr>
+<tr>
+<td class="table-align-left">animation-timing-function</td>
+<td>&#x52A8;&#x753B;&#x7684;&#x901F;&#x5EA6;&#x66F2;&#x7EBF;</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="&#x7B80;&#x5355;&#x52A8;&#x753B;"><a href="#&#x7B80;&#x5355;&#x52A8;&#x753B;" class="headerlink" title="&#x7B80;&#x5355;&#x52A8;&#x753B;"></a>&#x7B80;&#x5355;&#x52A8;&#x753B;</h4><p>&#x6CBF;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def text demo {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set demo {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 5s</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6761; BAS &#x811A;&#x672C;&#x6E32;&#x67D3;&#x51FA;&#x7684; DOM &#x7ED3;&#x6784;&#x5927;&#x6982;&#x662F;&#x8FD9;&#x6837;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">@keyframes a1 {</span></span><br><span class="line"><span class="undefined">    100% { opacity:0; }</span></span><br><span class="line"><span class="undefined">}</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;animation-name:a1;animation-duration:5s;opacity:1;&quot;</span>&gt;</span>BAS<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>keyframes &#x5B9A;&#x4E49;&#x52A8;&#x753B;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x900F;&#x660E;&#x5EA6;&#x4E3A;&#x96F6;&#xFF1B;animation-duration &#x5BF9;&#x5E94;&#x52A8;&#x753B;&#x7684;&#x65F6;&#x95F4; 5s&#x3002;</p>
+<h4 id="&#x5E76;&#x8054;&#x52A8;&#x753B;"><a href="#&#x5E76;&#x8054;&#x52A8;&#x753B;" class="headerlink" title="&#x5E76;&#x8054;&#x52A8;&#x753B;"></a>&#x5E76;&#x8054;&#x52A8;&#x753B;</h4><p>&#x5B9A;&#x4E49;&#x591A;&#x4E2A;keyframes&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x52A8;&#x753B;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">    content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set a {</span><br><span class="line">    color = 0x000000</span><br><span class="line">} 1s</span><br><span class="line">set a {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 1s</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">@keyframes a1 {</span></span><br><span class="line"><span class="undefined">    100% { color:#000000; }</span></span><br><span class="line"><span class="undefined">}</span></span><br><span class="line"><span class="undefined">@keyframes a2 {</span></span><br><span class="line"><span class="undefined">    100% { opacity:0; }</span></span><br><span class="line"><span class="undefined">}</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;animation-name:a1,a2;animation-duration:1s,1s;opacity:1;color:#ffffff;&quot;</span>&gt;</span>BAS<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="&#x4E32;&#x8054;&#x52A8;&#x753B;"><a href="#&#x4E32;&#x8054;&#x52A8;&#x753B;" class="headerlink" title="&#x4E32;&#x8054;&#x52A8;&#x753B;"></a>&#x4E32;&#x8054;&#x52A8;&#x753B;</h4><p>&#x4F7F;&#x7528; animation-delay &#x9519;&#x5F00;&#x4E0D;&#x540C;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5B9E;&#x73B0;&#x4E32;&#x8054;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def text a {</span><br><span class="line">  content = &quot;BAS&quot;</span><br><span class="line">}</span><br><span class="line">set a {</span><br><span class="line">    color = 0x000000</span><br><span class="line">} 1s</span><br><span class="line">then set a {</span><br><span class="line">    alpha = 0</span><br><span class="line">} 1s</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">@keyframes a1 {</span></span><br><span class="line"><span class="undefined">    100% { color:#000000; }</span></span><br><span class="line"><span class="undefined">}</span></span><br><span class="line"><span class="undefined">@keyframes a2 {</span></span><br><span class="line"><span class="undefined">    0% { color:#000000; }</span></span><br><span class="line"><span class="undefined">    100% { color:#000000;opacity:0; }</span></span><br><span class="line"><span class="undefined">}</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;animation-name:a1,a2;animation-duration:1s,1s;animation-delay:0s,1s;opacity:1;color:#ffffff;&quot;</span>&gt;</span>BAS<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x72B6;&#x6001;&#x63A7;&#x5236;"><a href="#&#x72B6;&#x6001;&#x63A7;&#x5236;" class="headerlink" title="&#x72B6;&#x6001;&#x63A7;&#x5236;"></a>&#x72B6;&#x6001;&#x63A7;&#x5236;</h3><h4 id="&#x5F00;&#x59CB;"><a href="#&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;</h4><p>animation-play-state: running</p>
+<h4 id="&#x6682;&#x505C;"><a href="#&#x6682;&#x505C;" class="headerlink" title="&#x6682;&#x505C;"></a>&#x6682;&#x505C;</h4><p>animation-play-state: paused</p>
+<h4 id="&#x4E2D;&#x95F4;&#x72B6;&#x6001;"><a href="#&#x4E2D;&#x95F4;&#x72B6;&#x6001;" class="headerlink" title="&#x4E2D;&#x95F4;&#x72B6;&#x6001;"></a>&#x4E2D;&#x95F4;&#x72B6;&#x6001;</h4><p>&#x8BBE;&#x7F6E; animation-delay &#x4E3A;&#x8D1F;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4ECE;&#x67D0;&#x4E2A;&#x4E2D;&#x95F4;&#x72B6;&#x6001;&#x5F00;&#x59CB;&#x52A8;&#x753B;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x5F39;&#x5E55;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5BF9;&#x5E94;&#x89C6;&#x9891;&#x7684; 1s &#x5230; 5s&#xFF0C;&#x89C6;&#x9891;&#x8DF3;&#x8F6C;&#x5230; 4s &#x65F6;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5F39;&#x5E55; animation-delay &#x5C5E;&#x6027;&#x4E3A; -1s&#x3002;</p>
+<h4 id="&#x7ED3;&#x675F;"><a href="#&#x7ED3;&#x675F;" class="headerlink" title="&#x7ED3;&#x675F;"></a>&#x7ED3;&#x675F;</h4><p>&#x751F;&#x547D;&#x5468;&#x671F;&#x7ED3;&#x675F;&#x9700;&#x8981;&#x53CA;&#x65F6;&#x6E05;&#x9664;&#x5143;&#x7D20;&#xFF0C;&#x539F;&#x7406;&#x662F; animation &#x52A8;&#x753B;&#x7ED3;&#x675F;&#x4F1A;&#x89E6;&#x53D1; animationend &#x4E8B;&#x4EF6;&#xFF0C;&#x8BE5;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x65F6;&#x6E05;&#x9664;&#x6389;&#x5143;&#x7D20;&#x5373;&#x53EF;&#x3002;&#x5143;&#x7D20;&#x6CA1;&#x6709;&#x52A8;&#x753B;&#x65F6;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x7A7A;&#x52A8;&#x753B;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">@keyframes a1 {</span></span><br><span class="line"><span class="undefined">    100% { }</span></span><br><span class="line"><span class="undefined">}</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>End.</p>
+			  		
+			  		<!-- google Adsense -->
+			  		
+					
+					
+					
+					
+			    	
+					
+					<!-- google Adsense Matched content -->
+			  		
+			  	</div>
+				
+		  	</article>
+		  	
+		  	
+		  	<!-- TAGS -->
+		  	
+		  	
+		  	<!-- Categories posts -->
+		  	
+		  	
+		  	
+		  	<!-- Detailed categories  posts -->
+		  	
+		  	
+		  	
+		  	<!-- Latests -->
+		  	
+			
+		</div>
+		
+		
+		<footer id="footer">
+		
+			
+			
+			<div class="copyright-tool">
+				
+				
+				
+				<div class="copyright-title">
+					<span>
+					&copy; 2019&nbsp;J.Rucker
+					</span>
+				</div>
+				
+				<div class="copyright-license">
+					<aside>由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动. Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a>. </aside>
+				</div>
+			</div>
+			
+		</footer>
+		
+		
+	</div>
+	
+	
+  </body>
+</html>

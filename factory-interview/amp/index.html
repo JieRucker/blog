@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://jrucker.cn/factory-interview/" >
+    <title>大厂面经 - J.Rucker</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <meta property="og:title" content="大厂面经">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://jrucker.cn/factory-interview/">
+	
+		<meta property="og:image" content="/amp-dist/sample/header-sagiri.jpg">
+	
+	<meta property="og:site_name" content="J.Rucker">
+	
+		<meta property="og:description" content="&lt;blockquote&gt;&lt;p&gt;以下面试题来自腾讯、阿里、网易、饿了么、美团、拼多多、百度等等大厂综合起来常考的题目。&lt;/p&gt;&lt;/blockquote&gt;&lt;h3 id=&#34;如何写一个漂亮的简历&#34;&gt;&lt;a href=&#34;#如何写一个漂亮的简历&#34; class=&#34;headerlink&#34; title=&#34;如何写一个漂亮的简历&#34;&gt;&lt;/a&gt;如何写一个漂亮的简历&lt;/h3&gt;&lt;p&gt;简历不是一份记流水账的东西，而是让用人方了解你的亮点的。&lt;/p&gt;&lt;p&gt;平时有在做一些修改简历的收费服务，也算看过蛮多简历了。很多简历都有如下特征&lt;/p&gt;&lt;ul&gt;&lt;li&gt;喜欢说自己的特长、优点，用人方真的不关注你的性格是否阳光等等&lt;/li&gt;&lt;li&gt;个人技能能够占半页的篇幅，而且长得也都差不多&lt;/li&gt;&lt;li&gt;项目经验流水账，比如我会用这个 API 实现了某某功能&lt;/li&gt;&lt;li&gt;简历页数过多，真心看不下去&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;以上类似简历可以说用人方也看了无数份，完全抓不到你的亮点。除非你呆过大厂或者教育背景不错或者技术栈符合人家要求了，否则基本就是看运气约面试了。&lt;/p&gt;">
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="J.Rucker">
+	<meta name="twitter:url" content="https://jrucker.cn/factory-interview/">
+	<meta name="twitter:title" content="大厂面经 - J.Rucker">
+	
+		<meta name="twitter:description" content="&lt;blockquote&gt;&lt;p&gt;以下面试题来自腾讯、阿里、网易、饿了么、美团、拼多多、百度等等大厂综合起来常考的题目。&lt;/p&gt;&lt;/blockquote&gt;&lt;h3 id=&#34;如何写一个漂亮的简历&#34;&gt;&lt;a href=&#34;#如何写一个漂亮的简历&#34; class=&#34;headerlink&#34; title=&#34;如何写一个漂亮的简历&#34;&gt;&lt;/a&gt;如何写一个漂亮的简历&lt;/h3&gt;&lt;p&gt;简历不是一份记流水账的东西，而是让用人方了解你的亮点的。&lt;/p&gt;&lt;p&gt;平时有在做一些修改简历的收费服务，也算看过蛮多简历了。很多简历都有如下特征&lt;/p&gt;&lt;ul&gt;&lt;li&gt;喜欢说自己的特长、优点，用人方真的不关注你的性格是否阳光等等&lt;/li&gt;&lt;li&gt;个人技能能够占半页的篇幅，而且长得也都差不多&lt;/li&gt;&lt;li&gt;项目经验流水账，比如我会用这个 API 实现了某某功能&lt;/li&gt;&lt;li&gt;简历页数过多，真心看不下去&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;以上类似简历可以说用人方也看了无数份，完全抓不到你的亮点。除非你呆过大厂或者教育背景不错或者技术栈符合人家要求了，否则基本就是看运气约面试了。&lt;/p&gt;">
+	
+    
+    	<meta name="twitter:image" content="/amp-dist/sample/header-sagiri.jpg">
+	
+	
+	
+    
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!--
+  	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"headline": "大厂面经",
+			
+			"description": "&lt;blockquote&gt;&lt;p&gt;以下面试题来自腾讯、阿里、网易、饿了么、美团、拼多多、百度等等大厂综合起来常考的题目。&lt;/p&gt;&lt;/blockquote&gt;&lt;h3 id=&#34;如何写一个漂亮的简历&#34;&gt;&lt;a href=&#34;#如何写一个漂亮的简历&#34; class=&#34;headerlink&#34; title=&#34;如何写一个漂亮的简历&#34;&gt;&lt;/a&gt;如何写一个漂亮的简历&lt;/h3&gt;&lt;p&gt;简历不是一份记流水账的东西，而是让用人方了解你的亮点的。&lt;/p&gt;&lt;p&gt;平时有在做一些修改简历的收费服务，也算看过蛮多简历了。很多简历都有如下特征&lt;/p&gt;&lt;ul&gt;&lt;li&gt;喜欢说自己的特长、优点，用人方真的不关注你的性格是否阳光等等&lt;/li&gt;&lt;li&gt;个人技能能够占半页的篇幅，而且长得也都差不多&lt;/li&gt;&lt;li&gt;项目经验流水账，比如我会用这个 API 实现了某某功能&lt;/li&gt;&lt;li&gt;简历页数过多，真心看不下去&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;以上类似简历可以说用人方也看了无数份，完全抓不到你的亮点。除非你呆过大厂或者教育背景不错或者技术栈符合人家要求了，否则基本就是看运气约面试了。&lt;/p&gt;",
+			
+			"mainEntityOfPage":{
+			    "@type":"WebPage",
+			    "@id":"https://jrucker.cn/factory-interview/"
+			},
+			"datePublished": "2018-06-20T22:26:52.000Z",
+			"dateModified": "2019-02-17T15:20:08.662Z",
+			
+			"image": {
+				"@type": "ImageObject",
+				"url": "/amp-dist/sample/header-sagiri.jpg",
+				"width" : "1024",
+				"height" : "800"
+			},
+			
+			"author": {
+			    "@type": "Person",
+			    "name": "JRucker"
+			},
+			"publisher": {
+			    "@type": "Organization",
+			    "name": "J.Rucker"
+			    
+			    ,
+			    "logo": {
+			      "@type": "ImageObject",
+			      "url": "https://jrucker.cn/amp-dist/sample/DIYgod.jpg",
+			      "width": 600,
+			      "height": 60
+			    }
+			    
+			}
+		}
+	</script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+	
+	<style amp-custom>
+		
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+abbr {
+  cursor: help;
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+acronym {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  background: #fff;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2rem;
+  text-rendering: optimizelegibility;
+  font-family: "PingFang SC","Microsoft YaHei",Lato,sans-serif;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+figure.highlight td,
+.post .entry-content figure.highlight th {
+  border: 0;
+  padding: 0;
+}
+caption,
+table,
+td,
+th {
+  vertical-align: middle;
+}
+caption,
+td,
+th,
+.table-align-left {
+  text-align: left;
+}
+del {
+  text-decoration: line-through;
+}
+html {
+  font-size: 14px;
+}
+:root sub,
+:root sup {
+  vertical-align: baseline;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+a {
+  border-bottom: 0;
+  color: #795548;
+  text-decoration: none;
+  -webkit-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  -ms-transition: 0.7s;
+  transition: 0.7s;
+  border: 0;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+a img {
+  border: none;
+}
+a:hover {
+  -webkit-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+  color: #930e3b;
+}
+@media (min-width: 481px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 0px) and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+.clearfix:after {
+  clear: both;
+  visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.circle {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.thumbImg-w {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.thumbImg {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.__web-inspector-hide-shortcut__ {
+  visibility: hidden ;
+}
+button {
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  -webkit-border-image: initial;
+  -moz-border-image: initial;
+  -o-border-image: initial;
+  border-image: initial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+  -webkit-writing-mode: horizontal-tb;
+  -webkit-appearance: button;
+}
+.hamburger {
+  display: inline-block;
+  background-color: transparent;
+  background-image: url("data:image/svg+xmlutf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-3 -6 24 24\"><path fill=\"#4A4A4A\" d=\"M0 12h18v-2H0v2M0 7h18V5H0v2M0 0v2h18V0H0\"/></svg>");
+  background-repeat: no-repeat;
+  -webkit-background-size: 30px 24px;
+  -moz-background-size: 30px 24px;
+  background-size: 30px 24px;
+  background-position: center center;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+}
+.nav ul:after {
+  clear: both;
+  visibility: hidden;
+}
+.nav,
+.nav-icon {
+  position: relative;
+}
+.nav ul {
+  display: block;
+}
+.nav ul li {
+  display: block;
+}
+.nav ul li a {
+  display: block;
+}
+.tab {
+  outline: none;
+  position: relative;
+  color: #424242;
+  padding: 6px;
+  margin: 0 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: 0.1s ease color;
+  -webkit-transition: 0.1s ease color;
+  -moz-transition: 0.1s ease color;
+  -o-transition: 0.1s ease color;
+  -ms-transition: 0.1s ease color;
+  transition: 0.1s ease color;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+amp-sidebar {
+  width: 200px;
+}
+amp-sidebar ul {
+  padding: 10px 0;
+}
+amp-sidebar li a {
+  display: block;
+  padding: 10px 20px;
+}
+header {
+  width: 100%;
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  height: 260px;
+}
+header .header-title {
+  text-align: center;
+  width: 100%;
+  margin-top: 80px;
+}
+header .header-title a {
+  height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 1px 1px #47456d;
+  font-family: 'Sigmar One', cursive;
+}
+header .nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+header .left-nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -o-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  font-size: 20px;
+  margin-left: 0;
+  font-weight: 300;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -o-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: left;
+  width: auto;
+  font-size: 15px;
+}
+header .right {
+  font-size: 15px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+header .alt {
+  padding: 0;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -o-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.blog-title a {
+  position: relative;
+}
+button {
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  -webkit-border-image: initial;
+  -moz-border-image: initial;
+  -o-border-image: initial;
+  border-image: initial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+  -webkit-writing-mode: horizontal-tb;
+  -webkit-appearance: button;
+}
+.__web-inspector-hide-shortcut__ {
+  visibility: hidden ;
+}
+amp-sidebar {
+  text-align: center;
+  width: 130px;
+  background-color: rgba(40,42,44,.9);
+}
+amp-sidebar ul {
+  padding: 10px 0;
+}
+amp-sidebar li a {
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  padding: 10px 20px;
+}
+amp-sidebar li a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.categories-header {
+  background-color: #555;
+  padding: 0rem 0.8rem;
+}
+.categories-header a {
+  color: #fff;
+}
+.categories-header a:hover {
+  color: #fff;
+}
+.categories-header .breadcrumb ol li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+}
+.categories-header .breadcrumb ol li span {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.categories-header .breadcrumb ol li:after {
+  content: "/";
+  color: #fff;
+  display: inline-block;
+  margin: 0 0.4rem;
+}
+.categories-header .breadcrumb ol li:last-child:after {
+  content: "";
+  margin: 0;
+}
+.entry-header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.header-cap {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.title-cover {
+  background-color: #fff;
+  color: #555;
+  text-align: center;
+}
+.entry-header a {
+  color: #555;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.entry-title {
+  margin: 0;
+}
+.entry-meta-header {
+  margin: 10px 0 20px 0;
+  color: #555;
+  font-family: "PingFang SC","Microsoft YaHei",Lato,sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+.entry-meta-header .date {
+  font-family: sans-serif;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #555;
+  text-decoration: none;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #e91e63;
+}
+#container {
+  margin-left: auto;
+  margin-right: auto;
+}
+#main {
+  margin-bottom: 3em;
+  padding-left: 0;
+}
+.post {
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 40px 20px;
+}
+.entry-content {
+  font-size: 14px;
+}
+.entry-content h1 {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+.entry-content h2 span,
+.entry-content h3 span,
+.entry-content h4 span,
+.entry-content h5 span,
+.entry-content h6 span {
+  color: #98b8be;
+  font-weight: bold;
+}
+.entry-content h2,
+.entry-content h2 span {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  text-align: center;
+}
+.entry-content h2 {
+  border-bottom: 2px solid #cce4e8;
+  margin: 4.5rem 0 0.5em;
+  padding: 0.8em 0;
+}
+.entry-content h3,
+.entry-content h3 span {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-align: center;
+}
+.entry-content h3 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h4,
+.entry-content h4 span {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.entry-content h4 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h5,
+.entry-content h5 span {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+}
+.entry-content h5 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content h6,
+.entry-content h6 span {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+.entry-content h6 {
+  margin: 3.6rem 0.8rem 3rem 0.8rem;
+  padding: 0;
+}
+.entry-content p {
+  margin: 0 0 20px 0;
+}
+.entry-content p a {
+  border-bottom: 0;
+  color: #795548;
+}
+.entry-content em {
+  background-color: #f9f5d1;
+  color: #886d00;
+  font-style: normal;
+  margin: 0 2px;
+  padding: 0.4em;
+}
+.entry-content strong {
+  color: #871c1c;
+  font-style: normal;
+  margin: 0 2px;
+  padding: 0.4em;
+  background-color: #fadcdc;
+}
+.entry-content hr {
+  border: 0;
+  border-top: 3px solid #cce4e8;
+  margin: 3rem auto;
+  width: 20%;
+}
+.entry-content img,
+.entry-content video {
+  display: block;
+  height: auto;
+  margin: auto;
+  max-width: 100%;
+}
+.entry-content iframe {
+  width: 100% ;
+}
+.entry-content blockquote {
+  margin: 3rem 0.8rem;
+  padding: 1rem 1.8rem;
+  position: relative;
+  background-color: none;
+  border-left: 3px solid #98b8be;
+  font-style: italic;
+}
+.entry-content blockquote p {
+  margin: 0.5rem 0;
+}
+.entry-content blockquote blockquote {
+  border-left: none;
+}
+.entry-content .table-wrapper {
+  margin: 3rem 0.8rem;
+}
+.entry-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: auto;
+  display: block;
+  font-size: 0.85rem;
+  margin: 0 auto;
+  width: auto;
+}
+.entry-content td,
+.entry-content th {
+  line-height: 1.8em;
+  padding: 0.8rem 0.8rem;
+  font-size: 0.85rem;
+}
+.entry-content td em,
+.entry-content th em,
+.entry-content td strong,
+.entry-content th strong,
+.entry-content td a,
+.entry-content th a {
+  font-size: 0.85rem;
+}
+.entry-content td {
+  border: 1px solid #c4c4c4;
+}
+.entry-content th {
+  background-color: #ecf5f7;
+  border: 1px solid #c4c4c4;
+}
+.entry-content .table-align-center {
+  text-align: center;
+}
+.entry-content .table-align-right {
+  text-align: right;
+}
+.entry-content ul,
+.entry-content ol,
+.entry-content dl {
+  margin: 3rem 0 3rem 1.6rem;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.entry-content ul li,
+.entry-content ol li,
+.entry-content dl li {
+  line-height: 2rem;
+  position: relative;
+  padding: 0;
+}
+.entry-content ul li p,
+.entry-content ol li p,
+.entry-content dl li p {
+  line-height: 2rem;
+  margin: 0;
+}
+.entry-content ul li p:not(:first-child),
+.entry-content ol li p:not(:first-child),
+.entry-content dl li p:not(:first-child) {
+  color: #57767c;
+  margin: 0.5rem;
+}
+.entry-content ul li ul,
+.entry-content ol li ul,
+.entry-content dl li ul,
+.entry-content ul li ol,
+.entry-content ol li ol,
+.entry-content dl li ol,
+.entry-content ul li dl,
+.entry-content ol li dl,
+.entry-content dl li dl {
+  margin: 1rem;
+}
+.entry-content ul li {
+  margin: 0.4rem 0 0.4rem 0.8rem;
+}
+.entry-content ul li::after {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0.75rem;
+  left: -1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #cce4e8;
+  border-radius: 100%;
+}
+.entry-content ol {
+  counter-reset: number;
+}
+.entry-content ol li {
+  margin: 0.4rem 0 0.4rem 2rem;
+}
+.entry-content ol li p:first-child {
+  display: inline-block;
+  line-height: 1.6rem;
+  height: 1.6rem;
+}
+.entry-content ol li:before {
+  position: absolute;
+  display: inline-block;
+  float: left;
+  margin: 0 0.2rem 0 0;
+  padding: 0;
+  counter-increment: number;
+  content: counter(number);
+  left: -2.2rem;
+  top: 0.2rem;
+  background-color: #98b8be;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+}
+kbd {
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+  color: #425a5e;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  -webkit-box-shadow: 0 0 10px #e2e2e2 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: #fff;
+  border-left: 1px solid #fff;
+  border-radius: 3px;
+  border-right: 1px solid #e6e6e6;
+  border-top: 1px solid #fff;
+  font-size: 0.85rem;
+  line-height: 1rem;
+  margin: 5px;
+  padding: 6px 8px 3px;
+  text-shadow: 0 1px 0 #fff;
+  vertical-align: baseline;
+  
+}
+img.responsive-img {
+  height: auto;
+  max-width: 100%;
+}
+video.responsive-video {
+  height: auto;
+  max-width: 100%;
+}
+amp-instagram,
+amp-vimeo,
+amp-video,
+amp-youtube,
+amp-twitter,
+.soundcloud-wrapper,
+.amp-img-wrapper,
+.googleAdPost,
+.ad-footer {
+  margin: 3rem 0.8rem;
+}
+code,
+figure.highlight .code,
+pre {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+code,
+pre,
+samp {
+  font-family: Menlo, Consolas, Monaco, Consolas, monospace;
+}
+p code {
+  font-size: 14px;
+}
+code,
+pre {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  background-color: #ecf5f7;
+  color: #007e96;
+}
+code {
+  margin: 0 3px;
+  padding: 0.4em;
+}
+samp {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+}
+sub,
+sup {
+  font-size: 0.75rem;
+  line-height: 0;
+  position: relative;
+}
+sub {
+  bottom: -0.2em;
+}
+sup {
+  top: -0.5em;
+}
+pre {
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  margin: 0 3px;
+  padding: 15px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border: 0;
+  line-height: 1.3rem;
+  overflow-x: auto;
+}
+pre .addition,
+pre .css .tag,
+pre .keyword,
+pre .method,
+pre .nginx .title,
+pre .request,
+pre .status,
+pre .winutils {
+  color: #66d9ef;
+}
+pre .attr_selector,
+pre .cdata,
+pre .clojure .title,
+pre .diff .change,
+pre .important {
+  color: #9882eb;
+}
+pre .preprocessor {
+  color: #9882eb;
+}
+pre .preprocessor .keyword {
+  color: #9882eb;
+}
+pre .shebang,
+pre .special,
+pre .subst {
+  color: #9882eb;
+}
+pre .symbol {
+  color: #9882eb;
+}
+pre .symbol .string {
+  color: #9882eb;
+}
+pre .attribute,
+pre .class .title,
+pre .constant,
+pre .haskell .type,
+pre .lisp .body,
+pre .parent,
+pre .smalltalk .number,
+pre .variable {
+  color: #a6e22e;
+}
+pre .built_in,
+pre .chunk,
+pre .decorator,
+pre .id,
+pre .identifier,
+pre .literal,
+pre .localvars,
+pre .title,
+pre .vhdl,
+pre .deletion {
+  color: #f92672;
+}
+pre .command,
+pre .hexcolor,
+pre .number,
+pre .phpdoc,
+pre .regexp,
+pre .string,
+pre .tag .value,
+pre .tex .formula {
+  color: #e6db74;
+}
+pre .comment,
+pre .diff .header,
+pre .doctype,
+pre .javadoc,
+pre .lisp .string,
+pre .pi,
+pre .template_comment {
+  color: #75715e;
+  font-weight: normal;
+}
+.line {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+  color: #4d4d4c;
+}
+.line span {
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+}
+.gist {
+  background: #fff;
+  border: 1px solid color-gutter;
+  color: #f8f8f2;
+  line-height: 1.6rem;
+  margin-top: 15px;
+  overflow: auto;
+  padding: 7px 15px;
+}
+.gist .gist-file {
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0;
+  margin: 0;
+}
+.gist .gist-file .gist-data {
+  background: 0 0;
+  border-bottom: none;
+}
+.gist .gist-file .gist-data pre {
+  font-family: Menlo, Consolas, Monaco, Consolas, monospace;
+  padding: 0 ;
+}
+.gist .gist-file .gist-meta {
+  background: 0 0;
+  color: #f8f8f2;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 0;
+}
+.gist .gist-file .gist-meta a {
+  color: #f8f8f2;
+}
+.gist .gist-file .gist-meta a:visited {
+  color: #f8f8f2;
+}
+figure.highlight {
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+  background: #f9f9f9;
+  border: 1px solid color-gutter;
+  line-height: 2rem;
+  overflow: auto;
+  position: relative;
+}
+figure.highlight .code {
+  padding: 0 1em 0 1em;
+  color: #f8f8f2;
+}
+figure.highlight .gutter {
+  display: none;
+}
+figure.highlight figcaption {
+  font-size: 14px;
+  font-weight: bold;
+  color: #e9e9d6;
+  background-color: #1e282c;
+  padding: 0.6em 1em;
+}
+figure.highlight figcaption a {
+  position: absolute;
+  right: 1rem;
+}
+figure.highlight figcaption:before {
+  content: "\f121";
+  font-family: "fontawesome";
+  text-align: center;
+  display: inline-block;
+  margin-right: 0.6em;
+}
+figure.highlight pre {
+  background: 0 0;
+  border: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+figure.highlight table {
+  border-spacing: 0;
+  margin: 0;
+}
+figure.highlight th {
+  border: 0;
+  font-weight: 400;
+  padding: 0;
+}
+figure.highlight td {
+  border: 0;
+  font-size: 1.1rem;
+  padding: 0;
+}
+.entry-content .toc {
+  background: #fff;
+  padding: 0.5rem;
+  margin: 3rem 0;
+  border: 1px solid #cce4e8;
+  border-radius: 2px;
+}
+.entry-content .toc ul {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #5d8b93;
+  border-radius: 2px;
+}
+.entry-content .toc ul:first-child {
+  border-top: none;
+}
+.entry-content .toc ul ul,
+.entry-content .toc ul ol {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+.entry-content .toc ul li {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #5d8b93;
+}
+.entry-content .toc ul li:first-child {
+  border-top: none;
+}
+.entry-content .toc ul li::after,
+.entry-content .toc ul li::before {
+  content: normal;
+}
+.entry-content .toc ul li a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  padding: 1rem;
+  background-color: #3d5b61;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+.entry-content .toc ul li a:hover {
+  color: #fff;
+  background-color: #2c4145;
+}
+.entry-content .toc ul li a:before {
+  content: "\f02d";
+  font-family: "fontawesome";
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 0.8rem;
+}
+.entry-content .toc ul li ul,
+.entry-content .toc ul li ol {
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+.entry-content .toc ul li ul li a,
+.entry-content .toc ul li ol li a {
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+  font-size: 0.9rem;
+  background-color: #416167;
+}
+.entry-content .toc ul li ul li a:before,
+.entry-content .toc ul li ol li a:before {
+  content: "\f0da";
+  font-family: "fontawesome";
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 0.6rem;
+}
+.entry-content .toc ul li ul li ul li a,
+.entry-content .toc ul li ol li ul li a {
+  padding: 0.5rem 0.75rem 0.5rem 4rem;
+}
+.entry-content .toc ul li ul li ul li a:before,
+.entry-content .toc ul li ol li ul li a:before {
+  content: none;
+}
+.meta-content {
+  background-color: #fff;
+  margin: 1.5rem 0.8rem;
+  padding: 0;
+  border-top: 1px dotted #cce4e8;
+  letter-spacing: 0.05rem;
+}
+.meta-wrapper {
+  margin: 3rem 0.8rem;
+  padding: 0;
+  background-color: #fff;
+}
+h6.tag,
+h6.categories {
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.article-tag-list {
+  padding: 0;
+}
+.article-tag,
+.article-tag-list,
+.article-categories,
+.article-categories-list {
+  padding: 0;
+  margin: 0;
+}
+.article-categories {
+  margin-bottom: 1.6em;
+}
+.article-tag-list li,
+.article-categories-list li {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0.2rem 0.1rem;
+}
+.article-tag-list li a,
+.article-categories-list li a {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  background-color: #ecf5f7;
+  color: #555;
+  border-radius: 2px;
+  display: block;
+}
+.article-tag-list li a:before,
+.article-categories-list li a:before {
+  content: "#";
+}
+.article-tag-list li a:hover,
+.article-categories-list li a:hover {
+  color: #fff;
+  background-color: #555;
+}
+.widget {
+  margin: 1.5rem 0.8rem;
+  padding: 0;
+}
+.widget-h {
+  text-align: center;
+  margin: 1.6rem 0;
+}
+.widget-h h6 {
+  color: #fff;
+  background-color: #555;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.posts-list li {
+  list-style: none;
+  margin: 0.8rem 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.posts-list li .posts-list-link {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.posts-list li .posts-list-link a {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.posts-list li .posts-list-link a:hover {
+  color: #e91e63;
+}
+.posts-list li .posts-list-meta {
+  font-size: 0.7rem;
+}
+.posts-list li .flx:first-child {
+  margin: 0 1rem 0 0;
+}
+.posts-list li amp-img {
+  border-radius: 2px;
+}
+#footer {
+  background-color: #232323;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+  margin: 3rem 0 0 0;
+  padding: 0;
+}
+.site-author-info {
+  margin: 0;
+  padding: 3rem 1.6rem;
+}
+.site-author-info h6 {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #222f31;
+  padding: 0.4rem 0.8rem;
+}
+.site-author-info-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.site-author-info-wrapper .flx:first-child {
+  margin: 0 1rem 0 0;
+}
+.authorCap-wrapper {
+  -webkit-flex-grow: 3;
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  -ms-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+.authorCap {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.authorReading {
+  font-size: 0.7rem;
+}
+.site-author-desc {
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  margin: 1.4rem 0;
+}
+.copyright-tool {
+  margin: 0;
+  padding: 1.5rem 1.6rem;
+}
+.copyright-notice p {
+  font-size: 0.6rem;
+  letter-spacing: 0.05rem;
+  line-height: 1.2rem;
+  color: #8ba8ae;
+}
+.copyright-title {
+  font-size: 14px;
+  text-align: center;
+  margin: 0.8rem 0 0.4rem 0;
+}
+.copyright-license {
+  margin: 0.4rem 0 0.8rem 0;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.copyright-license a {
+  color: #e6e6e6;
+  font-size: 0.7rem;
+}
+.copyright-license a:hover {
+  color: #b3b3b3;
+}
+.sns-link {
+  margin: 0;
+  text-align: center;
+}
+.sns-link a {
+  display: inline-block;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0.6rem;
+  margin: 0 0.1rem;
+  background-color: #222f31;
+  color: #fff;
+  border-radius: 4px;
+}
+.sns-link a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.footer-menu {
+  padding: 1.5rem 0.8rem;
+  border-top: 1px solid #384b4f;
+}
+.footer-menu ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu ul li a {
+  display: block;
+  padding: 0.6rem;
+  margin: 0.2rem 1.6rem;
+  font-size: 14px;
+  color: #fff;
+  background-color: #222f31;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+.footer-menu ul li a:hover {
+  color: #ccc;
+  background-color: #030404;
+}
+.social-share {
+  margin: 1.5rem 0.8rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.social-share amp-social-share,
+.social-share .sbtn {
+  margin: 5px;
+}
+.sbtn {
+  padding: 0;
+  width: 4rem;
+  height: 3rem;
+  line-height: 3rem;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.sbtn:hover {
+  color: #fff;
+}
+.tw {
+  background-color: #1cafe8;
+}
+.tw:hover {
+  background-color: #0f6b8f;
+}
+.fb {
+  background-color: #4f677f;
+}
+.fb:hover {
+  background-color: #283440;
+}
+.ht {
+  background-color: #35acda;
+}
+.ht:hover {
+  background-color: #1a6e8f;
+}
+.gp {
+  background-color: #d56153;
+}
+.gp:hover {
+  background-color: #9c3326;
+}
+.tb {
+  background-color: #465f79;
+}
+.tb:hover {
+  background-color: #212c38;
+}
+.icon-hatena:before {
+  content: "B";
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+#totop {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.6rem;
+  font-size: 1.2rem;
+  z-index: 995;
+}
+#totop a {
+  background: #97dffd;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 5px;
+}
+#totop a:before {
+  content: "\f062";
+  font-family: "fontawesome";
+  font-size: 1.2rem;
+}
+#totop a:hover {
+  text-decoration: none;
+  background: #5d8b93;
+  color: #fff;
+  line-height: 2.3em;
+}
+@media (min-width: 800px) {
+  .title-cover,
+  .entry-content,
+  .categories,
+  .meta-content,
+  .site-author-info {
+    width: 780px;
+    margin: 0 auto;
+  }
+  .nav-container {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 0px) and (max-width: 480px) {
+  .site-author-info-wrapper {
+    display: block;
+  }
+  .gravatar-area {
+    text-align: center;
+  }
+  .gravatar-area amp-img {
+    display: inline-block;
+  }
+  .entry-content td,
+  .entry-content th {
+    line-height: 1.8em;
+    padding: 0.6rem 0.6rem;
+    font-size: 0.5rem;
+  }
+  .entry-content td em,
+  .entry-content th em,
+  .entry-content td strong,
+  .entry-content th strong,
+  .entry-content td a,
+  .entry-content th a {
+    font-size: 0.5rem;
+  }
+}
+
+		header {
+			background-image: url(/amp-dist/sample/header-sagiri.jpg);
+		}
+	</style>
+	
+  </head>
+  <body>
+  	
+  	
+  	<!-- google analytics -->
+  	
+  	
+  	
+  	<!-- menu -->
+  	<header>
+  		<div class="nav-container">
+	  		<div class="left-nav">
+	  			<div class="header-title">
+	  				<a href="/">J.Rucker</a>
+	  			</div>
+	  		</div>
+	  		
+		  		<div class="right alt">
+		  			<button on='tap:sidebar.toggle' class="tab hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+		  		</div>
+	  		
+	  	</div>
+    </header>
+  	
+  	
+  	<!-- sidebar -->
+  	
+  	<amp-sidebar id='sidebar' layout="nodisplay" side="left">
+      <ul>
+      	<!--
+      		To use the menu, add the menu option of _config.yml.
+      		
+      		generator_amp:
+      		  theme:
+			    menu:
+			      diary: /categories/diary/
+			      gallery: /categories/archive-gallery
+			      archives: /archives
+      	-->
+			
+				<li><a href="/">首页</a></li>
+			
+				<li><a href="/archives/">归档</a></li>
+			
+				<li><a href="/lab/">实验室</a></li>
+			
+				<li><a href="/friends/">伙伴</a></li>
+			
+				<li><a href="/about/">关于</a></li>
+			
+      </ul>
+    </amp-sidebar>
+  	
+  	
+  	<!-- container -->
+  	<div id="container">
+	  	<div id="main">
+		    <article id="post-factory-interview" class="post">
+		    
+		    	<!-- entry title -->
+				<div class="title-cover">
+					<div class="entry-header">
+			            <div class="header-cap flx">
+							
+							  <h1 class="article-title entry-title" itemprop="name">
+							    <a href="https://jrucker.cn/factory-interview/" target="_blank" itemprop="url">大厂面经</a>
+							  </h1>
+							
+						</div>
+					</div>
+					
+					<!-- datePublished -->
+					<div class="entry-meta-header">
+						<span class="meta-elements date">
+							<span class="fa fa-calendar-o"></span>
+							<time datetime="2018-06-20" itemprop="datePublished">2018.06.20</time>
+						</span>
+						
+						<span class="meta-elements category">
+							<span class="post-meta-divider">•</span>
+							<span class="fa fa-folder-o"></span>
+							<span class="post-meta-item-text">分类于</span>
+							<a href="/categories/面试集/">面试集</a>
+						</span>
+						
+					</div>
+				</div>
+				
+				
+				
+				<!-- entry content -->
+			    <div class="entry-content ecp">
+			    	<!-- social share button -->
+			    	
+			    	
+			    	
+			    	<!-- content -->
+			  		<blockquote><p>&#x4EE5;&#x4E0B;&#x9762;&#x8BD5;&#x9898;&#x6765;&#x81EA;&#x817E;&#x8BAF;&#x3001;&#x963F;&#x91CC;&#x3001;&#x7F51;&#x6613;&#x3001;&#x997F;&#x4E86;&#x4E48;&#x3001;&#x7F8E;&#x56E2;&#x3001;&#x62FC;&#x591A;&#x591A;&#x3001;&#x767E;&#x5EA6;&#x7B49;&#x7B49;&#x5927;&#x5382;&#x7EFC;&#x5408;&#x8D77;&#x6765;&#x5E38;&#x8003;&#x7684;&#x9898;&#x76EE;&#x3002;</p></blockquote><h3 id="&#x5982;&#x4F55;&#x5199;&#x4E00;&#x4E2A;&#x6F02;&#x4EAE;&#x7684;&#x7B80;&#x5386;"><a href="#&#x5982;&#x4F55;&#x5199;&#x4E00;&#x4E2A;&#x6F02;&#x4EAE;&#x7684;&#x7B80;&#x5386;" class="headerlink" title="&#x5982;&#x4F55;&#x5199;&#x4E00;&#x4E2A;&#x6F02;&#x4EAE;&#x7684;&#x7B80;&#x5386;"></a>&#x5982;&#x4F55;&#x5199;&#x4E00;&#x4E2A;&#x6F02;&#x4EAE;&#x7684;&#x7B80;&#x5386;</h3><p>&#x7B80;&#x5386;&#x4E0D;&#x662F;&#x4E00;&#x4EFD;&#x8BB0;&#x6D41;&#x6C34;&#x8D26;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x800C;&#x662F;&#x8BA9;&#x7528;&#x4EBA;&#x65B9;&#x4E86;&#x89E3;&#x4F60;&#x7684;&#x4EAE;&#x70B9;&#x7684;&#x3002;</p><p>&#x5E73;&#x65F6;&#x6709;&#x5728;&#x505A;&#x4E00;&#x4E9B;&#x4FEE;&#x6539;&#x7B80;&#x5386;&#x7684;&#x6536;&#x8D39;&#x670D;&#x52A1;&#xFF0C;&#x4E5F;&#x7B97;&#x770B;&#x8FC7;&#x86EE;&#x591A;&#x7B80;&#x5386;&#x4E86;&#x3002;&#x5F88;&#x591A;&#x7B80;&#x5386;&#x90FD;&#x6709;&#x5982;&#x4E0B;&#x7279;&#x5F81;</p><ul><li>&#x559C;&#x6B22;&#x8BF4;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x957F;&#x3001;&#x4F18;&#x70B9;&#xFF0C;&#x7528;&#x4EBA;&#x65B9;&#x771F;&#x7684;&#x4E0D;&#x5173;&#x6CE8;&#x4F60;&#x7684;&#x6027;&#x683C;&#x662F;&#x5426;&#x9633;&#x5149;&#x7B49;&#x7B49;</li><li>&#x4E2A;&#x4EBA;&#x6280;&#x80FD;&#x80FD;&#x591F;&#x5360;&#x534A;&#x9875;&#x7684;&#x7BC7;&#x5E45;&#xFF0C;&#x800C;&#x4E14;&#x957F;&#x5F97;&#x4E5F;&#x90FD;&#x5DEE;&#x4E0D;&#x591A;</li><li>&#x9879;&#x76EE;&#x7ECF;&#x9A8C;&#x6D41;&#x6C34;&#x8D26;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4F1A;&#x7528;&#x8FD9;&#x4E2A; API &#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x67D0;&#x529F;&#x80FD;</li><li>&#x7B80;&#x5386;&#x9875;&#x6570;&#x8FC7;&#x591A;&#xFF0C;&#x771F;&#x5FC3;&#x770B;&#x4E0D;&#x4E0B;&#x53BB;</li></ul><p>&#x4EE5;&#x4E0A;&#x7C7B;&#x4F3C;&#x7B80;&#x5386;&#x53EF;&#x4EE5;&#x8BF4;&#x7528;&#x4EBA;&#x65B9;&#x4E5F;&#x770B;&#x4E86;&#x65E0;&#x6570;&#x4EFD;&#xFF0C;&#x5B8C;&#x5168;&#x6293;&#x4E0D;&#x5230;&#x4F60;&#x7684;&#x4EAE;&#x70B9;&#x3002;&#x9664;&#x975E;&#x4F60;&#x5446;&#x8FC7;&#x5927;&#x5382;&#x6216;&#x8005;&#x6559;&#x80B2;&#x80CC;&#x666F;&#x4E0D;&#x9519;&#x6216;&#x8005;&#x6280;&#x672F;&#x6808;&#x7B26;&#x5408;&#x4EBA;&#x5BB6;&#x8981;&#x6C42;&#x4E86;&#xFF0C;&#x5426;&#x5219;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x770B;&#x8FD0;&#x6C14;&#x7EA6;&#x9762;&#x8BD5;&#x4E86;&#x3002;</p><a id="more"></a><p>&#x4FEE;&#x6539;&#x7B80;&#x5386;&#x7684;&#x610F;&#x89C1;&#xFF1A;</p><p>&#x7B80;&#x5386;&#x9875;&#x6570;&#x63A7;&#x5236;&#x5728; 2 &#x9875;&#x4EE5;&#x4E0B;</p><ul><li>&#x6280;&#x672F;&#x540D;&#x8BCD;&#x6CE8;&#x610F;&#x5927;&#x5C0F;&#x5199;</li><li>&#x7A81;&#x51FA;&#x4E2A;&#x4EBA;&#x4EAE;&#x70B9;&#xFF0C;&#x6269;&#x5145;&#x5185;&#x5BB9;&#x3002;&#x6BD4;&#x5982;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5982;&#x4F55;&#x627E;&#x5230; Bug&#xFF0C;&#x89E3;&#x51B3; Bug &#x7684;&#x8FC7;&#x7A0B;&#xFF1B;&#x6BD4;&#x5982;&#x5982;&#x4F55;&#x53D1;&#x73B0;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x6700;&#x7EC8;&#x63D0;&#x5347;&#x4E86;&#x591A;&#x5C11;&#x6027;&#x80FD;&#xFF1B;&#x6BD4;&#x5982;&#x4E3A;&#x4F55;&#x5982;&#x6B64;&#x9009;&#x578B;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x8F83;&#x5176;&#x4ED6;&#x6709;&#x4EC0;&#x4E48;&#x4F18;&#x70B9;&#x7B49;&#x7B49;&#x3002;&#x603B;&#x4F53;&#x601D;&#x8DEF;&#x5C31;&#x662F;&#x4E0D;&#x5199;&#x6D41;&#x6C34;&#x8D26;&#xFF0C;&#x7A81;&#x51FA;&#x4F60;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5177;&#x6709;&#x4E0D;&#x9519;&#x7684;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x80FD;&#x529B;&#x548C;&#x72EC;&#x7ACB;&#x601D;&#x8003;&#x7684;&#x80FD;&#x529B;&#x3002;</li><li>&#x659F;&#x914C;&#x719F;&#x6089;&#x3001;&#x7CBE;&#x901A;&#x7B49;&#x5B57;&#x773C;&#xFF0C;&#x4E0D;&#x8981;&#x7ED9;&#x81EA;&#x5DF1;&#x6316;&#x5751;</li><li>&#x786E;&#x4FDD;&#x6BCF;&#x4E00;&#x4E2A;&#x5199;&#x4E0A;&#x53BB;&#x7684;&#x6280;&#x672F;&#x70B9;&#x81EA;&#x5DF1;&#x90FD;&#x80FD;&#x8BF4;&#x51FA;&#x70B9;&#x4EC0;&#x4E48;&#xFF0C;&#x675C;&#x7EDD;&#x9762;&#x8BD5;&#x5B98;&#x95EE;&#x4F60;&#x4E00;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#xFF0C;&#x4F60;&#x53EA;&#x80FD;&#x7B54;&#x51FA;&#x4F1A;&#x7528; API &#x8FD9;&#x79CD;&#x51CF;&#x5206;&#x7684;&#x60C5;&#x51B5;</li></ul><p>&#x505A;&#x5230;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6295;&#x9012;&#x7B80;&#x5386;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x52A0;&#x4E0A;&#x4E00;&#x4EFD;&#x6C42;&#x804C;&#x4FE1;&#xFF0C;&#x5BF9;&#x4F60;&#x7684;&#x6C42;&#x804C;&#x4E4B;&#x8DEF;&#x76F8;&#x4FE1;&#x80FD;&#x5E2E;&#x4E0A;&#x5F88;&#x591A;&#x5FD9;&#x3002;</p><h3 id="JS-&#x76F8;&#x5173;"><a href="#JS-&#x76F8;&#x5173;" class="headerlink" title="JS &#x76F8;&#x5173;"></a>JS &#x76F8;&#x5173;</h3><p><strong>&#x8C08;&#x8C08;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1F;</strong></p><p>&#x5F53;&#x6267;&#x884C; JS &#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x53EA;&#x8981;&#x4EE3;&#x7801;&#x4E0D;&#x662F;&#x5199;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x5168;&#x5C40;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x4EA7;&#x751F;&#x51FD;&#x6570;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x53EA;&#x6B64;&#x4E24;&#x79CD;&#x6267;&#x884C;&#x73AF;&#x5883;&#x3002;</p><p>&#x63A5;&#x4E0B;&#x6765;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E2A;&#x8001;&#x751F;&#x5E38;&#x8C08;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;<code>var</code></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b() <span class="comment">// call b</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&apos;Hello world&apos;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;call b&apos;</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x60F3;&#x5FC5;&#x4EE5;&#x4E0A;&#x7684;&#x8F93;&#x51FA;&#x5927;&#x5BB6;&#x80AF;&#x5B9A;&#x90FD;&#x5DF2;&#x7ECF;&#x660E;&#x767D;&#x4E86;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x51FD;&#x6570;&#x548C;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x7684;&#x539F;&#x56E0;&#x3002;&#x901A;&#x5E38;&#x63D0;&#x5347;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x8BF4;&#x5C06;&#x58F0;&#x660E;&#x7684;&#x4EE3;&#x7801;&#x79FB;&#x52A8;&#x5230;&#x4E86;&#x9876;&#x90E8;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x9519;&#x8BEF;&#xFF0C;&#x4FBF;&#x4E8E;&#x5927;&#x5BB6;&#x7406;&#x89E3;&#x3002;&#x4F46;&#x662F;&#x66F4;&#x51C6;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x5E94;&#x8BE5;&#x662F;&#xFF1A;&#x5728;&#x751F;&#x6210;&#x6267;&#x884C;&#x73AF;&#x5883;&#x65F6;&#xFF0C;&#x4F1A;&#x6709;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x662F;&#x521B;&#x5EFA;&#x7684;&#x9636;&#x6BB5;&#xFF0C;JS &#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x627E;&#x51FA;&#x9700;&#x8981;&#x63D0;&#x5347;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x7ED9;&#x4ED6;&#x4EEC;&#x63D0;&#x524D;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5F00;&#x8F9F;&#x597D;&#x7A7A;&#x95F4;&#xFF0C;&#x51FD;&#x6570;&#x7684;&#x8BDD;&#x4F1A;&#x5C06;&#x6574;&#x4E2A;&#x51FD;&#x6570;&#x5B58;&#x5165;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF;&#x53EA;&#x58F0;&#x660E;&#x5E76;&#x4E14;&#x8D4B;&#x503C;&#x4E3A; undefined&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x63D0;&#x524D;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x5728;&#x63D0;&#x5347;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#x4F1A;&#x8986;&#x76D6;&#x4E0A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x51FD;&#x6570;&#x4F18;&#x5148;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">b() <span class="comment">// call b second</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;call b fist&apos;</span>)</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;call b second&apos;</span>)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&apos;Hello world&apos;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>var</code> &#x4F1A;&#x4EA7;&#x751F;&#x5F88;&#x591A;&#x9519;&#x8BEF;&#xFF0C;&#x6240;&#x4EE5;&#x5728; ES6&#x4E2D;&#x5F15;&#x5165;&#x4E86; <code>let</code>&#x3002;<code>let</code> &#x4E0D;&#x80FD;&#x5728;&#x58F0;&#x660E;&#x524D;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x5E38;&#x8BF4;&#x7684; <code>let</code> &#x4E0D;&#x4F1A;&#x63D0;&#x5347;&#xFF0C;<code>let</code> &#x63D0;&#x5347;&#x4E86;&#xFF0C;&#x5728;&#x7B2C;&#x4E00;&#x9636;&#x6BB5;&#x5185;&#x5B58;&#x4E5F;&#x5DF2;&#x7ECF;&#x4E3A;&#x4ED6;&#x5F00;&#x8F9F;&#x597D;&#x4E86;&#x7A7A;&#x95F4;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x58F0;&#x660E;&#x7684;&#x7279;&#x6027;&#x5BFC;&#x81F4;&#x4E86;&#x5E76;&#x4E0D;&#x80FD;&#x5728;&#x58F0;&#x660E;&#x524D;&#x4F7F;&#x7528;&#x3002;</p>
+<p><strong>bind&#x3001;call&#x3001;apply &#x533A;&#x522B;</strong></p>
+<p>&#x9996;&#x5148;&#x8BF4;&#x4E0B;&#x524D;&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p><code>call</code> &#x548C; <code>apply</code> &#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6539;&#x53D8; <code>this</code> &#x7684;&#x6307;&#x5411;&#x3002;&#x4F5C;&#x7528;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x4F20;&#x53C2;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5916;&#xFF0C;<code>call</code> &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5217;&#x8868;&#xFF0C;<code>apply</code> &#x53EA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#x3002;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = {</span><br><span class="line">    value: <span class="number">1</span></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">name, age</span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">    <span class="built_in">console</span>.log(age)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">}</span><br><span class="line">getValue.call(a, <span class="string">&apos;yck&apos;</span>, <span class="string">&apos;24&apos;</span>)</span><br><span class="line">getValue.apply(a, [<span class="string">&apos;yck&apos;</span>, <span class="string">&apos;24&apos;</span>])</span><br></pre></td></tr></tbody></table></figure>
+<p><code>bind</code> &#x548C;&#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x4E5F;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>bind</code> &#x5B9E;&#x73B0;&#x67EF;&#x91CC;&#x5316;&#x3002;</p>
+<p><strong>&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; bind &#x51FD;&#x6570;</strong></p>
+<p>&#x5BF9;&#x4E8E;&#x5B9E;&#x73B0;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x51E0;&#x4E2A;&#x65B9;&#x9762;&#x601D;&#x8003;</p>
+<ul>
+<li>&#x4E0D;&#x4F20;&#x5165;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x9ED8;&#x8BA4;&#x4E3A; <code>window</code></li>
+<li>&#x6539;&#x53D8;&#x4E86; this &#x6307;&#x5411;&#xFF0C;&#x8BA9;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#x3002;&#x90A3;&#x4E48;&#x601D;&#x8DEF;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x53D8;&#x6210;&#x7ED9;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6267;&#x884C;&#x5B8C;&#x4EE5;&#x540E;&#x5220;&#x9664;&#xFF1F;</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">&apos;function&apos;</span>) {</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&apos;Error&apos;</span>)</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">var</span> _this = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> args = [...arguments].slice(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// &#x56E0;&#x4E3A;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5; new F()&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5224;&#x65AD;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> F) {</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> _this(...args, ...arguments)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> _this.apply(context, args.concat(...arguments))</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; call &#x51FD;&#x6570;</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> context = context || <span class="built_in">window</span></span><br><span class="line">  <span class="comment">// &#x7ED9; context &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;</span></span><br><span class="line">  <span class="comment">// getValue.call(a, &apos;yck&apos;, &apos;24&apos;) =&gt; a.fn = getValue</span></span><br><span class="line">  context.fn = <span class="keyword">this</span></span><br><span class="line">  <span class="comment">// &#x5C06; context &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#x53D6;&#x51FA;&#x6765;</span></span><br><span class="line">  <span class="keyword">var</span> args = [...arguments].slice(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// getValue.call(a, &apos;yck&apos;, &apos;24&apos;) =&gt; a.fn(&apos;yck&apos;, &apos;24&apos;)</span></span><br><span class="line">  <span class="keyword">var</span> result = context.fn(...args)</span><br><span class="line">  <span class="comment">// &#x5220;&#x9664; fn</span></span><br><span class="line">  <span class="keyword">delete</span> context.fn</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; apply &#x51FD;&#x6570;</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> context = context || <span class="built_in">window</span></span><br><span class="line">  context.fn = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> result</span><br><span class="line">  <span class="comment">// &#x9700;&#x8981;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x50A8;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;</span></span><br><span class="line">  <span class="comment">// &#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x5C06;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5C55;&#x5F00;</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>[<span class="number">1</span>]) {</span><br><span class="line">    result = context.fn(...arguments[<span class="number">1</span>])</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    result = context.fn()</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span> context.fn</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>&#x7B80;&#x5355;&#x8BF4;&#x4E0B;&#x539F;&#x578B;&#x94FE;&#xFF1F;</strong></p>
+<div class="amp-img-wrapper"><amp-img src="/images/factory-interview-fold/chartlet1.png" width="488" height="590" layout="responsive"></amp-img></div>
+<p>&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x6709; <code>prototype</code> &#x5C5E;&#x6027;&#xFF0C;&#x9664;&#x4E86; <code>Function.prototype.bind()</code>&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x539F;&#x578B;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x6709; <code>__proto__</code> &#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x4E86;&#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x3002;&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x4E86; <code>[[prototype]]</code>&#xFF0C;&#x4F46;&#x662F; <code>[[prototype]]</code> &#x662F;&#x5185;&#x90E8;&#x5C5E;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528; <code>_proto_</code> &#x6765;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>__proto__</code> &#x6765;&#x5BFB;&#x627E;&#x4E0D;&#x5C5E;&#x4E8E;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#xFF0C;<code>__proto__</code> &#x5C06;&#x5BF9;&#x8C61;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x7EC4;&#x6210;&#x4E86;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x4E86;&#x89E3;&#x539F;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB; <a href="https://github.com/KieSun/Blog/issues/2" target="_blank" rel="noopener">&#x6DF1;&#x5EA6;&#x89E3;&#x6790;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x96BE;&#x70B9;</a>&#x3002;</p>
+<p><strong>&#x600E;&#x4E48;&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF1F;</strong></p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>Object.prototype.toString.call(xx)</code>&#x3002;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7C7B;&#x4F3C; <code>[object Type]</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><code>instanceof</code> &#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x7684;&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x4E3A;&#x5185;&#x90E8;&#x673A;&#x5236;&#x662F;&#x901A;&#x8FC7;&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x94FE;&#x4E2D;&#x662F;&#x4E0D;&#x662F;&#x80FD;&#x627E;&#x5230;&#x7C7B;&#x578B;&#x7684; <code>prototype</code>&#x3002;</li>
+</ul>
+<p><strong>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7684;&#x7279;&#x70B9;</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        	<span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a()()())</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x5176;&#x5B9E;&#x662F;&#x6CA1;&#x6709; <code>this</code> &#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x7684; <code>this</code> &#x53EA;&#x53D6;&#x51B3;&#x4E8E;&#x4ED6;&#x5916;&#x9762;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4E0D;&#x662F;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x7684; <code>this</code>&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x8C03;&#x7528; <code>a</code> &#x7B26;&#x5408;&#x524D;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x60C5;&#x51B5;&#xFF0C;&#x6240;&#x4EE5; <code>this</code> &#x662F; <code>window</code>&#x3002;&#x5E76;&#x4E14; <code>this</code> &#x4E00;&#x65E6;&#x7ED1;&#x5B9A;&#x4E86;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x6539;&#x53D8;&#x3002;</p>
+<p><strong>This</strong></p>
+<p><code>this</code> &#x662F;&#x5F88;&#x591A;&#x4EBA;&#x4F1A;&#x6DF7;&#x6DC6;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x5B9E;&#x4ED6;&#x4E00;&#x70B9;&#x90FD;&#x4E0D;&#x96BE;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x51E0;&#x4E2A;&#x89C4;&#x5219;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	foo: foo</span><br><span class="line">}</span><br><span class="line">obj.foo()</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0A;&#x4E24;&#x8005;&#x60C5;&#x51B5; `this` &#x53EA;&#x4F9D;&#x8D56;&#x4E8E;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x524D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x7B2C;&#x4E8C;&#x4E2A;&#x60C5;&#x51B5;&#x5927;&#x4E8E;&#x7B2C;&#x4E00;&#x4E2A;&#x60C5;&#x51B5;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x662F;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#x7684;&#xFF0C;`this` &#x53EA;&#x4F1A;&#x7ED1;&#x5B9A;&#x5728; `c` &#x4E0A;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x4EFB;&#x4F55;&#x65B9;&#x5F0F;&#x4FEE;&#x6539; `this` &#x6307;&#x5411;</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> foo()</span><br><span class="line">c.a = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(c.a)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x8FD8;&#x6709;&#x79CD;&#x5C31;&#x662F;&#x5229;&#x7528; call&#xFF0C;apply&#xFF0C;bind &#x6539;&#x53D8; this&#xFF0C;&#x8FD9;&#x4E2A;&#x4F18;&#x5148;&#x7EA7;&#x4EC5;&#x6B21;&#x4E8E; new</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>async&#x3001;await &#x4F18;&#x7F3A;&#x70B9;</strong></p>
+<p><code>async</code> &#x548C; <code>await</code> &#x76F8;&#x6BD4;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>Promise</code> &#x6765;&#x8BF4;&#xFF0C;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#x5904;&#x7406; <code>then</code> &#x7684;&#x8C03;&#x7528;&#x94FE;&#xFF0C;&#x80FD;&#x591F;&#x66F4;&#x6E05;&#x6670;&#x51C6;&#x786E;&#x7684;&#x5199;&#x51FA;&#x4EE3;&#x7801;&#x3002;&#x7F3A;&#x70B9;&#x5728;&#x4E8E;&#x6EE5;&#x7528; <code>await</code> &#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A; <code>await</code> &#x4F1A;&#x963B;&#x585E;&#x4EE3;&#x7801;&#xFF0C;&#x4E5F;&#x8BB8;&#x4E4B;&#x540E;&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x5E76;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x524D;&#x8005;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x524D;&#x8005;&#x5B8C;&#x6210;&#xFF0C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x5931;&#x53BB;&#x4E86;&#x5E76;&#x53D1;&#x6027;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; <code>await</code> &#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">async</span> () =&gt; {</span><br><span class="line">  a = a + <span class="keyword">await</span> <span class="number">10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;2&apos;</span>, a) <span class="comment">// -&gt; &apos;2&apos; 10</span></span><br><span class="line">  a = (<span class="keyword">await</span> <span class="number">10</span>) + a</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;3&apos;</span>, a) <span class="comment">// -&gt; &apos;3&apos; 20</span></span><br><span class="line">}</span><br><span class="line">b()</span><br><span class="line">a++</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&apos;1&apos;</span>, a) <span class="comment">// -&gt; &apos;1&apos; 1</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x7591;&#x60D1;&#xFF0C;&#x8FD9;&#x91CC;&#x8BF4;&#x660E;&#x4E0B;&#x539F;&#x7406;</p>
+<ul>
+<li>&#x9996;&#x5148;&#x51FD;&#x6570; <code>b</code> &#x5148;&#x6267;&#x884C;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x5230; <code>await 10</code> &#x4E4B;&#x524D;&#x53D8;&#x91CF; <code>a</code> &#x8FD8;&#x662F; <code>0</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5728; <code>await</code> &#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x4E86; <code>generators</code> &#xFF0C;<code>generators</code> &#x4F1A;&#x4FDD;&#x7559;&#x5806;&#x6808;&#x4E2D;&#x4E1C;&#x897F;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x65F6;&#x5019; <code>a = 0</code> &#x88AB;&#x4FDD;&#x5B58;&#x4E86;&#x4E0B;&#x6765;</li>
+<li>&#x56E0;&#x4E3A; <code>await</code> &#x662F;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x9047;&#x5230;<code>await</code>&#x5C31;&#x4F1A;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>pending</code>&#x72B6;&#x6001;&#x7684;<code>Promise</code>&#x5BF9;&#x8C61;&#xFF0C;&#x6682;&#x65F6;&#x8FD4;&#x56DE;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x63A7;&#x5236;&#x6743;&#xFF0C;&#x4F7F;&#x5F97;&#x51FD;&#x6570;&#x5916;&#x7684;&#x4EE3;&#x7801;&#x5F97;&#x4EE5;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x5148;&#x6267;&#x884C; <code>console.log(&apos;1&apos;, a)</code></li>
+<li>&#x8FD9;&#x65F6;&#x5019;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x5C06;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#x7684;&#x503C;&#x62FF;&#x51FA;&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x65F6;&#x5019; <code>a = 10</code></li>
+<li>&#x7136;&#x540E;&#x540E;&#x9762;&#x5C31;&#x662F;&#x5E38;&#x89C4;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x4E86;</li>
+</ul>
+<p><strong>generator &#x539F;&#x7406;</strong></p>
+<p>Generator &#x662F; ES6 &#x4E2D;&#x65B0;&#x589E;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x548C; Promise &#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4F7F;&#x7528; * &#x8868;&#x793A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; Generator &#x51FD;&#x6570;</span></span><br><span class="line"><span class="comment">// &#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; yield &#x6682;&#x505C;&#x4EE3;&#x7801;</span></span><br><span class="line"><span class="comment">// &#x901A;&#x8FC7;&#x8C03;&#x7528; next &#x6062;&#x590D;&#x6267;&#x884C;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">let</span> b = test();</span><br><span class="line"><span class="built_in">console</span>.log(b.next()); <span class="comment">// &gt;  { value: 2, done: false }</span></span><br><span class="line"><span class="built_in">console</span>.log(b.next()); <span class="comment">// &gt;  { value: 3, done: false }</span></span><br><span class="line"><span class="built_in">console</span>.log(b.next()); <span class="comment">// &gt;  { value: undefined, done: true }</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4ECE;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x52A0;&#x4E0A; <code>*</code> &#x7684;&#x51FD;&#x6570;&#x6267;&#x884C;&#x540E;&#x62E5;&#x6709;&#x4E86; <code>next</code> &#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x51FD;&#x6570;&#x6267;&#x884C;&#x540E;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x6BCF;&#x6B21;&#x8C03;&#x7528; <code>next</code> &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x88AB;&#x6682;&#x505C;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4EE5;&#x4E0B;&#x662F; <code>Generator</code> &#x51FD;&#x6570;&#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0;</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cb &#x4E5F;&#x5C31;&#x662F;&#x7F16;&#x8BD1;&#x8FC7;&#x7684; test &#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generator</span>(<span class="params">cb</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> object = {</span><br><span class="line">      next: <span class="number">0</span>,</span><br><span class="line">      stop: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">      next: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> ret = cb(object);</span><br><span class="line">        <span class="keyword">if</span> (ret === <span class="literal">undefined</span>) <span class="keyword">return</span> { <span class="attr">value</span>: <span class="literal">undefined</span>, <span class="attr">done</span>: <span class="literal">true</span> };</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">          value: ret,</span><br><span class="line">          done: <span class="literal">false</span></span><br><span class="line">        };</span><br><span class="line">      }</span><br><span class="line">    };</span><br><span class="line">  })();</span><br><span class="line">}</span><br><span class="line"><span class="comment">// &#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; babel &#x7F16;&#x8BD1;&#x540E;&#x53EF;&#x4EE5;&#x53D1;&#x73B0; test &#x51FD;&#x6570;&#x53D8;&#x6210;&#x4E86;&#x8FD9;&#x6837;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  <span class="keyword">return</span> generator(<span class="function"><span class="keyword">function</span>(<span class="params">_context</span>) </span>{</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) {</span><br><span class="line">      <span class="keyword">switch</span> ((_context.prev = _context.next)) {</span><br><span class="line">        <span class="comment">// &#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x901A;&#x8FC7; yield &#x5C06;&#x4EE3;&#x7801;&#x5206;&#x5272;&#x6210;&#x51E0;&#x5757;</span></span><br><span class="line">        <span class="comment">// &#x6BCF;&#x6B21;&#x6267;&#x884C; next &#x51FD;&#x6570;&#x5C31;&#x6267;&#x884C;&#x4E00;&#x5757;&#x4EE3;&#x7801;</span></span><br><span class="line">        <span class="comment">// &#x5E76;&#x4E14;&#x8868;&#x660E;&#x4E0B;&#x6B21;&#x9700;&#x8981;&#x6267;&#x884C;&#x54EA;&#x5757;&#x4EE3;&#x7801;</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">          a = <span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line">          _context.next = <span class="number">4</span>;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">          _context.next = <span class="number">6</span>;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">		<span class="comment">// &#x6267;&#x884C;&#x5B8C;&#x6BD5;</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;end&quot;</span>:</span><br><span class="line">          <span class="keyword">return</span> _context.stop();</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Promise</strong></p>
+<p>Promise &#x662F; ES6 &#x65B0;&#x589E;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x628A; <code>Promise</code> &#x770B;&#x6210;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x673A;&#x3002;&#x521D;&#x59CB;&#x662F; <code>pending</code> &#x72B6;&#x6001;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x51FD;&#x6570; <code>resolve</code> &#x548C; <code>reject</code> &#xFF0C;&#x5C06;&#x72B6;&#x6001;&#x8F6C;&#x53D8;&#x4E3A; <code>resolved</code> &#x6216;&#x8005; <code>rejected</code> &#x72B6;&#x6001;&#xFF0C;&#x72B6;&#x6001;&#x4E00;&#x65E6;&#x6539;&#x53D8;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x6B21;&#x53D8;&#x5316;&#x3002;</p>
+<p><code>then</code> &#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Promise</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#x800C;&#x4E0D;&#x662F;&#x4E4B;&#x524D;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x56E0;&#x4E3A; <code>Promise</code> &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#x9664;&#x4E86; <code>pending</code> &#x72B6;&#x6001;&#xFF0C;&#x5176;&#x4ED6;&#x72B6;&#x6001;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x540C;&#x5B9E;&#x4F8B;&#x7684;&#x8BDD;&#xFF0C;&#x591A;&#x4E2A; <code>then</code> &#x8C03;&#x7528;&#x5C31;&#x5931;&#x53BB;&#x610F;&#x4E49;&#x4E86;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E; <code>then</code> &#x6765;&#x8BF4;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x770B;&#x6210;&#x662F; <code>flatMap</code></p>
+<p><strong>&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; Promise</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E09;&#x79CD;&#x72B6;&#x6001;</span></span><br><span class="line"><span class="keyword">const</span> PENDING = <span class="string">&quot;pending&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> RESOLVED = <span class="string">&quot;resolved&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> REJECTED = <span class="string">&quot;rejected&quot;</span>;</span><br><span class="line"><span class="comment">// promise &#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyPromise</span>(<span class="params">fn</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">  _this.currentState = PENDING;</span><br><span class="line">  _this.value = <span class="literal">undefined</span>;</span><br><span class="line">  <span class="comment">// &#x7528;&#x4E8E;&#x4FDD;&#x5B58; then &#x4E2D;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x53EA;&#x6709;&#x5F53; promise</span></span><br><span class="line">  <span class="comment">// &#x72B6;&#x6001;&#x4E3A; pending &#x65F6;&#x624D;&#x4F1A;&#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x81F3;&#x591A;&#x7F13;&#x5B58;&#x4E00;&#x4E2A;</span></span><br><span class="line">  _this.resolvedCallbacks = [];</span><br><span class="line">  _this.rejectedCallbacks = [];</span><br><span class="line"></span><br><span class="line">  _this.resolve = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">      <span class="comment">// &#x5982;&#x679C; value &#x662F;&#x4E2A; Promise&#xFF0C;&#x9012;&#x5F52;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="keyword">return</span> value.then(_this.resolve, _this.reject)</span><br><span class="line">    }</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;</span></span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = RESOLVED;</span><br><span class="line">        _this.value = value;</span><br><span class="line">        _this.resolvedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  _this.reject = <span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>{</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> { <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;</span></span><br><span class="line">      <span class="keyword">if</span> (_this.currentState === PENDING) {</span><br><span class="line">        _this.currentState = REJECTED;</span><br><span class="line">        _this.value = reason;</span><br><span class="line">        _this.rejectedCallbacks.forEach(<span class="function"><span class="params">cb</span> =&gt;</span> cb());</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;</span></span><br><span class="line">  <span class="comment">// new Promise(() =&gt; throw Error(&apos;error))</span></span><br><span class="line">  <span class="keyword">try</span> {</span><br><span class="line">    fn(_this.resolve, _this.reject);</span><br><span class="line">  } <span class="keyword">catch</span> (e) {</span><br><span class="line">    _this.reject(e);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MyPromise.prototype.then = <span class="function"><span class="keyword">function</span> (<span class="params">onResolved, onRejected</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.2.7&#xFF0C;then &#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; promise</span></span><br><span class="line">  <span class="keyword">var</span> promise2;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.2.onResolved &#x548C; onRejected &#x90FD;&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;</span></span><br><span class="line">  <span class="comment">// &#x5982;&#x679C;&#x7C7B;&#x578B;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x9700;&#x8981;&#x5FFD;&#x7565;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86;&#x900F;&#x4F20;</span></span><br><span class="line">  <span class="comment">// Promise.resolve(4).then().then((value) =&gt; console.log(value))</span></span><br><span class="line">  onResolved = <span class="keyword">typeof</span> onResolved === <span class="string">&apos;function&apos;</span> ? onResolved : <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line">  onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">&apos;function&apos;</span> ? onRejected : <span class="function"><span class="params">r</span> =&gt;</span> <span class="keyword">throw</span> r;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === RESOLVED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      <span class="comment">// &#x89C4;&#x8303; 2.2.4&#xFF0C;&#x4FDD;&#x8BC1; onFulfilled&#xFF0C;onRjected &#x5F02;&#x6B65;&#x6267;&#x884C;</span></span><br><span class="line">      <span class="comment">// &#x6240;&#x4EE5;&#x7528;&#x4E86; setTimeout &#x5305;&#x88F9;&#x4E0B;</span></span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === REJECTED) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="comment">// &#x5F02;&#x6B65;&#x6267;&#x884C;onRejected</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (reason) {</span><br><span class="line">          reject(reason);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (self.currentState === PENDING) {</span><br><span class="line">    <span class="keyword">return</span> (promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">      self.resolvedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="comment">// &#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528; try/catch &#x5305;&#x88F9;</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line"></span><br><span class="line">      self.rejectedCallbacks.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(self.value);</span><br><span class="line">          resolutionProcedure(promise2, x, resolve, reject);</span><br><span class="line">        } <span class="keyword">catch</span> (r) {</span><br><span class="line">          reject(r);</span><br><span class="line">        }</span><br><span class="line">      });</span><br><span class="line">    }));</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"><span class="comment">// &#x89C4;&#x8303; 2.3</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolutionProcedure</span>(<span class="params">promise2, x, resolve, reject</span>) </span>{</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.1&#xFF0C;x &#x4E0D;&#x80FD;&#x548C; promise2 &#x76F8;&#x540C;&#xFF0C;&#x907F;&#x514D;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</span></span><br><span class="line">  <span class="keyword">if</span> (promise2 === x) {</span><br><span class="line">    <span class="keyword">return</span> reject(<span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;Error&quot;</span>));</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.2</span></span><br><span class="line">  <span class="comment">// &#x5982;&#x679C; x &#x4E3A; Promise&#xFF0C;&#x72B6;&#x6001;&#x4E3A; pending &#x9700;&#x8981;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x5426;&#x5219;&#x6267;&#x884C;</span></span><br><span class="line">  <span class="keyword">if</span> (x <span class="keyword">instanceof</span> MyPromise) {</span><br><span class="line">    <span class="keyword">if</span> (x.currentState === PENDING) {</span><br><span class="line">      x.then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{</span><br><span class="line">        <span class="comment">// &#x518D;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x4E3A;&#x4E86;&#x786E;&#x8BA4; x resolve &#x7684;</span></span><br><span class="line">        <span class="comment">// &#x53C2;&#x6570;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5C31;&#x518D;&#x6B21; resolve</span></span><br><span class="line">        <span class="comment">// &#x628A;&#x503C;&#x4F20;&#x7ED9;&#x4E0B;&#x4E2A; then</span></span><br><span class="line">        resolutionProcedure(promise2, value, resolve, reject);</span><br><span class="line">      }, reject);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      x.then(resolve, reject);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.3.3.3</span></span><br><span class="line">  <span class="comment">// reject &#x6216;&#x8005; resolve &#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x8FC7;&#x5F97;&#x8BDD;&#xFF0C;&#x5FFD;&#x7565;&#x5176;&#x4ED6;&#x7684;</span></span><br><span class="line">  <span class="keyword">let</span> called = <span class="literal">false</span>;</span><br><span class="line">  <span class="comment">// &#x89C4;&#x8303; 2.3.3&#xFF0C;&#x5224;&#x65AD; x &#x662F;&#x5426;&#x4E3A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x51FD;&#x6570;</span></span><br><span class="line">  <span class="keyword">if</span> (x !== <span class="literal">null</span> &amp;&amp; (<span class="keyword">typeof</span> x === <span class="string">&quot;object&quot;</span> || <span class="keyword">typeof</span> x === <span class="string">&quot;function&quot;</span>)) {</span><br><span class="line">    <span class="comment">// &#x89C4;&#x8303; 2.3.3.2&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x53D6;&#x51FA; then&#xFF0C;&#x5C31; reject</span></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      <span class="comment">// &#x89C4;&#x8303; 2.3.3.1</span></span><br><span class="line">      <span class="keyword">let</span> then = x.then;</span><br><span class="line">      <span class="comment">// &#x5982;&#x679C; then &#x662F;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528; x.then</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> then === <span class="string">&quot;function&quot;</span>) {</span><br><span class="line">        <span class="comment">// &#x89C4;&#x8303; 2.3.3.3</span></span><br><span class="line">        then.call(</span><br><span class="line">          x,</span><br><span class="line">          y =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">// &#x89C4;&#x8303; 2.3.3.3.1</span></span><br><span class="line">            resolutionProcedure(promise2, y, resolve, reject);</span><br><span class="line">          },</span><br><span class="line">          e =&gt; {</span><br><span class="line">            <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">            called = <span class="literal">true</span>;</span><br><span class="line">            reject(e);</span><br><span class="line">          }</span><br><span class="line">        );</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// &#x89C4;&#x8303; 2.3.3.4</span></span><br><span class="line">        resolve(x);</span><br><span class="line">      }</span><br><span class="line">    } <span class="keyword">catch</span> (e) {</span><br><span class="line">      <span class="keyword">if</span> (called) <span class="keyword">return</span>;</span><br><span class="line">      called = <span class="literal">true</span>;</span><br><span class="line">      reject(e);</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    <span class="comment">// &#x89C4;&#x8303; 2.3.4&#xFF0C;x &#x4E3A;&#x57FA;&#x672C;&#x7C7B;&#x578B;</span></span><br><span class="line">    resolve(x);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+			  		
+			  		<!-- google Adsense -->
+			  		
+					
+					
+					
+					
+			    	
+					
+					<!-- google Adsense Matched content -->
+			  		
+			  	</div>
+				
+		  	</article>
+		  	
+		  	
+		  	<!-- TAGS -->
+		  	
+		  	<div class="meta-content">
+				
+				<div class="widget">
+				  	<h6 class="tag"><span class="fa fa-fw fa-tag"></span>TAGS</h6>
+				  	<div class="article-tag">
+						<ul class="article-tag-list">
+							
+					    		<li class="article-tag-list-item">
+					    			<a class="article-tag-list-link" href="/tags/面试/" class="link-gaTrack" data-linkType="link-tag">
+					    				面试
+					    			</a>
+					    		</li>
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		  	
+		  	
+		  	<!-- Categories posts -->
+		  	
+		  	
+		  	
+		  	<!-- Detailed categories  posts -->
+		  	
+		  	
+		  	
+		  	<!-- Latests -->
+		  	
+			
+		</div>
+		
+		
+		<footer id="footer">
+		
+			
+			
+			<div class="copyright-tool">
+				
+				
+				
+				<div class="copyright-title">
+					<span>
+					&copy; 2019&nbsp;J.Rucker
+					</span>
+				</div>
+				
+				<div class="copyright-license">
+					<aside>由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动. Theme By <a href="https://github.com/DIYgod/hexo-theme-sagiri" target="_blank" class="external" rel="nofollow">Sagiri</a>. </aside>
+				</div>
+			</div>
+			
+		</footer>
+		
+		
+	</div>
+	
+	
+  </body>
+</html>
